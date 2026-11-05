@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VisualFizz — Admin Content Management</title>
   <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="assets/lucide.min.js"><\/script>');
+    }
+  </script>
   <script src="admin.js" defer></script>
 </head>
 <body>
@@ -28,10 +37,16 @@
       </div>
 
       <!-- Preview Main Site -->
-      <a href="index.html" target="_blank" class="btn-header btn-header-secondary" data-en="Preview Site ↗" data-bn="ওয়েবসাইট দেখুন ↗">Preview Site ↗</a>
+      <a href="index.html" target="_blank" class="btn-header btn-header-secondary">
+        <i data-lucide="external-link"></i>
+        <span data-en="Preview Site" data-bn="ওয়েবসাইট দেখুন">Preview Site</span>
+      </a>
 
       <!-- Logout Button (hidden on login screen) -->
-      <button type="button" class="btn-header btn-header-logout" id="logoutBtn" style="display:none;" data-en="Log Out" data-bn="লগআউট">Log Out</button>
+      <button type="button" class="btn-header btn-header-logout" id="logoutBtn" style="display:none;">
+        <i data-lucide="log-out"></i>
+        <span data-en="Log Out" data-bn="লগআউট">Log Out</span>
+      </button>
     </div>
   </header>
 
@@ -56,13 +71,16 @@
           Incorrect passcode. Please try again.
         </div>
 
-        <button type="submit" class="btn-primary" id="loginBtn" data-en="Log In to Dashboard" data-bn="ড্যাশবোর্ডে লগইন করুন">Log In to Dashboard</button>
+        <button type="submit" class="btn-primary" id="loginBtn">
+          <i data-lucide="log-in"></i>
+          <span data-en="Log In to Dashboard" data-bn="ড্যাশবোর্ডে লগইন করুন">Log In to Dashboard</span>
+        </button>
       </form>
 
       <!-- Security Disclaimer -->
       <div class="security-notice">
         <div class="security-notice-title">
-          <span>⚠️</span>
+          <i data-lucide="alert-triangle"></i>
           <strong data-en="Demo-Grade Protection Notice" data-bn="ডেমো নিরাপত্তা বিজ্ঞপ্তি">Demo-Grade Protection Notice</strong>
         </div>
         <p data-en="This passcode is evaluated client-side in browser JavaScript for demonstration purposes. Anyone with access to the source code can view it. Real production deployment requires a backend with server-side authentication and session management." data-bn="এই পাসকোডটি ডেমো প্রদর্শনের জন্য ব্রাউজারের জাভাস্ক্রিপ্টে ক্লায়েন্ট-সাইডে যাচাই করা হয়। সোর্স কোড দেখতে সক্ষম যে কেউ এটি দেখতে পাবে। আসল প্রোডাকশনে নিরাপদ ব্যাকএন্ড এবং সার্ভার-সাইড অথেন্টিকেশন আবশ্যক।">
@@ -81,23 +99,23 @@
       <!-- Sidebar Tabs -->
       <aside class="admin-sidebar" role="tablist" aria-label="Admin Navigation Tabs">
         <button type="button" class="nav-tab-btn active" id="navPortfolio" role="tab" aria-selected="true" data-tab="portfolio">
-          <span class="nav-tab-icon" aria-hidden="true">📁</span>
+          <span class="nav-tab-icon" aria-hidden="true"><i data-lucide="briefcase"></i></span>
           <span data-en="Portfolio Projects" data-bn="পোর্টফোলিও">Portfolio Projects</span>
         </button>
         <button type="button" class="nav-tab-btn" id="navPricing" role="tab" aria-selected="false" data-tab="pricing">
-          <span class="nav-tab-icon" aria-hidden="true">৳</span>
+          <span class="nav-tab-icon" aria-hidden="true"><i data-lucide="wallet"></i></span>
           <span data-en="Pricing & Rates" data-bn="প্রাইসিং ও রেট">Pricing & Rates</span>
         </button>
         <button type="button" class="nav-tab-btn" id="navServices" role="tab" aria-selected="false" data-tab="services">
-          <span class="nav-tab-icon" aria-hidden="true">🎬</span>
+          <span class="nav-tab-icon" aria-hidden="true"><i data-lucide="layers"></i></span>
           <span data-en="Services (7)" data-bn="সার্ভিসসমূহ (৭)">Services (7)</span>
         </button>
         <button type="button" class="nav-tab-btn" id="navFAQ" role="tab" aria-selected="false" data-tab="faq">
-          <span class="nav-tab-icon" aria-hidden="true">❓</span>
+          <span class="nav-tab-icon" aria-hidden="true"><i data-lucide="help-circle"></i></span>
           <span data-en="FAQ Items" data-bn="প্রশ্নোত্তর">FAQ Items</span>
         </button>
         <button type="button" class="nav-tab-btn" id="navHero" role="tab" aria-selected="false" data-tab="hero">
-          <span class="nav-tab-icon" aria-hidden="true">⭐</span>
+          <span class="nav-tab-icon" aria-hidden="true"><i data-lucide="type"></i></span>
           <span data-en="Hero Section" data-bn="হিরো সেকশন">Hero Section</span>
         </button>
       </aside>
@@ -107,7 +125,7 @@
 
         <!-- Top Security & Static Notice -->
         <div class="dashboard-banner">
-          <span style="font-size: 1.25rem; line-height: 1;" aria-hidden="true">ℹ️</span>
+          <i data-lucide="info"></i>
           <div>
             <strong data-en="Static Hosting Honest Model:" data-bn="স্ট্যাটিক হোস্টিং মডেল:">Static Hosting Honest Model:</strong>
             <span data-en="Changes saved here update localStorage immediately in this browser. To publish permanently for all visitors, click 'Download content.json' below and replace content.json on your web server." data-bn="সংরক্ষিত পরিবর্তনসমূহ তাৎক্ষণিকভাবে এই ব্রাউজারে কার্যকর হবে। সকল ভিজিটরের জন্য স্থায়ী করতে 'Download content.json' ফাইলটি ডাউনলোড করে আপনার সার্ভারে প্রতিস্থাপন করুন।">
@@ -119,17 +137,30 @@
         <!-- Global Action Bar -->
         <div class="dashboard-actions-bar">
           <div class="actions-group">
-            <button type="button" class="btn-primary" id="saveAllBtn" data-en="💾 Save All Changes" data-bn="💾 সব পরিবর্তন সংরক্ষণ করুন">💾 Save All Changes</button>
-            <button type="button" class="btn-secondary" id="downloadJsonBtn" data-en="📥 Download content.json" data-bn="📥 Download content.json">📥 Download content.json</button>
-            <button type="button" class="btn-secondary" id="copyJsonBtn" data-en="📋 Copy JSON" data-bn="📋 JSON কপি করুন">📋 Copy JSON</button>
+            <button type="button" class="btn-primary" id="saveAllBtn">
+              <i data-lucide="save"></i>
+              <span data-en="Save All Changes" data-bn="সব পরিবর্তন সংরক্ষণ করুন">Save All Changes</span>
+            </button>
+            <button type="button" class="btn-secondary" id="downloadJsonBtn">
+              <i data-lucide="download"></i>
+              <span data-en="Download content.json" data-bn="Download content.json">Download content.json</span>
+            </button>
+            <button type="button" class="btn-secondary" id="copyJsonBtn">
+              <i data-lucide="copy"></i>
+              <span data-en="Copy JSON" data-bn="JSON কপি করুন">Copy JSON</span>
+            </button>
           </div>
           <div class="actions-group">
-            <button type="button" class="btn-secondary" id="resetDefaultsBtn" style="color:var(--danger);" data-en="🔄 Reset to Site Defaults" data-bn="🔄 ডিফল্টে রিসেট করুন">🔄 Reset to Site Defaults</button>
+            <button type="button" class="btn-secondary" id="resetDefaultsBtn" style="color:var(--danger);">
+              <i data-lucide="rotate-ccw"></i>
+              <span data-en="Reset to Site Defaults" data-bn="ডিফল্টে রিসেট করুন">Reset to Site Defaults</span>
+            </button>
           </div>
         </div>
 
         <!-- Action Toast Feedback -->
         <div class="admin-toast" id="adminToast" role="status">
+          <i id="adminToastIcon" data-lucide="check" style="width:18px;height:18px;flex-shrink:0;"></i>
           <span id="adminToastText">Changes saved successfully!</span>
         </div>
 
@@ -142,7 +173,10 @@
               <h2 class="panel-title" data-en="Portfolio Projects" data-bn="পোর্টফোলিও প্রজেক্ট">Portfolio Projects</h2>
               <p class="panel-desc" data-en="Manage real commercial projects from Behance profile (Md Ayub Mondol)." data-bn="বিহ্যান্স প্রোফাইলের বাস্তব বাণিজ্যিক কাজসমূহ পরিচালনা করুন।">Manage real commercial projects from Behance profile (Md Ayub Mondol).</p>
             </div>
-            <button type="button" class="btn-primary" id="addProjectBtn" data-en="+ Add New Project" data-bn="+ নতুন প্রজেক্ট যোগ করুন">+ Add New Project</button>
+            <button type="button" class="btn-primary" id="addProjectBtn">
+              <i data-lucide="plus"></i>
+              <span data-en="Add New Project" data-bn="নতুন প্রজেক্ট যোগ করুন">Add New Project</span>
+            </button>
           </div>
 
           <div class="table-responsive">
@@ -173,12 +207,18 @@
               <h2 class="panel-title" data-en="Pricing & Rate Card Configuration" data-bn="প্রাইসিং ও রেট কার্ড কনফিগারেশন">Pricing & Rate Card Configuration</h2>
               <p class="panel-desc" data-en="Control per-second rates, milestone tables, duration limits, and core agency packages." data-bn="প্রতি সেকেন্ডের রেট, মাইলস্টোন টেবিল ও প্যাকেজের মূল্য নির্ধারণ করুন।">Control per-second rates, milestone tables, duration limits, and core agency packages.</p>
             </div>
-            <button type="button" class="btn-primary" id="savePricingBtn" data-en="Save Pricing Changes" data-bn="প্রাইসিং পরিবর্তন সংরক্ষণ করুন">Save Pricing Changes</button>
+            <button type="button" class="btn-primary" id="savePricingBtn">
+              <i data-lucide="save"></i>
+              <span data-en="Save Pricing Changes" data-bn="প্রাইসিং পরিবর্তন সংরক্ষণ করুন">Save Pricing Changes</span>
+            </button>
           </div>
 
           <!-- AI Video Per-Second Rates -->
           <div class="admin-card">
-            <h3 class="card-title" data-en="🎬 AI Video Production — Per-Second Rates & Rules" data-bn="🎬 এআই ভিডিও প্রোডাকশন — প্রতি সেকেন্ডের রেট ও শর্ত">🎬 AI Video Production — Per-Second Rates & Rules</h3>
+            <h3 class="card-title" data-en="AI Video Production — Per-Second Rates & Rules" data-bn="এআই ভিডিও প্রোডাকশন — প্রতি সেকেন্ডের রেট ও শর্ত">
+              <i data-lucide="clapperboard"></i>
+              <span>AI Video Production — Per-Second Rates &amp; Rules</span>
+            </h3>
             <div class="grid-4 mb-md">
               <div class="form-group">
                 <label class="form-label" for="mediumPerSecBDT" data-en="Medium Tier Rate (BDT / sec)" data-bn="মিডিয়াম টিয়ার রেট (টাকা / সে.)">Medium Tier Rate (BDT / sec)</label>
@@ -212,7 +252,10 @@
 
           <!-- Duration Table Rows -->
           <div class="admin-card">
-            <h3 class="card-title" data-en="📊 Published Duration Table Milestones" data-bn="📊 প্রকাশিত সময়ভিত্তিক মূল্যতালিকা">📊 Published Duration Table Milestones</h3>
+            <h3 class="card-title" data-en="Published Duration Table Milestones" data-bn="প্রকাশিত সময়ভিত্তিক মূল্যতালিকা">
+              <i data-lucide="bar-chart-3"></i>
+              <span>Published Duration Table Milestones</span>
+            </h3>
             <div class="table-responsive">
               <table class="admin-table">
                 <thead>
@@ -236,7 +279,10 @@
 
           <!-- Other Core Services Pricing -->
           <div class="admin-card">
-            <h3 class="card-title" data-en="🛠️ Other Agency Core Services Pricing" data-bn="🛠️ এজেন্সির অন্যান্য সার্ভিসের মূল্যতালিকা">🛠️ Other Agency Core Services Pricing</h3>
+            <h3 class="card-title" data-en="Other Agency Core Services Pricing" data-bn="এজেন্সির অন্যান্য সার্ভিসের মূল্যতালিকা">
+              <i data-lucide="layers"></i>
+              <span>Other Agency Core Services Pricing</span>
+            </h3>
             <div id="otherServicesContainer">
               <!-- Populated via admin.js -->
             </div>
@@ -252,7 +298,10 @@
               <h2 class="panel-title" data-en="Agency Services" data-bn="এজেন্সি সার্ভিসসমূহ">Agency Services</h2>
               <p class="panel-desc" data-en="Edit the 7 core services: problem statements, inclusions, timelines, and starting prices." data-bn="৭টি মূল সার্ভিসের বিবরণ, ইনক্লুশন, সময়সীমা ও প্রারম্ভিক মূল্য পরিবর্তন করুন।">Edit the 7 core services: problem statements, inclusions, timelines, and starting prices.</p>
             </div>
-            <button type="button" class="btn-primary" id="saveServicesBtn" data-en="Save Services Changes" data-bn="সার্ভিসসমূহ সংরক্ষণ করুন">Save Services Changes</button>
+            <button type="button" class="btn-primary" id="saveServicesBtn">
+              <i data-lucide="save"></i>
+              <span data-en="Save Services Changes" data-bn="সার্ভিসসমূহ সংরক্ষণ করুন">Save Services Changes</span>
+            </button>
           </div>
 
           <div id="servicesEditorContainer">
@@ -270,8 +319,14 @@
               <p class="panel-desc" data-en="Manage bilingual question & answer accordion items displayed on the website." data-bn="ওয়েবসাইটে প্রদর্শিত প্রশ্ন ও উত্তরের আইটেমসমূহ পরিচালনা করুন।">Manage bilingual question & answer accordion items displayed on the website.</p>
             </div>
             <div class="actions-group">
-              <button type="button" class="btn-primary" id="addFaqBtn" data-en="+ Add FAQ Item" data-bn="+ নতুন প্রশ্ন যোগ করুন">+ Add FAQ Item</button>
-              <button type="button" class="btn-secondary" id="saveFaqBtn" data-en="Save FAQ Changes" data-bn="FAQ পরিবর্তন সংরক্ষণ করুন">Save FAQ Changes</button>
+              <button type="button" class="btn-primary" id="addFaqBtn">
+                <i data-lucide="plus"></i>
+                <span data-en="Add FAQ Item" data-bn="নতুন প্রশ্ন যোগ করুন">Add FAQ Item</span>
+              </button>
+              <button type="button" class="btn-secondary" id="saveFaqBtn">
+                <i data-lucide="save"></i>
+                <span data-en="Save FAQ Changes" data-bn="FAQ পরিবর্তন সংরক্ষণ করুন">Save FAQ Changes</span>
+              </button>
             </div>
           </div>
 
@@ -289,7 +344,10 @@
               <h2 class="panel-title" data-en="Hero Section Copy" data-bn="হিরো সেকশনের কপি">Hero Section Copy</h2>
               <p class="panel-desc" data-en="Customize the prominent positioning headline, tagline, and introductory copy." data-bn="ওয়েবসাইটের প্রধান শিরোনাম, ট্যাগলাইন ও পরিচিতিমূলক বিবরণ পরিবর্তন করুন।">Customize the prominent positioning headline, tagline, and introductory copy.</p>
             </div>
-            <button type="button" class="btn-primary" id="saveHeroBtn" data-en="Save Hero Changes" data-bn="হিরো পরিবর্তন সংরক্ষণ করুন">Save Hero Changes</button>
+            <button type="button" class="btn-primary" id="saveHeroBtn">
+              <i data-lucide="save"></i>
+              <span data-en="Save Hero Changes" data-bn="হিরো পরিবর্তন সংরক্ষণ করুন">Save Hero Changes</span>
+            </button>
           </div>
 
           <div class="admin-card">
@@ -321,7 +379,7 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="heroSubheadlineBn" data-en="Subheadline & Value Proposition (Bangla)" data-bn="সাবহেডলাইন ও পরিচিতি (বাংলা)">Subheadline & Value Proposition (Bangla)</label>
+              <label class="form-label" for="heroSubheadlineBn" data-en="Subheadline & Value Proposition (Bangla)" data-bn="সাবহেডলাইন ও পরিচিতি (বাংলা)">Subheadline & Value Proposition (বাংলা)</label>
               <textarea id="heroSubheadlineBn" class="form-textarea" rows="3" required></textarea>
             </div>
           </div>
@@ -338,7 +396,7 @@
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title" id="projectModalTitle" data-en="Add Portfolio Project" data-bn="প্রজেক্ট যোগ করুন">Add Portfolio Project</h3>
-        <button type="button" class="modal-close" id="cancelProjectBtn" aria-label="Close modal">✕</button>
+        <button type="button" class="modal-close" id="cancelProjectBtn" aria-label="Close modal"><i data-lucide="x"></i></button>
       </div>
 
       <form id="projectForm" novalidate>
@@ -366,8 +424,8 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="projectImage" data-en="Tile Emoji or Image URL" data-bn="টাইল ইমোজি বা ছবির লিংক">Tile Emoji or Image URL</label>
-            <input type="text" id="projectImage" class="form-input" placeholder="📱 or https://...">
+            <label class="form-label" for="projectImage" data-en="Lucide Icon Name or Image URL" data-bn="লুসিড আইকন বা ছবির লিংক">Lucide Icon Name or Image URL</label>
+            <input type="text" id="projectImage" class="form-input" placeholder="e.g. smartphone or https://...">
           </div>
         </div>
 
@@ -388,8 +446,14 @@
         </div>
 
         <div class="modal-actions">
-          <button type="button" class="btn-secondary" id="closeProjectModalBtn" data-en="Cancel" data-bn="বাতিল">Cancel</button>
-          <button type="submit" class="btn-primary" id="saveProjectBtn" data-en="Save Project" data-bn="প্রজেক্ট সংরক্ষণ করুন">Save Project</button>
+          <button type="button" class="btn-secondary" id="closeProjectModalBtn">
+            <i data-lucide="x"></i>
+            <span data-en="Cancel" data-bn="বাতিল">Cancel</span>
+          </button>
+          <button type="submit" class="btn-primary" id="saveProjectBtn">
+            <i data-lucide="save"></i>
+            <span data-en="Save Project" data-bn="প্রজেক্ট সংরক্ষণ করুন">Save Project</span>
+          </button>
         </div>
       </form>
     </div>
@@ -402,7 +466,7 @@
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title" id="faqModalTitle" data-en="Add FAQ Item" data-bn="প্রশ্ন যোগ করুন">Add FAQ Item</h3>
-        <button type="button" class="modal-close" id="cancelFaqBtn" aria-label="Close modal">✕</button>
+        <button type="button" class="modal-close" id="cancelFaqBtn" aria-label="Close modal"><i data-lucide="x"></i></button>
       </div>
 
       <form id="faqForm" novalidate>
@@ -429,8 +493,14 @@
         </div>
 
         <div class="modal-actions">
-          <button type="button" class="btn-secondary" id="closeFaqModalBtn" data-en="Cancel" data-bn="বাতিল">Cancel</button>
-          <button type="submit" class="btn-primary" id="saveFaqModalBtn" data-en="Save FAQ Item" data-bn="সংরক্ষণ করুন">Save FAQ Item</button>
+          <button type="button" class="btn-secondary" id="closeFaqModalBtn">
+            <i data-lucide="x"></i>
+            <span data-en="Cancel" data-bn="বাতিল">Cancel</span>
+          </button>
+          <button type="submit" class="btn-primary" id="saveFaqModalBtn">
+            <i data-lucide="save"></i>
+            <span data-en="Save FAQ Item" data-bn="সংরক্ষণ করুন">Save FAQ Item</span>
+          </button>
         </div>
       </form>
     </div>

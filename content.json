@@ -16,7 +16,7 @@
   "services": [
     {
       "id": "ai-video",
-      "icon": "🎬",
+      "icon": "clapperboard",
       "name": {
         "en": "AI Video Production",
         "bn": "এআই ভিডিও প্রোডাকশন"
@@ -48,8 +48,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ 2–7 working days",
-        "bn": "⏱ ২–৭ কর্মদিবস"
+        "en": "2–7 working days",
+        "bn": "২–৭ কর্মদিবস"
       },
       "startingPrice": {
         "bdt": "৳1,200/সে.",
@@ -60,7 +60,7 @@
     },
     {
       "id": "ai-ads",
-      "icon": "⚡",
+      "icon": "sparkles",
       "name": {
         "en": "AI Ads & Variation Packs",
         "bn": "এআই অ্যাডস ও ভ্যারিয়েশন প্যাক"
@@ -92,8 +92,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ 48h–4 working days",
-        "bn": "⏱ ৪৮ ঘণ্টা–৪ কর্মদিবস"
+        "en": "48h–4 working days",
+        "bn": "৪৮ ঘণ্টা–৪ কর্মদিবস"
       },
       "startingPrice": {
         "bdt": "কাস্টম কোটেশন",
@@ -104,7 +104,7 @@
     },
     {
       "id": "graphic-design",
-      "icon": "🎨",
+      "icon": "pen-tool",
       "name": {
         "en": "Graphic Design",
         "bn": "গ্রাফিক ডিজাইন"
@@ -136,8 +136,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ 24h–48h per asset",
-        "bn": "⏱ ২৪–৪৮ ঘণ্টা"
+        "en": "24h–48h per asset",
+        "bn": "২৪–৪৮ ঘণ্টা"
       },
       "startingPrice": {
         "bdt": "৳১৫,০০০/মাস থেকে",
@@ -148,7 +148,7 @@
     },
     {
       "id": "branding",
-      "icon": "💎",
+      "icon": "palette",
       "name": {
         "en": "Branding & Identity",
         "bn": "ব্র্যান্ডিং ও আইডেন্টিটি"
@@ -180,8 +180,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ 1–2 weeks",
-        "bn": "⏱ ১–২ সপ্তাহ"
+        "en": "1–2 weeks",
+        "bn": "১–২ সপ্তাহ"
       },
       "startingPrice": {
         "bdt": "৳২৫,০০০ থেকে",
@@ -192,7 +192,7 @@
     },
     {
       "id": "web-dev",
-      "icon": "🌐",
+      "icon": "globe",
       "name": {
         "en": "Website Development",
         "bn": "ওয়েবসাইট ডেভেলপমেন্ট"
@@ -224,8 +224,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ 1–3 weeks",
-        "bn": "⏱ ১–৩ সপ্তাহ"
+        "en": "1–3 weeks",
+        "bn": "১–৩ সপ্তাহ"
       },
       "startingPrice": {
         "bdt": "৳২৫,০০০ থেকে",
@@ -236,7 +236,7 @@
     },
     {
       "id": "video-editing",
-      "icon": "✂️",
+      "icon": "film",
       "name": {
         "en": "Video Editing & Motion",
         "bn": "ভিডিও এডিটিং ও মোশন"
@@ -268,8 +268,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ 2–4 working days",
-        "bn": "⏱ ২–৪ কর্মদিবস"
+        "en": "2–4 working days",
+        "bn": "২–৪ কর্মদিবস"
       },
       "startingPrice": {
         "bdt": "কাস্টম কোটেশন",
@@ -280,7 +280,7 @@
     },
     {
       "id": "digital-marketing",
-      "icon": "📈",
+      "icon": "megaphone",
       "name": {
         "en": "Digital Marketing",
         "bn": "ডিজিটাল মার্কেটিং"
@@ -312,8 +312,8 @@
         }
       ],
       "timeline": {
-        "en": "⏱ Monthly Retainer",
-        "bn": "⏱ মাসিক রিটেইনার"
+        "en": "Monthly Retainer",
+        "bn": "মাসিক রিটেইনার"
       },
       "startingPrice": {
         "bdt": "কাস্টম কোটেশন",
@@ -587,7 +587,7 @@
         "bn": "৩০ সেপ্টেম্বর, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/256445097/Creative-Smartphone-Advertisement-Poster",
-      "image": "📱"
+      "image": "smartphone"
     },
     {
       "id": 2,
@@ -601,7 +601,7 @@
         "bn": "৭ জুলাই, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/252327431/Creative-Mobile-Phone-Advertisement-Posters",
-      "image": "📲"
+      "image": "smartphone"
     },
     {
       "id": 3,
@@ -615,7 +615,7 @@
         "bn": "১০ জুন, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/250870757/FIFA-World-Cup-2026-Match-Fixtures",
-      "image": "⚽"
+      "image": "trophy"
     },
     {
       "id": 4,
@@ -629,7 +629,7 @@
         "bn": "৭ জুন, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/250701061/Bike-Creative-Social-Media-post-Ads-Creative-Banner",
-      "image": "🏍️"
+      "image": "bike"
     },
     {
       "id": 5,
@@ -643,7 +643,7 @@
         "bn": "৬ জুন, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/250658769/Match-Day-Poster-Design",
-      "image": "🏆"
+      "image": "trophy"
     },
     {
       "id": 6,
@@ -657,7 +657,7 @@
         "bn": "৪ মে, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/248730655/Helio-Billboard-Design-Bold-Dynamic-Visuals",
-      "image": "🏙️"
+      "image": "building-2"
     },
     {
       "id": 7,
@@ -671,7 +671,7 @@
         "bn": "১৩ এপ্রিল, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/247509035/Mobile-Phone-Social-Media-Post-Design",
-      "image": "📱"
+      "image": "smartphone"
     },
     {
       "id": 8,
@@ -685,7 +685,7 @@
         "bn": "৩০ মার্চ, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/246670821/Educational-Reels-Editing-Portfolio-Study-Abroad",
-      "image": "🎬"
+      "image": "clapperboard"
     },
     {
       "id": 9,
@@ -699,7 +699,7 @@
         "bn": "১০ মার্চ, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/245523325/Global-Horizons-Study-Abroad-Branding-Reel-Series",
-      "image": "🌏"
+      "image": "globe"
     },
     {
       "id": 10,
@@ -713,7 +713,7 @@
         "bn": "৮ মার্চ, ২০২৬"
       },
       "behanceUrl": "https://www.behance.net/gallery/245397077/Womens-Day-Social-Media-Banner",
-      "image": "🌸"
+      "image": "flower-2"
     },
     {
       "id": 11,
@@ -727,7 +727,7 @@
         "bn": "২৮ ডিসেম্বর, ২০২৫"
       },
       "behanceUrl": "https://www.behance.net/gallery/241176295/Bangladesh-National-Football-Team-Campaign",
-      "image": "🇧🇩"
+      "image": "flag"
     },
     {
       "id": 12,
@@ -741,7 +741,7 @@
         "bn": "৮ ডিসেম্বর, ২০২৫"
       },
       "behanceUrl": "https://www.behance.net/gallery/240043843/-Typography",
-      "image": "🎨"
+      "image": "pen-tool"
     },
     {
       "id": 13,
@@ -755,7 +755,7 @@
         "bn": "১ ডিসেম্বর, ২০২৫"
       },
       "behanceUrl": "https://www.behance.net/gallery/239593123/Australia-Education-Expo-2025-Study-Abroad",
-      "image": "🎓"
+      "image": "graduation-cap"
     }
   ],
   "faq": [

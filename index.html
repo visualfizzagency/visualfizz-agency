@@ -6,7 +6,16 @@
   <title>VisualFizz — Ideas Into Impact | AI Creative & Video Agency Dhaka</title>
   <meta name="description" content="VisualFizz is a creative advertising, AI video, and digital marketing agency based in Dhaka, Bangladesh. Founded by Md Ayub Mondol. We turn bold ideas into measurable impact.">
   <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="assets/lucide.min.js"><\/script>');
+    }
+  </script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -38,6 +47,10 @@
             <span class="active" data-currency="BDT">BDT</span>
             <span data-currency="USD">USD</span>
           </div>
+          <a href="#contact" class="btn-nav-cta" data-en="Let's Talk" data-bn="কথা বলুন">
+            <span>Let's Talk</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
           <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
             <span></span>
             <span></span>
@@ -64,32 +77,92 @@
           <span data-currency="USD">USD</span>
         </div>
       </div>
+      <a href="#contact" class="btn btn-primary mobile-cta" data-en="Book a Discovery Call" data-bn="ডিসকভারি কল বুক করুন">
+        <span>Book a Discovery Call</span>
+        <i data-lucide="arrow-right"></i>
+      </a>
     </div>
   </header>
 
   <main>
     <!-- ============================================================
-         Hero Section
+         Hero Section (Dark Navy #0f172a, DesignMonk Hero Pattern)
          ============================================================ -->
     <section id="hero">
       <div class="hero-bg-shapes" aria-hidden="true">
-        <div class="hero-shape hero-shape-1"></div>
-        <div class="hero-shape hero-shape-2"></div>
-        <div class="hero-shape hero-shape-3"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-grid-pattern"></div>
       </div>
-      <div class="container">
+      <div class="container hero-container">
         <div class="hero-content">
-          <div class="hero-eyebrow" data-en="Creative Advertising · AI Video · Digital Marketing · Dhaka" data-bn="ক্রিয়েটিভ অ্যাডভার্টাইজিং · এআই ভিডিও · ডিজিটাল মার্কেটিং · ঢাকা">
-            Creative Advertising · AI Video · Digital Marketing · Dhaka
+          <div class="hero-eyebrow-chip">
+            <span class="status-pulse" aria-hidden="true"></span>
+            <span class="hero-eyebrow" data-en="Creative Advertising · AI Video · Digital Marketing · Dhaka" data-bn="ক্রিয়েটিভ অ্যাডভার্টাইজিং · এআই ভিডিও · ডিজিটাল মার্কেটিং · ঢাকা">
+              Creative Advertising · AI Video · Digital Marketing · Dhaka
+            </span>
           </div>
           <h1 class="hero-headline" data-en="VisualFizz" data-bn="ভিজ্যুয়ালফিজ">VisualFizz</h1>
-          <p class="hero-tagline" data-en="Ideas Into Impact" data-bn="আইডিয়া থেকে ইম্প্যাক্ট">Ideas Into Impact</p>
+          <p class="hero-tagline" data-en="Ideas Into <em class='serif-accent'>Impact</em>" data-bn="আইডিয়া থেকে <em class='serif-accent'>ইম্প্যাক্ট</em>">
+            Ideas Into <em class="serif-accent">Impact</em>
+          </p>
           <p class="hero-subheadline" data-en="We are a Dhaka-based creative advertising, AI video, and digital marketing agency. We combine human artistic direction with generative AI speed to produce commercials, brand identities, and high-converting campaigns. Every video we make is built on a story that connects with people." data-bn="আমরা ঢাকাভিত্তিক একটি ক্রিয়েটিভ অ্যাডভার্টাইজিং, এআই ভিডিও এবং ডিজিটাল মার্কেটিং এজেন্সি। মানুষের শিল্পভাবনা ও আধুনিক এআই প্রযুক্তির মেলবন্ধনে আমরা তৈরি করি কার্যকর বিজ্ঞাপন, ব্র্যান্ডিং ও ক্যাম্পেইন। আমাদের প্রতিটি নির্মাণের মূলে থাকে গল্প—যা মানুষের হৃদয় স্পর্শ করে।">
             We are a Dhaka-based creative advertising, AI video, and digital marketing agency. We combine human artistic direction with generative AI speed to produce commercials, brand identities, and high-converting campaigns. Every video we make is built on a story that connects with people.
           </p>
           <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary" data-en="Book a Discovery Call" data-bn="ডিসকভারি কল বুক করুন">Book a Discovery Call</a>
-            <a href="#portfolio" class="btn btn-outline" data-en="See Our Work" data-bn="আমাদের কাজ দেখুন">See Our Work</a>
+            <a href="#contact" class="btn btn-white" data-en="Book a Discovery Call" data-bn="ডিসকভারি কল বুক করুন">
+              <span>Book a Discovery Call</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="#portfolio" class="btn btn-outline" data-en="See Our Work" data-bn="আমাদের কাজ দেখুন">
+              <span>See Our Work</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+          <div class="hero-badge-row">
+            <span class="hero-mini-badge">
+              <i data-lucide="sparkles"></i>
+              <span data-en="Story-first videos, directed by humans" data-bn="স্টোরি-ফার্স্ট ভিডিও, মানুষের পরিচালনায়">Story-first videos, directed by humans</span>
+            </span>
+            <span class="hero-mini-badge">
+              <i data-lucide="shield-check"></i>
+              <span data-en="Studio-Grade Craft · Generative AI Velocity" data-bn="স্টুডিও কোয়ালিটি · এআই গতি">Studio-Grade Craft · Generative AI Velocity</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Real Trust Strip Under Hero (No invented stats!) -->
+        <div class="hero-trust-strip">
+          <div class="trust-item">
+            <div class="trust-icon"><i data-lucide="briefcase"></i></div>
+            <div class="trust-text">
+              <strong class="trust-num">13</strong>
+              <span data-en="Real Behance Projects" data-bn="বাস্তব বিহ্যান্স প্রজেক্ট">Real Behance Projects</span>
+            </div>
+          </div>
+          <div class="trust-divider" aria-hidden="true"></div>
+          <div class="trust-item">
+            <div class="trust-icon"><i data-lucide="award"></i></div>
+            <div class="trust-text">
+              <strong class="trust-num">7+ Yrs</strong>
+              <span data-en="Industry Experience (Edison Group)" data-bn="অভিজ্ঞতা (এডিসন গ্রুপ)">Industry Experience (Edison Group)</span>
+            </div>
+          </div>
+          <div class="trust-divider" aria-hidden="true"></div>
+          <div class="trust-item">
+            <div class="trust-icon"><i data-lucide="sparkles"></i></div>
+            <div class="trust-text">
+              <strong class="trust-num">100%</strong>
+              <span data-en="Human QA & Frame Finishing" data-bn="হিউম্যান কিউএ ও ফিনিশিং">Human QA & Frame Finishing</span>
+            </div>
+          </div>
+          <div class="trust-divider" aria-hidden="true"></div>
+          <div class="trust-item">
+            <div class="trust-icon"><i data-lucide="globe"></i></div>
+            <div class="trust-text">
+              <strong class="trust-num">BDT &amp; USD</strong>
+              <span data-en="Transparent Dual Pricing" data-bn="স্বচ্ছ দ্বিভাষিক মূল্য">Transparent Dual Pricing</span>
+            </div>
           </div>
         </div>
       </div>
@@ -97,13 +170,46 @@
     </section>
 
     <!-- ============================================================
+         Scrolling Text Marquee Strip (DesignMonk Style)
+         ============================================================ -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>Branding</span><span class="marquee-bullet">•</span>
+          <span>AI Video Production</span><span class="marquee-bullet">•</span>
+          <span>Motion Design</span><span class="marquee-bullet">•</span>
+          <span>Performance Ad Creative</span><span class="marquee-bullet">•</span>
+          <span>Website Development</span><span class="marquee-bullet">•</span>
+          <span>Graphic Design</span><span class="marquee-bullet">•</span>
+          <span>Sound Design &amp; Voiceover</span><span class="marquee-bullet">•</span>
+          <span>Commercial Storytelling</span><span class="marquee-bullet">•</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>Branding</span><span class="marquee-bullet">•</span>
+          <span>AI Video Production</span><span class="marquee-bullet">•</span>
+          <span>Motion Design</span><span class="marquee-bullet">•</span>
+          <span>Performance Ad Creative</span><span class="marquee-bullet">•</span>
+          <span>Website Development</span><span class="marquee-bullet">•</span>
+          <span>Graphic Design</span><span class="marquee-bullet">•</span>
+          <span>Sound Design &amp; Voiceover</span><span class="marquee-bullet">•</span>
+          <span>Commercial Storytelling</span><span class="marquee-bullet">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
          Services Section (7 Services)
          ============================================================ -->
     <section id="services" class="section">
       <div class="container">
         <div class="text-center">
-          <span class="section-label" data-en="Our Capabilities" data-bn="আমাদের সেবাসমূহ">Our Capabilities</span>
-          <h2 class="section-title" data-en="Human Direction. AI Velocity." data-bn="মানুষের ক্রিয়েটিভ ডিরেকশন ও এআই-এর গতি">Human Direction. AI Velocity.</h2>
+          <span class="section-label" data-en="Our Capabilities" data-bn="আমাদের সেবাসমূহ">
+            <i data-lucide="layers"></i>
+            <span>Our Capabilities</span>
+          </span>
+          <h2 class="section-title" data-en="Human Direction. AI <em class='serif-accent'>Velocity.</em>" data-bn="মানুষের ক্রিয়েটিভ ডিরেকশন ও এআই-এর <em class='serif-accent'>গতি</em>">
+            Human Direction. AI <em class="serif-accent">Velocity.</em>
+          </h2>
           <p class="section-desc" data-en="AI drafts and generates at volume; our creative directors edit, refine, and approve every frame. You get studio-grade craft at a fraction of traditional production timelines." data-bn="এআই বিপুল পরিমাণে খসড়া তৈরি করে, আর আমাদের অভিজ্ঞ ক্রিয়েটিভ টিম প্রতিটি ফ্রেম নিখুঁতভাবে পরিচালনা ও অনুমোদন করে। প্রচলিত সময়ের চেয়ে অনেক দ্রুত স্টুডিও কোয়ালিটির কাজ পান।">
             AI drafts and generates at volume; our creative directors edit, refine, and approve every frame. You get studio-grade craft at a fraction of traditional production timelines.
           </p>
@@ -112,7 +218,9 @@
         <div class="services-grid">
           <!-- Service 1: AI Video Production -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">🎬</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="clapperboard"></i>
+            </div>
             <h3 class="service-name" data-en="AI Video Production" data-bn="এআই ভিডিও প্রোডাকশন">AI Video Production</h3>
             <p class="service-problem" data-en="Traditional film production requires expensive camera crews, studio sets, and months of turnaround. We produce cinematic product commercials, brand films, and explainers with directed generative video workflows." data-bn="প্রচলিত ভিডিও নির্মাণে ভারী ক্যামেরা সেটআপ ও মাসব্যাপী সময় লাগে। আমরা পরিচালনা-নির্ভর এআই ওয়ার্কফ্লোর মাধ্যমে সিনেম্যাটিক প্রোডাক্ট কমার্শিয়াল, ব্র্যান্ড ফিল্ম ও এক্সপ্লেইনার ভিডিও তৈরি করি।">
               Traditional film production requires expensive camera crews, studio sets, and months of turnaround. We produce cinematic product commercials, brand films, and explainers with directed generative video workflows.
@@ -125,14 +233,20 @@
               <li data-en="Human frame-by-frame artifact cleanup" data-bn="হিউম্যান আর্টিফ্যাক্ট রিমুভাল ও নিখুঁত ফিনিশিং">Human frame-by-frame artifact cleanup</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ 2–7 working days" data-bn="⏱ ২–৭ কর্মদিবস">⏱ 2–7 working days</span>
+              <span class="service-timeline" data-en="2–7 working days" data-bn="২–৭ কর্মদিবস"><i data-lucide="clock"></i> <span>2–7 working days</span></span>
               <span class="service-price" data-bdt="৳1,200/সে." data-usd="$50/sec">From ৳1,200/sec ($50/sec)</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
 
           <!-- Service 2: AI Ads & Creative Variations -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">⚡</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="sparkles"></i>
+            </div>
             <h3 class="service-name" data-en="AI Ads & Variation Packs" data-bn="এআই অ্যাডস ও ভ্যারিয়েশন প্যাক">AI Ads & Variation Packs</h3>
             <p class="service-problem" data-en="Ad fatigue kills ROAS in days. In-house teams struggle to create enough fresh hooks. We engineer multi-variant performance ad packs for Meta, TikTok, and YouTube with rapid testing frameworks." data-bn="বিজ্ঞাপনের ক্লান্তি কয়েক দিনেই আরওএএস নষ্ট করে। আমরা মেটা, টিকটক ও ইউটিউবের জন্য একাধিক হুক ও কোণভিত্তিক পারফরম্যান্স অ্যাড প্যাক তৈরি করি যা দ্রুত পরীক্ষা ও রূপান্তর বাড়ায়।">
               Ad fatigue kills ROAS in days. In-house teams struggle to create enough fresh hooks. We engineer multi-variant performance ad packs for Meta, TikTok, and YouTube with rapid testing frameworks.
@@ -145,14 +259,20 @@
               <li data-en="Ad spend managed separately with transparency" data-bn="বিজ্ঞাপন খরচ স্বচ্ছতার সাথে আলাদা পরিচালিত">Ad spend managed separately with transparency</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ 48h–4 working days" data-bn="⏱ ৪৮ ঘণ্টা–৪ কর্মদিবস">⏱ 48h–4 working days</span>
+              <span class="service-timeline" data-en="48h–4 working days" data-bn="৪৮ ঘণ্টা–৪ কর্মদিবস"><i data-lucide="clock"></i> <span>48h–4 working days</span></span>
               <span class="service-price" data-en="Custom quote" data-bn="কাস্টম কোটেশন" data-bdt="কাস্টম কোটেশন" data-usd="Custom quote">Custom quote</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
 
           <!-- Service 3: Graphic Design -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">🎨</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="pen-tool"></i>
+            </div>
             <h3 class="service-name" data-en="Graphic Design" data-bn="গ্রাফিক ডিজাইন">Graphic Design</h3>
             <p class="service-problem" data-en="Inconsistent visuals weaken brand trust. We craft high-impact social media kits, billboard designs, marketing posters, print collateral, and packaging that command attention across Dhaka and global markets." data-bn="অসামঞ্জস্যপূর্ণ ডিজাইন ব্র্যান্ডের আস্থা কমায়। আমরা প্রিমিয়াম সোশ্যাল মিডিয়া কিট, বিলবোর্ড ডিজাইন, পোস্টার, প্রিন্ট ও প্যাকেজিং তৈরি করি যা ক্রেতাদের দৃষ্টি আকর্ষণ করে।">
               Inconsistent visuals weaken brand trust. We craft high-impact social media kits, billboard designs, marketing posters, print collateral, and packaging that command attention across Dhaka and global markets.
@@ -165,14 +285,20 @@
               <li data-en="2 structured revision rounds per design" data-bn="প্রতিটি ডিজাইনে ২ রাউন্ড রিভিশন">2 structured revision rounds per design</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ 24h–48h per asset" data-bn="⏱ ২৪–৪৮ ঘণ্টা">⏱ 24h–48h per asset</span>
+              <span class="service-timeline" data-en="24h–48h per asset" data-bn="২৪–৪৮ ঘণ্টা"><i data-lucide="clock"></i> <span>24h–48h per asset</span></span>
               <span class="service-price" data-bdt="৳১৫,০০০/মাস থেকে" data-usd="From $150/mo">From ৳15,000 ($150)</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
 
           <!-- Service 4: Branding -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">💎</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="palette"></i>
+            </div>
             <h3 class="service-name" data-en="Branding & Identity" data-bn="ব্র্যান্ডিং ও আইডেন্টিটি">Branding & Identity</h3>
             <p class="service-problem" data-en="A logo alone is not a brand. We build enduring visual identity systems, brand guidelines, color architectures, and typography systems rooted in authentic consumer psychology." data-bn="শুধু একটি লোগো কখনো সম্পূর্ণ ব্র্যান্ড নয়। আমরা পূর্ণাঙ্গ ভিজ্যুয়াল আইডেন্টিটি সিস্টেম, ব্র্যান্ড গাইডলাইন, কালার প্যালেট ও টাইপোগ্রাফি আর্কিটেকচার তৈরি করি।">
               A logo alone is not a brand. We build enduring visual identity systems, brand guidelines, color architectures, and typography systems rooted in authentic consumer psychology.
@@ -185,14 +311,20 @@
               <li data-en="Full vector source files (AI, EPS, SVG, PNG)" data-bn="সম্পূর্ণ ভেক্টর সোর্স ফাইলস (এআই, এসভিজি)">Full vector source files (AI, EPS, SVG, PNG)</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ 1–2 weeks" data-bn="⏱ ১–২ সপ্তাহ">⏱ 1–2 weeks</span>
+              <span class="service-timeline" data-en="1–2 weeks" data-bn="১–২ সপ্তাহ"><i data-lucide="clock"></i> <span>1–2 weeks</span></span>
               <span class="service-price" data-bdt="৳২৫,০০০ থেকে" data-usd="From $300">From ৳25,000 ($300)</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
 
           <!-- Service 5: Website Development -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">🌐</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="globe"></i>
+            </div>
             <h3 class="service-name" data-en="Website Development" data-bn="ওয়েবসাইট ডেভেলপমেন্ট">Website Development</h3>
             <p class="service-problem" data-en="Slow, broken, or generic website templates leak leads. We construct ultra-fast, modern, responsive business sites, conversion-focused landing pages, and e-commerce platforms with built-in bilingual support." data-bn="ধীরগতির বা ত্রুটিপূর্ণ ওয়েবসাইট কাস্টমার হারায়। আমরা আধুনিক, দ্রুতগতির রেসপনসিভ বিজনেস সাইট, ল্যান্ডিং পেজ ও ই-কমার্স সাইট তৈরি করি যা সম্পূর্ণ দ্বিভাষিক সমর্থনযুক্ত।">
               Slow, broken, or generic website templates leak leads. We construct ultra-fast, modern, responsive business sites, conversion-focused landing pages, and e-commerce platforms with built-in bilingual support.
@@ -205,14 +337,20 @@
               <li data-en="Complete deployment & handover documentation" data-bn="সম্পূর্ণ ডিপ্লয়মেন্ট ও হ্যান্ডওভার নির্দেশিকা">Complete deployment & handover documentation</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ 1–3 weeks" data-bn="⏱ ১–৩ সপ্তাহ">⏱ 1–3 weeks</span>
+              <span class="service-timeline" data-en="1–3 weeks" data-bn="১–৩ সপ্তাহ"><i data-lucide="clock"></i> <span>1–3 weeks</span></span>
               <span class="service-price" data-bdt="৳২৫,০০০ থেকে" data-usd="From $300">From ৳25,000 ($300)</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
 
           <!-- Service 6: Video Editing & Motion -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">✂️</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="film"></i>
+            </div>
             <h3 class="service-name" data-en="Video Editing & Motion" data-bn="ভিডিও এডিটিং ও মোশন">Video Editing & Motion</h3>
             <p class="service-problem" data-en="Raw recorded footage remains unpublished without polished editing. We transform raw clips, talking heads, and educational presentations into snappy, retention-engineered Reels, Shorts, and ads." data-bn="র' ভিডিও ফুটেজ পেশাদার এডিটিং ছাড়া আবেদন তৈরি করতে পারে না। আমরা র' ক্লিপ ও শিক্ষামূলক কনটেন্টকে রূপান্তর করি আকর্ষণীয় রিলস, শর্টস ও গতিশীল মোশন গ্রাফিক্সে।">
               Raw recorded footage remains unpublished without polished editing. We transform raw clips, talking heads, and educational presentations into snappy, retention-engineered Reels, Shorts, and ads.
@@ -225,14 +363,20 @@
               <li data-en="Exported ready-to-publish in 9:16 vertical format" data-bn="৯:১৬ ভার্টিক্যাল রেডি-টু-পাবলিশ ফরম্যাট">Exported ready-to-publish in 9:16 vertical format</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ 2–4 working days" data-bn="⏱ ২–৪ কর্মদিবস">⏱ 2–4 working days</span>
+              <span class="service-timeline" data-en="2–4 working days" data-bn="২–৪ কর্মদিবস"><i data-lucide="clock"></i> <span>2–4 working days</span></span>
               <span class="service-price" data-en="Custom quote" data-bn="কাস্টম কোটেশন" data-bdt="কাস্টম কোটেশন" data-usd="Custom quote">Custom quote</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
 
           <!-- Service 7: Digital Marketing -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">📈</span>
+            <div class="service-icon-tile" aria-hidden="true">
+              <i data-lucide="megaphone"></i>
+            </div>
             <h3 class="service-name" data-en="Digital Marketing" data-bn="ডিজিটাল মার্কেটিং">Digital Marketing</h3>
             <p class="service-problem" data-en="Random posting without creative alignment burns ad budgets without ROI. We provide full-funnel social media management, campaign strategy, audience targeting, and creative testing designed for measurable growth." data-bn="নির্দিষ্ট লক্ষ্য ছাড়া পোস্ট ও ক্যাম্পেইন কেবল বাজেট অপচয় করে। আমরা মেটা ও গুগলে পূর্ণাঙ্গ সোশ্যাল মিডিয়া ম্যানেজমেন্ট, অডিয়েন্স টার্গেটিং ও স্ট্র্যাটেজিক ক্যাম্পেইন পরিচালনা করি।">
               Random posting without creative alignment burns ad budgets without ROI. We provide full-funnel social media management, campaign strategy, audience targeting, and creative testing designed for measurable growth.
@@ -245,9 +389,13 @@
               <li data-en="Media spend paid directly to platforms; no hidden markup" data-bn="বিজ্ঞাপন বাজেট সরাসরি প্ল্যাটফর্মে প্রদেয়; কোনো গোপন ফি নেই">Media spend paid directly to platforms; no hidden markup</li>
             </ul>
             <div class="service-meta">
-              <span class="service-timeline" data-en="⏱ Monthly Retainer" data-bn="⏱ মাসিক রিটেইনার">⏱ Monthly Retainer</span>
+              <span class="service-timeline" data-en="Monthly Retainer" data-bn="মাসিক রিটেইনার"><i data-lucide="clock"></i> <span>Monthly Retainer</span></span>
               <span class="service-price" data-en="Custom quote" data-bn="কাস্টম কোটেশন" data-bdt="কাস্টম কোটেশন" data-usd="Custom quote">Custom quote</span>
             </div>
+            <a href="#contact" class="service-arrow-link">
+              <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">Start a Project</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </article>
         </div>
       </div>
@@ -259,8 +407,13 @@
     <section id="pricing" class="section">
       <div class="container">
         <div class="text-center">
-          <span class="section-label" data-en="Transparent Pricing" data-bn="স্বচ্ছ প্রাইসিং">Transparent Pricing</span>
-          <h2 class="section-title" data-en="Two Tiers. Zero Ambiguity." data-bn="দুটি স্বচ্ছ টিয়ার। কোনো লুকানো চার্জ নেই।">Two Tiers. Zero Ambiguity.</h2>
+          <span class="section-label" data-en="Transparent Pricing" data-bn="স্বচ্ছ প্রাইসিং">
+            <i data-lucide="wallet"></i>
+            <span>Transparent Pricing</span>
+          </span>
+          <h2 class="section-title" data-en="Two Tiers. Zero <em class='serif-accent'>Ambiguity.</em>" data-bn="দুটি স্বচ্ছ টিয়ার। কোনো লুকানো চার্জ <em class='serif-accent'>নেই।</em>">
+            Two Tiers. Zero <em class="serif-accent">Ambiguity.</em>
+          </h2>
           <p class="section-desc" data-en="Directed AI video priced transparently per second. No shortcuts — directed quality, human QA, transparent rates. Exact rates in BDT for Bangladesh and USD for international clients." data-bn="প্রতি সেকেন্ড হিসেবে এআই ভিডিওর স্বচ্ছ মূল্যায়ন। কোনো শর্টকাট নয় — ডিরেক্টেড কোয়ালিটি, হিউম্যান কিউএ, স্বচ্ছ রেট। বাংলাদেশীদের জন্য বিডিটি ও আন্তর্জাতিক ক্লায়েন্টদের জন্য ইউএসডিতে নির্দিষ্ট রেট।">
             Directed AI video priced transparently per second. No shortcuts — directed quality, human QA, transparent rates. Exact rates in BDT for Bangladesh and USD for international clients.
           </p>
@@ -268,6 +421,10 @@
 
         <!-- Interactive Calculator -->
         <div class="pricing-calculator">
+          <div class="calc-header-chip">
+            <i data-lucide="coins"></i>
+            <span data-en="Interactive Tool" data-bn="ইন্টারেক্টিভ টুল">Interactive Tool</span>
+          </div>
           <h3 class="calc-title" data-en="AI Video Production Price Calculator" data-bn="এআই ভিডিও প্রাইসিং ক্যালকুলেটর">AI Video Production Price Calculator</h3>
           <p class="calc-subtitle" data-en="Drag the slider to select video duration (15s to 90s). Real-time price updates for both tiers in your selected currency." data-bn="ভিডিওর দৈর্ঘ্য নির্বাচন করুন (১৫ থেকে ৯০ সেকেন্ড)। নির্বাচিত মুদ্রায় তাৎক্ষণিক উভয় টিয়ারের খরচ দেখুন।">
             Drag the slider to select video duration (15s to 90s). Real-time price updates for both tiers in your selected currency.
@@ -284,6 +441,7 @@
             </div>
             <input type="range" id="durationSlider" min="15" max="95" step="5" value="30" aria-label="Select Video Duration in Seconds">
             <div class="calc-duration-display">
+              <i data-lucide="timer"></i>
               <span id="durationVal">30</span><span data-en=" Seconds" data-bn=" সেকেন্ড"> Seconds</span>
             </div>
           </div>
@@ -291,8 +449,11 @@
           <div class="calc-results">
             <!-- Medium Tier Result -->
             <div class="calc-tier" id="calcTierMedium">
-              <div class="calc-tier-label" data-en="Medium Tier (৳1,200/sec · $50/sec)" data-bn="মিডিয়াম টিয়ার (৳১,২০০/সে · $৫০/সে)">
-                Medium Tier (৳1,200/sec · $50/sec)
+              <div class="calc-tier-head">
+                <div class="calc-tier-badge-icon"><i data-lucide="film"></i></div>
+                <div class="calc-tier-label" data-en="Medium Tier (৳1,200/sec · $50/sec)" data-bn="মিডিয়াম টিয়ার (৳১,২০০/সে · $৫০/সে)">
+                  Medium Tier (৳1,200/sec · $50/sec)
+                </div>
               </div>
               <div class="calc-price" id="calcMediumPrice">৳36,000</div>
               <div class="calc-price-label" data-en="Script, AI Voiceover, Music & 2 Revisions" data-bn="স্ক্রিপ্ট, এআই ভয়েসওভার, মিউজিক ও ২ রাউন্ড রিভিশন">
@@ -302,8 +463,11 @@
 
             <!-- Premium Tier Result -->
             <div class="calc-tier premium" id="calcTierPremium">
-              <div class="calc-tier-label" data-en="Premium Tier (৳2,700/sec · $165/sec)" data-bn="প্রিমিয়াম টিয়ার (৳২,৭০০/সে · $১৬৫/সে)">
-                Premium Tier (৳2,700/sec · $165/sec)
+              <div class="calc-tier-head">
+                <div class="calc-tier-badge-icon"><i data-lucide="crown"></i></div>
+                <div class="calc-tier-label" data-en="Premium Tier (৳2,700/sec · $165/sec)" data-bn="প্রিমিয়াম টিয়ার (৳২,৭০০/সে · $১৬৫/সে)">
+                  Premium Tier (৳2,700/sec · $165/sec)
+                </div>
               </div>
               <div class="calc-price" id="calcPremiumPrice">৳81,000</div>
               <div class="calc-price-label" data-en="Custom Storyboard, Sound Design, Multiple Hook Variants & Priority" data-bn="কাস্টম স্টোরিবোর্ড, সাউন্ড ডিজাইন, একাধিক হুক ভ্যারিয়েশন ও প্রায়োরিটি">
@@ -313,10 +477,14 @@
 
             <!-- 90s+ Custom Quote Display -->
             <div class="calc-custom-quote" id="calcCustomQuote">
+              <div class="calc-quote-icon"><i data-lucide="sparkles"></i></div>
               <p data-en="Videos 90 seconds and over require custom storytelling, multi-location generation, and a bespoke production roadmap." data-bn="৯০ সেকেন্ড বা তার বেশি দৈর্ঘ্যের ভিডিওর জন্য কাস্টম স্টোরিবোর্ডিং ও বিশেষ প্রোডাকশন রোডম্যাপ প্রয়োজন।">
                 Videos 90 seconds and over require custom storytelling, multi-location generation, and a bespoke production roadmap.
               </p>
-              <a href="#contact" class="btn btn-white" data-en="Contact Us for Custom Quote" data-bn="কাস্টম কোটেশনের জন্য যোগাযোগ করুন">Contact Us for Custom Quote</a>
+              <a href="#contact" class="btn btn-white" data-en="Contact Us for Custom Quote" data-bn="কাস্টম কোটেশনের জন্য যোগাযোগ করুন">
+                <span>Contact Us for Custom Quote</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -384,12 +552,18 @@
               <li data-en="Multi-format exports: 9:16 (Reels/TikTok), 1:1, 16:9" data-bn="মাল্টি-ফরম্যাট: ৯:১৬ (রিলস/টিকটক), ১:১, ১৬:৯">Multi-format exports: 9:16 (Reels/TikTok), 1:1, 16:9</li>
               <li data-en="Human frame-by-frame quality assurance pass" data-bn="নিখুঁত হিউম্যান ফ্রেম-বাই-ফ্রেম কোয়ালিটি চেক">Human frame-by-frame quality assurance pass</li>
             </ul>
-            <a href="#contact" class="btn btn-outline" style="border-color: var(--blue); color: var(--blue);" data-en="Choose Medium Tier" data-bn="মিডিয়াম টিয়ার নির্বাচন করুন">Choose Medium Tier</a>
+            <a href="#contact" class="btn btn-outline-blue" data-en="Choose Medium Tier" data-bn="মিডিয়াম টিয়ার নির্বাচন করুন">
+              <span>Choose Medium Tier</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </div>
 
           <!-- Premium Tier Card -->
           <div class="tier-card featured">
-            <div class="tier-badge" data-en="Recommended" data-bn="সুপারিশকৃত">Recommended</div>
+            <div class="tier-badge" data-en="Recommended" data-bn="সুপারিশকৃত">
+              <i data-lucide="sparkles"></i>
+              <span>Recommended</span>
+            </div>
             <h3 class="tier-name" data-en="Premium Tier" data-bn="প্রিমিয়াম টিয়ার">Premium Tier</h3>
             <div class="tier-price-info" data-en="৳2,700/sec ($165/sec) · Min 15s (from ৳40,000 / $2,500)" data-bn="৳২,৭০০/সে ($১৬৫/সে) · সর্বনিম্ন ১৫ সে (৳৪০,০০০ / $২,৫০০ থেকে)">
               ৳2,700/sec ($165/sec) · Min 15s (from ৳40,000 / $2,500)
@@ -404,7 +578,10 @@
               <li data-en="Character, environment, and product consistency locking" data-bn="ক্যারেক্টার ও প্রোডাক্টের ভিজ্যুয়াল ধারাবাহিকতা লক">Character, environment, and product consistency locking</li>
               <li data-en="Multiple hook variants & broadcast-level color grading" data-bn="একাধিক হুক ভ্যারিয়েশন ও ব্রডকাস্ট কালার গ্রেডিং">Multiple hook variants & broadcast-level color grading</li>
             </ul>
-            <a href="#contact" class="btn btn-primary" data-en="Choose Premium Tier" data-bn="প্রিমিয়াম টিয়ার নির্বাচন করুন">Choose Premium Tier</a>
+            <a href="#contact" class="btn btn-primary" data-en="Choose Premium Tier" data-bn="প্রিমিয়াম টিয়ার নির্বাচন করুন">
+              <span>Choose Premium Tier</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
           </div>
         </div>
 
@@ -447,7 +624,10 @@
 
         <!-- Pricing Notes -->
         <div class="pricing-notes">
-          <h4 data-en="Essential Pricing & Engagement Notes" data-bn="প্রাইসিং ও কাজের গুরুত্বপূর্ণ শর্তাবলী">Essential Pricing & Engagement Notes</h4>
+          <div class="pricing-notes-head">
+            <i data-lucide="shield-check"></i>
+            <h4 data-en="Essential Pricing & Engagement Notes" data-bn="প্রাইসিং ও কাজের গুরুত্বপূর্ণ শর্তাবলী">Essential Pricing & Engagement Notes</h4>
+          </div>
           <ul>
             <li data-en="All rates listed above are starting baseline prices. The final scope, timeline, and deliverables are confirmed in a formal written quotation." data-bn="উপরে উল্লেখিত সব মূল্য প্রাথমিক সূচনা দর। কাজের পরিধি, ডেলিভারি সময় ও বাজেট আনুষ্ঠানিক লিখিত কোটেশনে নিশ্চিত করা হয়।">
               All rates listed above are starting baseline prices. The final scope, timeline, and deliverables are confirmed in a formal written quotation.
@@ -475,8 +655,13 @@
     <section id="portfolio" class="section">
       <div class="container">
         <div class="text-center">
-          <span class="section-label" data-en="Featured Work" data-bn="নির্বাচিত কাজসমূহ">Featured Work</span>
-          <h2 class="section-title" data-en="Real Projects. Real Work." data-bn="আসল প্রজেক্ট। আসল কাজ।">Real Projects. Real Work.</h2>
+          <span class="section-label" data-en="Featured Work" data-bn="নির্বাচিত কাজসমূহ">
+            <i data-lucide="sparkles"></i>
+            <span>Featured Work</span>
+          </span>
+          <h2 class="section-title" data-en="Real Projects. Real <em class='serif-accent'>Work.</em>" data-bn="আসল প্রজেক্ট। আসল <em class='serif-accent'>কাজ।</em>">
+            Real Projects. Real <em class="serif-accent">Work.</em>
+          </h2>
           <p class="section-desc" data-en="Explore 13 real commercial design and creative campaigns from our Behance portfolio by founder Md Ayub Mondol. Click any project to open the full presentation on Behance." data-bn="প্রতিষ্ঠাতা মো. আইয়ুব মন্ডলের পরিচালিত ১৩টি বাস্তব বাণিজ্যিক ক্যাম্পেইন ও ডিজাইন প্রজেক্ট দেখুন। বিহান্সে বিস্তারিত প্রেজেন্টেশন দেখতে যেকোনো কার্ডে ক্লিক করুন।">
             Explore 13 real commercial design and creative campaigns from our Behance portfolio by founder Md Ayub Mondol. Click any project to open the full presentation on Behance.
           </p>
@@ -495,169 +680,195 @@
         <div class="portfolio-grid">
           <!-- Project 1: Sep 30, 2026 -->
           <a href="https://www.behance.net/gallery/256445097/Creative-Smartphone-Advertisement-Poster" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="social">
-            <div class="portfolio-card-bg" aria-hidden="true">📱</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="smartphone"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Social Media" data-bn="সোশ্যাল মিডিয়া">Social Media</span>
               <h3 class="portfolio-card-title" data-en="Creative Smartphone Advertisement Poster" data-bn="ক্রিয়েটিভ স্মার্টফোন অ্যাডভার্টাইজমেন্ট পোস্টার">Creative Smartphone Advertisement Poster</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Sep 30, 2026" data-bn="৩০ সেপ্টেম্বর, ২০২৬">Sep 30, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 2: Jul 7, 2026 -->
           <a href="https://www.behance.net/gallery/252327431/Creative-Mobile-Phone-Advertisement-Posters" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="social">
-            <div class="portfolio-card-bg" aria-hidden="true">📲</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="smartphone"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Social Media" data-bn="সোশ্যাল মিডিয়া">Social Media</span>
               <h3 class="portfolio-card-title" data-en="Creative Mobile Phone Advertisement Posters" data-bn="ক্রিয়েটিভ মোবাইল ফোন বিজ্ঞাপন পোস্টার সিরিজ">Creative Mobile Phone Advertisement Posters</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Jul 7, 2026" data-bn="৭ জুলাই, ২০২৬">Jul 7, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 3: Jun 10, 2026 -->
           <a href="https://www.behance.net/gallery/250870757/FIFA-World-Cup-2026-Match-Fixtures" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="campaign">
-            <div class="portfolio-card-bg" aria-hidden="true">⚽</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="trophy"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Campaign" data-bn="ক্যাম্পেইন">Campaign</span>
               <h3 class="portfolio-card-title" data-en="FIFA World Cup 2026 Match Fixtures" data-bn="ফিফা বিশ্বকাপ ২০২৬ ম্যাচ ফিক্সচার ডিজাইন">FIFA World Cup 2026 Match Fixtures</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Jun 10, 2026" data-bn="১০ জুন, ২০২৬">Jun 10, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 4: Jun 7, 2026 -->
           <a href="https://www.behance.net/gallery/250701061/Bike-Creative-Social-Media-post-Ads-Creative-Banner" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="social">
-            <div class="portfolio-card-bg" aria-hidden="true">🏍️</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="bike"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Social Media" data-bn="সোশ্যাল মিডিয়া">Social Media</span>
               <h3 class="portfolio-card-title" data-en="Bike Creative Social Media Post | Ads Banner" data-bn="বাইক ক্রিয়েটিভ সোশ্যাল মিডিয়া পোস্ট ও অ্যাড ব্যানার">Bike Creative Social Media Post | Ads Banner</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Jun 7, 2026" data-bn="৭ জুন, ২০২৬">Jun 7, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 5: Jun 6, 2026 -->
           <a href="https://www.behance.net/gallery/250658769/Match-Day-Poster-Design" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="campaign">
-            <div class="portfolio-card-bg" aria-hidden="true">🏆</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="trophy"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Campaign" data-bn="ক্যাম্পেইন">Campaign</span>
               <h3 class="portfolio-card-title" data-en="Match Day Poster Design" data-bn="ম্যাচ ডে পোস্টার ডিজাইন">Match Day Poster Design</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Jun 6, 2026" data-bn="৬ জুন, ২০২৬">Jun 6, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 6: May 4, 2026 -->
           <a href="https://www.behance.net/gallery/248730655/Helio-Billboard-Design-Bold-Dynamic-Visuals" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="branding">
-            <div class="portfolio-card-bg" aria-hidden="true">🏙️</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="building-2"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Branding" data-bn="ব্র্যান্ডিং">Branding</span>
               <h3 class="portfolio-card-title" data-en="Helio Billboard Design - Bold, Dynamic Visuals" data-bn="হেলিও বিলবোর্ড ডিজাইন – বোল্ড ও ডায়নামিক ভিজ্যুয়াল">Helio Billboard Design - Bold, Dynamic Visuals</h3>
               <div class="portfolio-card-meta">
                 <span data-en="May 4, 2026" data-bn="৪ মে, ২০২৬">May 4, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 7: Apr 13, 2026 -->
           <a href="https://www.behance.net/gallery/247509035/Mobile-Phone-Social-Media-Post-Design" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="social">
-            <div class="portfolio-card-bg" aria-hidden="true">📱</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="smartphone"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Social Media" data-bn="সোশ্যাল মিডিয়া">Social Media</span>
               <h3 class="portfolio-card-title" data-en="Mobile Phone Social Media Post Design" data-bn="মোবাইল ফোন সোশ্যাল মিডিয়া পোস্ট ডিজাইন">Mobile Phone Social Media Post Design</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Apr 13, 2026" data-bn="১৩ এপ্রিল, ২০২৬">Apr 13, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 8: Mar 30, 2026 -->
           <a href="https://www.behance.net/gallery/246670821/Educational-Reels-Editing-Portfolio-Study-Abroad" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="video">
-            <div class="portfolio-card-bg" aria-hidden="true">🎬</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="clapperboard"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Video & Motion" data-bn="ভিডিও ও মোশন">Video & Motion</span>
               <h3 class="portfolio-card-title" data-en="Educational Reels Editing | Study Abroad" data-bn="এডুকেশনাল রিলস এডিটিং | স্টাডি অ্যাব্রোড">Educational Reels Editing | Study Abroad</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Mar 30, 2026" data-bn="৩০ মার্চ, ২০২৬">Mar 30, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 9: Mar 10, 2026 -->
           <a href="https://www.behance.net/gallery/245523325/Global-Horizons-Study-Abroad-Branding-Reel-Series" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="branding">
-            <div class="portfolio-card-bg" aria-hidden="true">🌏</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="globe"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Branding" data-bn="ব্র্যান্ডিং">Branding</span>
               <h3 class="portfolio-card-title" data-en="Global Horizons | Study Abroad Branding" data-bn="গ্লোবাল হরাইজনস | স্টাডি অ্যাব্রোড ব্র্যান্ডিং">Global Horizons | Study Abroad Branding</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Mar 10, 2026" data-bn="১০ মার্চ, ২০২৬">Mar 10, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 10: Mar 8, 2026 -->
           <a href="https://www.behance.net/gallery/245397077/Womens-Day-Social-Media-Banner" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="social">
-            <div class="portfolio-card-bg" aria-hidden="true">🌸</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="flower-2"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Social Media" data-bn="সোশ্যাল মিডিয়া">Social Media</span>
               <h3 class="portfolio-card-title" data-en="Women's Day Social Media Banner" data-bn="আন্তর্জাতিক নারী দিবস সোশ্যাল মিডিয়া ব্যানার">Women's Day Social Media Banner</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Mar 8, 2026" data-bn="৮ মার্চ, ২০২৬">Mar 8, 2026</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 11: Dec 28, 2025 -->
           <a href="https://www.behance.net/gallery/241176295/Bangladesh-National-Football-Team-Campaign" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="campaign">
-            <div class="portfolio-card-bg" aria-hidden="true">🇧🇩</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="flag"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Campaign" data-bn="ক্যাম্পেইন">Campaign</span>
               <h3 class="portfolio-card-title" data-en="Bangladesh National Football Team Campaign" data-bn="বাংলাদেশ জাতীয় ফুটবল দল ক্যাম্পেইন ডিজাইন">Bangladesh National Football Team Campaign</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Dec 28, 2025" data-bn="২৮ ডিসেম্বর, ২০২৫">Dec 28, 2025</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 12: Dec 8, 2025 -->
           <a href="https://www.behance.net/gallery/240043843/-Typography" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="branding">
-            <div class="portfolio-card-bg" aria-hidden="true">🎨</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="pen-tool"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Branding" data-bn="ব্র্যান্ডিং">Branding</span>
               <h3 class="portfolio-card-title" data-en="আসছে থার্টি ফার্স্ট নাইটে – শব্দ দূষণ না করি Typography" data-bn="আসছে থার্টি ফার্স্ট নাইটে – শব্দ দূষণ না করি টাইপোগ্রাফি">আসছে থার্টি ফার্স্ট নাইটে – শব্দ দূষণ না করি Typography</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Dec 8, 2025" data-bn="৮ ডিসেম্বর, ২০২৫">Dec 8, 2025</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
 
           <!-- Project 13: Dec 1, 2025 -->
           <a href="https://www.behance.net/gallery/239593123/Australia-Education-Expo-2025-Study-Abroad" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="campaign">
-            <div class="portfolio-card-bg" aria-hidden="true">🎓</div>
+            <div class="portfolio-card-bg" aria-hidden="true">
+              <div class="portfolio-card-icon-tile"><i data-lucide="graduation-cap"></i></div>
+            </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-badge" data-en="Campaign" data-bn="ক্যাম্পেইন">Campaign</span>
               <h3 class="portfolio-card-title" data-en="Australia Education Expo 2025 | Study Abroad" data-bn="অস্ট্রেলিয়া এডুকেশন এক্সপো ২০২৫ | স্টাডি অ্যাব্রোড">Australia Education Expo 2025 | Study Abroad</h3>
               <div class="portfolio-card-meta">
                 <span data-en="Dec 1, 2025" data-bn="১ ডিসেম্বর, ২০২৫">Dec 1, 2025</span>
-                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">Behance ↗</span>
+                <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>Behance</span> <i data-lucide="arrow-up-right"></i></span>
               </div>
             </div>
           </a>
@@ -671,8 +882,13 @@
     <section id="process" class="section">
       <div class="container">
         <div class="text-center">
-          <span class="section-label" data-en="How We Work" data-bn="আমাদের কর্মপদ্ধতি">How We Work</span>
-          <h2 class="section-title" data-en="Our 7-Step Production Roadmap" data-bn="৭-ধাপের সুশৃঙ্খল নির্মাণ প্রক্রিয়া">Our 7-Step Production Roadmap</h2>
+          <span class="section-label" data-en="How We Work" data-bn="আমাদের কর্মপদ্ধতি">
+            <i data-lucide="workflow"></i>
+            <span>How We Work</span>
+          </span>
+          <h2 class="section-title" data-en="Our 7-Step Production <em class='serif-accent'>Roadmap</em>" data-bn="৭-ধাপের সুশৃঙ্খল নির্মাণ <em class='serif-accent'>প্রক্রিয়া</em>">
+            Our 7-Step Production <em class="serif-accent">Roadmap</em>
+          </h2>
           <p class="section-desc" data-en="From your first free audit to final asset handover, our structured onboarding protects your budget, eliminates surprises, and enforces human QA on every output." data-bn="প্রাথমিক ফ্রি অডিট থেকে চূড়ান্ত ডেলিভারি পর্যন্ত প্রতিটি ধাপে থাকে স্বচ্ছতা ও নিখুঁত মান নিয়ন্ত্রণ।">
             From your first free audit to final asset handover, our structured onboarding protects your budget, eliminates surprises, and enforces human QA on every output.
           </p>
@@ -681,14 +897,17 @@
         <div class="process-timeline">
           <!-- Step 1 (Odd) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>01</span>
+              <i data-lucide="search"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="1. Free AI Ad Audit" data-bn="১. ফ্রি এআই অ্যাড অডিট">1. Free AI Ad Audit</h3>
               <p class="process-step-desc" data-en="Tell us about your brand and products through our short intake form. We evaluate your current visuals and suggest actionable AI video hook angles." data-bn="আমাদের সংক্ষিপ্ত ফর্মে আপনার ব্র্যান্ডের তথ্য দিন। আমরা আপনার বর্তমান কনটেন্ট পর্যালোচনা করে কার্যকর এআই ভিডিও আইডিয়া প্রস্তাব করব।">
                 Tell us about your brand and products through our short intake form. We evaluate your current visuals and suggest actionable AI video hook angles.
               </p>
             </div>
-            <div class="process-step-num">1</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="1. Free AI Ad Audit" data-bn="১. ফ্রি এআই অ্যাড অডিট">1. Free AI Ad Audit</h3>
               <p class="process-step-desc" data-en="Tell us about your brand and products through our short intake form. We evaluate your current visuals and suggest actionable AI video hook angles." data-bn="আমাদের সংক্ষিপ্ত ফর্মে আপনার ব্র্যান্ডের তথ্য দিন। আমরা আপনার বর্তমান কনটেন্ট পর্যালোচনা করে কার্যকর এআই ভিডিও আইডিয়া প্রস্তাব করব।">
                 Tell us about your brand and products through our short intake form. We evaluate your current visuals and suggest actionable AI video hook angles.
@@ -698,14 +917,17 @@
 
           <!-- Step 2 (Even) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>02</span>
+              <i data-lucide="phone"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="2. Discovery Call (30 min)" data-bn="২. ডিসকভারি কল (৩০ মিনিট)">2. Discovery Call (30 min)</h3>
               <p class="process-step-desc" data-en="A focused 30-minute video or phone consultation to clarify your business goals, target audience, brand aesthetic, and campaign constraints." data-bn="৩০ মিনিটের সংক্ষিপ্ত কলে আমরা আপনার ব্যবসার উদ্দেশ্য, কাঙ্ক্ষিত অডিয়েন্স ও ক্যাম্পেইনের মূল বাজেট নিয়ে সরাসরি আলোচনা করি।">
                 A focused 30-minute video or phone consultation to clarify your business goals, target audience, brand aesthetic, and campaign constraints.
               </p>
             </div>
-            <div class="process-step-num">2</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="2. Discovery Call (30 min)" data-bn="২. ডিসকভারি কল (৩০ মিনিট)">2. Discovery Call (30 min)</h3>
               <p class="process-step-desc" data-en="A focused 30-minute video or phone consultation to clarify your business goals, target audience, brand aesthetic, and campaign constraints." data-bn="৩০ মিনিটের সংক্ষিপ্ত কলে আমরা আপনার ব্যবসার উদ্দেশ্য, কাঙ্ক্ষিত অডিয়েন্স ও ক্যাম্পেইনের মূল বাজেট নিয়ে সরাসরি আলোচনা করি।">
                 A focused 30-minute video or phone consultation to clarify your business goals, target audience, brand aesthetic, and campaign constraints.
@@ -715,14 +937,17 @@
 
           <!-- Step 3 (Odd) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>03</span>
+              <i data-lucide="file-text"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="3. Proposal within 48 Hours" data-bn="৩. ৪৮ ঘণ্টার মধ্যে প্রস্তাবনা">3. Proposal within 48 Hours</h3>
               <p class="process-step-desc" data-en="Receive a clear, transparent written proposal detailing exact scope, deliverables, timeline, revision rounds, and investment (valid for 7 days)." data-bn="৪৮ ঘণ্টার মধ্যে বিস্তারিত লিখিত প্রস্তাবনা পাবেন—যেখানে কাজের পরিধি, ডেলিভারির সময়সীমা ও চূড়ান্ত বাজেট সুনির্দিষ্ট থাকবে (মেয়াদ ৭ দিন)।">
                 Receive a clear, transparent written proposal detailing exact scope, deliverables, timeline, revision rounds, and investment (valid for 7 days).
               </p>
             </div>
-            <div class="process-step-num">3</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="3. Proposal within 48 Hours" data-bn="৩. ৪৮ ঘণ্টার মধ্যে প্রস্তাবনা">3. Proposal within 48 Hours</h3>
               <p class="process-step-desc" data-en="Receive a clear, transparent written proposal detailing exact scope, deliverables, timeline, revision rounds, and investment (valid for 7 days)." data-bn="৪৮ ঘণ্টার মধ্যে বিস্তারিত লিখিত প্রস্তাবনা পাবেন—যেখানে কাজের পরিধি, ডেলিভারির সময়সীমা ও চূড়ান্ত বাজেট সুনির্দিষ্ট থাকবে (মেয়াদ ৭ দিন)।">
                 Receive a clear, transparent written proposal detailing exact scope, deliverables, timeline, revision rounds, and investment (valid for 7 days).
@@ -732,14 +957,17 @@
 
           <!-- Step 4 (Even) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>04</span>
+              <i data-lucide="credit-card"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="4. 50% Deposit & Contract" data-bn="৪. ৫০% ডিপোজিট ও চুক্তি">4. 50% Deposit & Contract</h3>
               <p class="process-step-desc" data-en="Work starts only after the contract is approved and the standard 50% advance deposit is confirmed by bank transfer or bKash." data-bn="চুক্তি স্বাক্ষর ও ব্যাংক ট্রান্সফার বা বিকাশের মাধ্যমে ৫০% অগ্রিম প্রাপ্তি নিশ্চিত হওয়ার পরই আনুষ্ঠানিকভাবে কাজ শুরু হয়।">
                 Work starts only after the contract is approved and the standard 50% advance deposit is confirmed by bank transfer or bKash.
               </p>
             </div>
-            <div class="process-step-num">4</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="4. 50% Deposit & Contract" data-bn="৪. ৫০% ডিপোজিট ও চুক্তি">4. 50% Deposit & Contract</h3>
               <p class="process-step-desc" data-en="Work starts only after the contract is approved and the standard 50% advance deposit is confirmed by bank transfer or bKash." data-bn="চুক্তি স্বাক্ষর ও ব্যাংক ট্রান্সফার বা বিকাশের মাধ্যমে ৫০% অগ্রিম প্রাপ্তি নিশ্চিত হওয়ার পরই আনুষ্ঠানিকভাবে কাজ শুরু হয়।">
                 Work starts only after the contract is approved and the standard 50% advance deposit is confirmed by bank transfer or bKash.
@@ -749,14 +977,17 @@
 
           <!-- Step 5 (Odd) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>05</span>
+              <i data-lucide="folder-input"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="5. Kickoff & Intake" data-bn="৫. কিকঅফ ও ব্রিফিং">5. Kickoff & Intake</h3>
               <p class="process-step-desc" data-en="We collect your brand logos, visual assets, fonts, tone guidelines, and product references through our structured brief questionnaire." data-bn="আমাদের গোছানো প্রক্রিয়ায় আপনার ব্র্যান্ডের লোগো, ফন্ট, কালার প্যালেট ও প্রোডাক্ট রেফারেন্স সংগ্রহ করে প্রোডাকশন প্রস্তুত করি।">
                 We collect your brand logos, visual assets, fonts, tone guidelines, and product references through our structured brief questionnaire.
               </p>
             </div>
-            <div class="process-step-num">5</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="5. Kickoff & Intake" data-bn="৫. কিকঅফ ও ব্রিফিং">5. Kickoff & Intake</h3>
               <p class="process-step-desc" data-en="We collect your brand logos, visual assets, fonts, tone guidelines, and product references through our structured brief questionnaire." data-bn="আমাদের গোছানো প্রক্রিয়ায় আপনার ব্র্যান্ডের লোগো, ফন্ট, কালার প্যালেট ও প্রোডাক্ট রেফারেন্স সংগ্রহ করে প্রোডাকশন প্রস্তুত করি।">
                 We collect your brand logos, visual assets, fonts, tone guidelines, and product references through our structured brief questionnaire.
@@ -766,14 +997,17 @@
 
           <!-- Step 6 (Even) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>06</span>
+              <i data-lucide="clapperboard"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="6. Production & Review" data-bn="৬. প্রোডাকশন ও হিউম্যান রিভিউ">6. Production & Review</h3>
               <p class="process-step-desc" data-en="Generative AI produces variations at scale while human directors oversee script, pacing, sound, and artifact checks. One structured review round per stage." data-bn="এআই প্রযুক্তির দ্রুততায় ফ্রেম তৈরি হলেও মানুষের শিল্পগুণ ও সাউন্ড ডিজাইনে প্রতিটি আউটপুট নিখুঁতভাবে পরিচালিত ও রিভিউ করা হয়।">
                 Generative AI produces variations at scale while human directors oversee script, pacing, sound, and artifact checks. One structured review round per stage.
               </p>
             </div>
-            <div class="process-step-num">6</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="6. Production & Review" data-bn="৬. প্রোডাকশন ও হিউম্যান রিভিউ">6. Production & Review</h3>
               <p class="process-step-desc" data-en="Generative AI produces variations at scale while human directors oversee script, pacing, sound, and artifact checks. One structured review round per stage." data-bn="এআই প্রযুক্তির দ্রুততায় ফ্রেম তৈরি হলেও মানুষের শিল্পগুণ ও সাউন্ড ডিজাইনে প্রতিটি আউটপুট নিখুঁতভাবে পরিচালিত ও রিভিউ করা হয়।">
                 Generative AI produces variations at scale while human directors oversee script, pacing, sound, and artifact checks. One structured review round per stage.
@@ -783,14 +1017,17 @@
 
           <!-- Step 7 (Odd) -->
           <div class="process-step">
+            <div class="process-step-num">
+              <span>07</span>
+              <i data-lucide="rocket"></i>
+            </div>
             <div class="process-step-content">
               <h3 class="process-step-title" data-en="7. Delivery & Sign-Off" data-bn="৭. ডেলিভারি ও সাইন-অফ">7. Delivery & Sign-Off</h3>
               <p class="process-step-desc" data-en="High-resolution deliverables delivered in all platform aspect ratios (9:16, 1:1, 16:9) along with handover docs, source files, and final milestone invoice." data-bn="সব প্রয়োজনীয় ফরম্যাটে হাই-রেজোলিউশন ফাইনাল ফাইল সরবরাহ, সন্তোষজনক সাইন-অফ এবং চূড়ান্ত ইনভয়েস নিষ্পত্তির মাধ্যমে প্রজেক্ট সফল সমাপ্তি।">
                 High-resolution deliverables delivered in all platform aspect ratios (9:16, 1:1, 16:9) along with handover docs, source files, and final milestone invoice.
               </p>
             </div>
-            <div class="process-step-num">7</div>
-            <div class="process-step-content">
+            <div class="process-step-content" aria-hidden="true">
               <h3 class="process-step-title" data-en="7. Delivery & Sign-Off" data-bn="৭. ডেলিভারি ও সাইন-অফ">7. Delivery & Sign-Off</h3>
               <p class="process-step-desc" data-en="High-resolution deliverables delivered in all platform aspect ratios (9:16, 1:1, 16:9) along with handover docs, source files, and final milestone invoice." data-bn="সব প্রয়োজনীয় ফরম্যাটে হাই-রেজোলিউশন ফাইনাল ফাইল সরবরাহ, সন্তোষজনক সাইন-অফ এবং চূড়ান্ত ইনভয়েস নিষ্পত্তির মাধ্যমে প্রজেক্ট সফল সমাপ্তি।">
                 High-resolution deliverables delivered in all platform aspect ratios (9:16, 1:1, 16:9) along with handover docs, source files, and final milestone invoice.
@@ -802,14 +1039,19 @@
     </section>
 
     <!-- ============================================================
-         About Section
+         About Section (Dark Navy #0f172a)
          ============================================================ -->
     <section id="about" class="section">
       <div class="container">
         <div class="about-grid">
           <div class="about-info">
-            <span class="about-label" data-en="About VisualFizz" data-bn="আমাদের সম্পর্কে">About VisualFizz</span>
-            <h2 class="about-title" data-en="Rooted in Dhaka. Story-First AI Creative." data-bn="ঢাকায় সূচনা। গল্পভিত্তিক এআই ক্রিয়েটিভ নির্মাণ।">Rooted in Dhaka. Story-First AI Creative.</h2>
+            <span class="about-label" data-en="About VisualFizz" data-bn="আমাদের সম্পর্কে">
+              <i data-lucide="info"></i>
+              <span>About VisualFizz</span>
+            </span>
+            <h2 class="about-title" data-en="Rooted in Dhaka. Story-First AI <em class='serif-accent'>Creative.</em>" data-bn="ঢাকায় সূচনা। গল্পভিত্তিক এআই ক্রিয়েটিভ <em class='serif-accent'>নির্মাণ।</em>">
+              Rooted in Dhaka. Story-First AI <em class="serif-accent">Creative.</em>
+            </h2>
             <p class="about-text" data-en="VisualFizz is a creative advertising, AI video, and digital marketing agency founded in Dhaka, Bangladesh by Md Ayub Mondol. We are strictly a creative agency — not a training academy, not a course website. Our mission is turning ambitious ideas into commercially potent visual impact." data-bn="ভিজ্যুয়ালফিজ ঢাকাভিত্তিক একটি ক্রিয়েটিভ অ্যাডভার্টাইজিং, এআই ভিডিও এবং ডিজিটাল মার্কেটিং এজেন্সি—যার প্রতিষ্ঠাতা মো. আইয়ুব মন্ডল। এটি কোনো ট্রেনিং একাডেমি বা কোর্স প্ল্যাটফর্ম নয়, বরং একটি পরিপূর্ণ পেশাদার ক্রিয়েটিভ এজেন্সি।">
               VisualFizz is a creative advertising, AI video, and digital marketing agency founded in Dhaka, Bangladesh by Md Ayub Mondol. We are strictly a creative agency — not a training academy, not a course website. Our mission is turning ambitious ideas into commercially potent visual impact.
             </p>
@@ -822,12 +1064,17 @@
 
             <div class="about-links">
               <a href="https://www.behance.net/mdayubmondol0" target="_blank" rel="noopener noreferrer" class="about-link">
-                <span>Behance Portfolio ↗</span>
+                <i data-lucide="palette"></i>
+                <span>Behance Portfolio</span>
+                <i data-lucide="arrow-up-right"></i>
               </a>
               <a href="https://mdayubmondol.com" target="_blank" rel="noopener noreferrer" class="about-link">
-                <span>Founder Website ↗</span>
+                <i data-lucide="globe"></i>
+                <span>Founder Website</span>
+                <i data-lucide="arrow-up-right"></i>
               </a>
               <a href="https://wa.me/8801886588884" target="_blank" rel="noopener noreferrer" class="about-link">
+                <i data-lucide="phone"></i>
                 <span>WhatsApp: +880 18865 88884</span>
               </a>
             </div>
@@ -839,7 +1086,7 @@
 
           <div class="about-visual">
             <div class="about-stat-card">
-              <span class="about-stat-icon" aria-hidden="true">🎯</span>
+              <div class="about-stat-icon-tile" aria-hidden="true"><i data-lucide="target"></i></div>
               <div>
                 <div class="about-stat-label" data-en="Design Leadership" data-bn="ডিজাইন অভিজ্ঞতা">Design Leadership</div>
                 <div class="about-stat-value" data-en="7+ Years Professional Experience (Sr. Visualizer, Edison Group)" data-bn="৭+ বছরের পেশাদার অভিজ্ঞতা (সিনিয়র ভিজ্যুয়ালাইজার, এডিসন গ্রুপ)">7+ Years Professional Experience (Sr. Visualizer, Edison Group)</div>
@@ -847,7 +1094,7 @@
             </div>
 
             <div class="about-stat-card">
-              <span class="about-stat-icon" aria-hidden="true">💡</span>
+              <div class="about-stat-icon-tile" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
               <div>
                 <div class="about-stat-label" data-en="Operating Philosophy" data-bn="কাজের দর্শন">Operating Philosophy</div>
                 <div class="about-stat-value" data-en="Story-First AI: Directed by Human Artists, Accelerated by AI" data-bn="স্টোরি-ফার্স্ট এআই: মানুষের শিল্পভাবনা ও এআই প্রযুক্তির মেলবন্ধন">Story-First AI: Directed by Human Artists, Accelerated by AI</div>
@@ -855,7 +1102,7 @@
             </div>
 
             <div class="about-stat-card">
-              <span class="about-stat-icon" aria-hidden="true">🌏</span>
+              <div class="about-stat-icon-tile" aria-hidden="true"><i data-lucide="globe-2"></i></div>
               <div>
                 <div class="about-stat-label" data-en="Dhaka Advantage" data-bn="আন্তর্জাতিক সুবিধা">Dhaka Advantage</div>
                 <div class="about-stat-value" data-en="Global Quality at South Asian Production Economics (BDT & USD)" data-bn="আন্তর্জাতিক মানের কাজ ও সাশ্রয়ী প্রোডাকশন সুবিধা (টাকা ও ডলার)">Global Quality at South Asian Production Economics (BDT & USD)</div>
@@ -863,7 +1110,7 @@
             </div>
 
             <div class="about-stat-card">
-              <span class="about-stat-icon" aria-hidden="true">🛡️</span>
+              <div class="about-stat-icon-tile" aria-hidden="true"><i data-lucide="shield-check"></i></div>
               <div>
                 <div class="about-stat-label" data-en="Working Guarantee" data-bn="কাজের নিশ্চয়তা">Working Guarantee</div>
                 <div class="about-stat-value" data-en="Written Quotation · 50% Deposit · 2–3 Revision Rounds" data-bn="লিখিত কোটেশন · ৫০% ডিপোজিট · ২–৩ রাউন্ড রিভিশন">Written Quotation · 50% Deposit · 2–3 Revision Rounds</div>
@@ -880,8 +1127,13 @@
     <section id="faq" class="section">
       <div class="container">
         <div class="text-center">
-          <span class="section-label" data-en="Common Questions" data-bn="প্রশ্নোত্তর">Common Questions</span>
-          <h2 class="section-title" data-en="Frequently Asked Questions" data-bn="প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী">Frequently Asked Questions</h2>
+          <span class="section-label" data-en="Common Questions" data-bn="প্রশ্নোত্তর">
+            <i data-lucide="help-circle"></i>
+            <span>Common Questions</span>
+          </span>
+          <h2 class="section-title" data-en="Frequently Asked <em class='serif-accent'>Questions</em>" data-bn="প্রায়শই জিজ্ঞাসিত <em class='serif-accent'>প্রশ্নাবলী</em>">
+            Frequently Asked <em class="serif-accent">Questions</em>
+          </h2>
           <p class="section-desc" data-en="Clear, transparent answers about our AI video pricing, production timelines, international billing, and client onboarding." data-bn="আমাদের এআই ভিডিও প্রাইসিং, ডেলিভারি সময়সীমা, আন্তর্জাতিক ক্লায়েন্ট বিলিং ও কাজের নিয়ম সম্পর্কে বিস্তারিত জানুন।">
             Clear, transparent answers about our AI video pricing, production timelines, international billing, and client onboarding.
           </p>
@@ -892,7 +1144,7 @@
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span data-en="How much does an AI video cost?" data-bn="একটি এআই ভিডিও তৈরিতে কত খরচ হয়?">How much does an AI video cost?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
@@ -907,7 +1159,7 @@
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span data-en="How long does delivery take?" data-bn="ডেলিভারি পেতে কতদিন সময় লাগে?">How long does delivery take?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
@@ -922,7 +1174,7 @@
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span data-en="Do you work with international clients?" data-bn="আপনারা কি আন্তর্জাতিক ক্লায়েন্টদের সাথে কাজ করেন?">Do you work with international clients?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
@@ -937,7 +1189,7 @@
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span data-en="How do we start?" data-bn="কাজের প্রক্রিয়া কীভাবে শুরু হয়?">How do we start?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
@@ -952,7 +1204,7 @@
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span data-en="What is included in each tier?" data-bn="মিডিয়াম ও প্রিমিয়াম টিয়ারের মধ্যে পার্থক্য কী?">What is included in each tier?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
@@ -967,7 +1219,7 @@
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">
               <span data-en="Do you offer revisions?" data-bn="আপনারা কি কাজের সংশোধনের সুযোগ দেন?">Do you offer revisions?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
+              <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
@@ -988,8 +1240,13 @@
       <div class="container">
         <div class="lead-magnet-inner">
           <div>
-            <span class="lead-magnet-label" data-en="Complimentary Value" data-bn="বিশেষ অফার">Complimentary Value</span>
-            <h2 class="lead-magnet-title" data-en="Get a Free AI Ad Audit for Your Brand" data-bn="আপনার ব্র্যান্ডের জন্য ফ্রি এআই অ্যাড অডিট নিন">Get a Free AI Ad Audit for Your Brand</h2>
+            <span class="lead-magnet-label" data-en="Complimentary Value" data-bn="বিশেষ অফার">
+              <i data-lucide="gift"></i>
+              <span>Complimentary Value</span>
+            </span>
+            <h2 class="lead-magnet-title" data-en="Get a Free AI Ad <em class='serif-accent'>Audit</em> for Your Brand" data-bn="আপনার ব্র্যান্ডের জন্য ফ্রি এআই অ্যাড <em class='serif-accent'>অডিট</em> নিন">
+              Get a Free AI Ad <em class="serif-accent">Audit</em> for Your Brand
+            </h2>
             <p class="lead-magnet-desc" data-en="Discover how directed AI video and multi-variant creative testing can reduce your customer acquisition costs. Tell us about your brand to receive a customized 5-point creative opportunities breakdown within 5 business days." data-bn="জানুন কীভাবে এআই ভিডিও ও মাল্টি-ভ্যারিয়েন্ট ক্রিয়েটিভ টেস্ট আপনার ক্যাম্পেইনের খরচ কমাতে পারে। আপনার ব্র্যান্ডের তথ্য দিন এবং ৫ কর্মদিবসের মধ্যে ৫-পয়েন্ট ক্রিয়েটিভ অডিট রিপোর্ট পান।">
               Discover how directed AI video and multi-variant creative testing can reduce your customer acquisition costs. Tell us about your brand to receive a customized 5-point creative opportunities breakdown within 5 business days.
             </p>
@@ -1015,8 +1272,11 @@
                 <label class="form-label" for="lmWebsite" data-en="Website or Social Page URL" data-bn="ওয়েবসাইট বা সোশ্যাল পেজের লিংক">Website or Social Page URL</label>
                 <input type="url" id="lmWebsite" name="website" class="form-input" required placeholder="https://yourwebsite.com" data-en-placeholder="https://yourwebsite.com" data-bn-placeholder="https://yourwebsite.com">
               </div>
-              <button type="submit" class="form-submit" data-en="Request Free AI Ad Audit" data-bn="ফ্রি এআই অ্যাড অডিট রিকোয়েস্ট করুন">Request Free AI Ad Audit</button>
-              
+              <button type="submit" class="form-submit" data-en="Request Free AI Ad Audit" data-bn="ফ্রি এআই অ্যাড অডিট রিকোয়েস্ট করুন">
+                <span>Request Free AI Ad Audit</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+
               <div class="form-success" id="lmSuccess" role="alert">
                 <div class="form-success-title" data-en="Audit Request Received!" data-bn="অডিট রিকোয়েস্ট গৃহীত হয়েছে!">Audit Request Received!</div>
                 <div class="form-success-note" data-en="Thank you! This website front-end is fully prepared. Note: backend email delivery will be wired up in deployment. For immediate priority, reach founder Md Ayub Mondol on WhatsApp: +880 18865 88884." data-bn="ধন্যবাদ! এটি একটি ফ্রন্ট-এন্ড ডেমো—পরবর্তীতে ইমেইল ব্যাকএন্ড সংযুক্ত করা হবে। তাৎক্ষণিক যোগাযোগে প্রতিষ্ঠাতা মো. আইয়ুব মন্ডলের হোয়াটসঅ্যাপে মেসেজ দিন: +880 18865 88884।">
@@ -1036,8 +1296,13 @@
       <div class="container">
         <div class="contact-grid">
           <div>
-            <span class="section-label" data-en="Get in Touch" data-bn="যোগাযোগ">Get in Touch</span>
-            <h2 class="section-title" data-en="Let's Turn Your Ideas Into Impact." data-bn="চলুন আপনার আইডিয়াকে বাস্তবে রূপ দিই।">Let's Turn Your Ideas Into Impact.</h2>
+            <span class="section-label" data-en="Get in Touch" data-bn="যোগাযোগ">
+              <i data-lucide="message-square"></i>
+              <span>Get in Touch</span>
+            </span>
+            <h2 class="section-title" data-en="Let's Turn Your Ideas Into <em class='serif-accent'>Impact.</em>" data-bn="চলুন আপনার আইডিয়াকে বাস্তবে রূপ <em class='serif-accent'>দিই।</em>">
+              Let's Turn Your Ideas Into <em class="serif-accent">Impact.</em>
+            </h2>
             <p class="section-desc" data-en="Whether you need a single directed commercial or ongoing creative campaign support, let's talk. We provide written quotations within 48 hours." data-bn="একটি সিঙ্গেল বিজ্ঞাপন হোক কিংবা নিয়মিত ক্যাম্পেইন—আপনার পরিকল্পনা নিয়ে আলোচনা করতে যোগাযোগ করুন। আমরা ৪৮ ঘণ্টার মধ্যে বিস্তারিত কোটেশন দেব।">
               Whether you need a single directed commercial or ongoing creative campaign support, let's talk. We provide written quotations within 48 hours.
             </p>
@@ -1045,7 +1310,7 @@
             <h3 class="contact-info-title" data-en="Direct Channels" data-bn="সরাসরি যোগাযোগের মাধ্যম">Direct Channels</h3>
             <div class="contact-info-items">
               <div class="contact-info-item">
-                <span class="contact-info-icon" aria-hidden="true">💬</span>
+                <div class="contact-info-icon-tile" aria-hidden="true"><i data-lucide="phone"></i></div>
                 <div>
                   <div class="contact-info-label" data-en="WhatsApp / Phone" data-bn="হোয়াটসঅ্যাপ / ফোন">WhatsApp / Phone</div>
                   <div class="contact-info-value">
@@ -1055,7 +1320,7 @@
               </div>
 
               <div class="contact-info-item">
-                <span class="contact-info-icon" aria-hidden="true">✉️</span>
+                <div class="contact-info-icon-tile" aria-hidden="true"><i data-lucide="mail"></i></div>
                 <div>
                   <div class="contact-info-label" data-en="Direct Email" data-bn="ইমেইল">Direct Email</div>
                   <div class="contact-info-value">
@@ -1065,7 +1330,7 @@
               </div>
 
               <div class="contact-info-item">
-                <span class="contact-info-icon" aria-hidden="true">📍</span>
+                <div class="contact-info-icon-tile" aria-hidden="true"><i data-lucide="map-pin"></i></div>
                 <div>
                   <div class="contact-info-label" data-en="Studio Location" data-bn="স্টুডিও লোকেশন">Studio Location</div>
                   <div class="contact-info-value" data-en="Dhaka, Bangladesh" data-bn="ঢাকা, বাংলাদেশ">
@@ -1075,7 +1340,7 @@
               </div>
 
               <div class="contact-info-item">
-                <span class="contact-info-icon" aria-hidden="true">🎨</span>
+                <div class="contact-info-icon-tile" aria-hidden="true"><i data-lucide="palette"></i></div>
                 <div>
                   <div class="contact-info-label" data-en="Founder Portfolio" data-bn="প্রতিষ্ঠাতার পোর্টফোলিও">Founder Portfolio</div>
                   <div class="contact-info-value">
@@ -1085,8 +1350,9 @@
               </div>
             </div>
 
-            <a href="https://wa.me/8801886588884" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp mt-md" data-en="💬 Chat on WhatsApp (+880 18865 88884)" data-bn="💬 হোয়াটসঅ্যাপে কথা বলুন (+880 18865 88884)">
-              💬 Chat on WhatsApp (+880 18865 88884)
+            <a href="https://wa.me/8801886588884" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp mt-md">
+              <i data-lucide="message-circle"></i>
+              <span data-en="Chat on WhatsApp (+880 18865 88884)" data-bn="হোয়াটসঅ্যাপে কথা বলুন (+880 18865 88884)">Chat on WhatsApp (+880 18865 88884)</span>
             </a>
           </div>
 
@@ -1130,7 +1396,10 @@
                 <textarea id="contactMessage" name="message" class="form-textarea" required placeholder="Tell us about your brand, target audience, preferred duration, and timeline..." data-en-placeholder="Tell us about your brand, target audience, preferred duration, and timeline..." data-bn-placeholder="আপনার ব্র্যান্ড, কাঙ্ক্ষিত সময়সীমা ও লক্ষ্য সম্পর্কে সংক্ষেপে লিখুন..."></textarea>
               </div>
 
-              <button type="submit" class="form-submit" data-en="Send Message & Request Proposal" data-bn="মেসেজ পাঠান ও প্রস্তাবনা চান">Send Message & Request Proposal</button>
+              <button type="submit" class="form-submit" data-en="Send Message & Request Proposal" data-bn="মেসেজ পাঠান ও প্রস্তাবনা চান">
+                <span>Send Message & Request Proposal</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
 
               <div class="form-success" id="contactSuccess" role="alert">
                 <div class="form-success-title" data-en="Thank You! Message Captured." data-bn="ধন্যবাদ! আপনার মেসেজটি গৃহীত হয়েছে।">Thank You! Message Captured.</div>
@@ -1158,10 +1427,10 @@
             Ideas Into Impact. Creative advertising, AI video, and digital marketing agency based in Dhaka, Bangladesh. Directed with human craft, accelerated with AI.
           </p>
           <div class="footer-social">
-            <a href="https://www.behance.net/mdayubmondol0" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Behance Profile">Be</a>
-            <a href="https://www.facebook.com/hellomdayub" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Founder Facebook Profile">Fb</a>
-            <a href="https://mdayubmondol.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Founder Portfolio Website">Web</a>
-            <a href="https://wa.me/8801886588884" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp Contact">Wa</a>
+            <a href="https://www.behance.net/mdayubmondol0" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Behance Profile"><i data-lucide="palette"></i></a>
+            <a href="https://www.facebook.com/hellomdayub" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Founder Facebook Profile"><i data-lucide="facebook"></i></a>
+            <a href="https://mdayubmondol.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Founder Portfolio Website"><i data-lucide="globe"></i></a>
+            <a href="https://wa.me/8801886588884" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp Contact"><i data-lucide="phone"></i></a>
           </div>
         </div>
 
@@ -1199,23 +1468,23 @@
           <div class="footer-col-title" data-en="Direct Contact" data-bn="যোগাযোগ">Direct Contact</div>
           <div class="footer-contact-items">
             <div class="footer-contact-item">
-              <span aria-hidden="true">💬</span>
+              <i data-lucide="phone"></i>
               <a href="https://wa.me/8801886588884" target="_blank" rel="noopener noreferrer">+880 18865 88884</a>
             </div>
             <div class="footer-contact-item">
-              <span aria-hidden="true">✉️</span>
+              <i data-lucide="mail"></i>
               <a href="mailto:hellomdayub@gmail.com">hellomdayub@gmail.com</a>
             </div>
             <div class="footer-contact-item">
-              <span aria-hidden="true">📍</span>
+              <i data-lucide="map-pin"></i>
               <span data-en="Dhaka, Bangladesh" data-bn="ঢাকা, বাংলাদেশ">Dhaka, Bangladesh</span>
             </div>
             <div class="footer-contact-item">
-              <span aria-hidden="true">👤</span>
+              <i data-lucide="user"></i>
               <span data-en="Founder: Md Ayub Mondol" data-bn="প্রতিষ্ঠাতা: মো. আইয়ুব মন্ডল">Founder: Md Ayub Mondol</span>
             </div>
             <div class="footer-contact-item">
-              <span aria-hidden="true">🏢</span>
+              <i data-lucide="briefcase"></i>
               <span data-en="Sr. Visualizer, Edison Group" data-bn="সিনিয়র ভিজ্যুয়ালাইজার, এডিসন গ্রুপ">Sr. Visualizer, Edison Group</span>
             </div>
           </div>

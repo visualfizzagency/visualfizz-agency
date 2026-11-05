@@ -24,6 +24,37 @@ const DEFAULT_PASSCODE = 'visualfizz2026';
 let currentAdminLang = 'en';
 let adminContent = null;
 
+function refreshIcons() {
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    try {
+      lucide.createIcons();
+    } catch (e) {
+      console.debug('Lucide createIcons error in admin:', e);
+    }
+  }
+}
+
+function getAdminCategoryIcon(cat, title) {
+  if (title) {
+    const lower = title.toLowerCase();
+    if (lower.includes('phone') || lower.includes('smartphone')) return 'smartphone';
+    if (lower.includes('fifa') || lower.includes('world cup') || lower.includes('match')) return 'trophy';
+    if (lower.includes('bike')) return 'zap';
+    if (lower.includes('billboard') || lower.includes('helio')) return 'building-2';
+    if (lower.includes('reels') || lower.includes('editing')) return 'film';
+    if (lower.includes('global') || lower.includes('horizons')) return 'globe';
+    if (lower.includes('women')) return 'sparkles';
+    if (lower.includes('football') || lower.includes('national')) return 'flag';
+    if (lower.includes('typography')) return 'type';
+    if (lower.includes('expo') || lower.includes('australia')) return 'graduation-cap';
+  }
+  if (cat === 'social') return 'smartphone';
+  if (cat === 'branding') return 'palette';
+  if (cat === 'video') return 'film';
+  if (cat === 'campaign') return 'trophy';
+  return 'sparkles';
+}
+
 // ============================================================
 // Utilities & Helpers
 // ============================================================
@@ -59,12 +90,25 @@ function isValidPriceNumber(val) {
 function showToast(message, isError = false) {
   const toast = document.getElementById('adminToast');
   const toastText = document.getElementById('adminToastText');
+  const toastIcon = document.getElementById('adminToastIcon');
   if (!toast || !toastText) return;
 
   toastText.textContent = message;
   toast.style.background = isError ? 'var(--danger-light)' : 'var(--success-light)';
   toast.style.borderColor = isError ? 'rgba(220,38,38,0.3)' : 'rgba(22,163,74,0.3)';
   toast.style.color = isError ? 'var(--danger)' : 'var(--success)';
+
+  if (toastIcon) {
+    toastIcon.setAttribute('data-lucide', isError ? 'alert-circle' : 'check');
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      try {
+        lucide.createIcons();
+      } catch (e) {
+        console.debug('Lucide createIcons error in toast:', e);
+      }
+    }
+  }
+
   toast.classList.add('visible');
 
   clearTimeout(toast._timer);
@@ -100,7 +144,12 @@ function setAdminLanguage(lang) {
   document.querySelectorAll('[data-en][data-bn]').forEach(el => {
     const text = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
     if (text !== null) {
-      el.textContent = text;
+      const span = el.querySelector('span');
+      if (span && el.querySelector('i[data-lucide], svg.lucide')) {
+        span.textContent = text;
+      } else {
+        el.textContent = text;
+      }
     }
   });
 
@@ -112,6 +161,7 @@ function setAdminLanguage(lang) {
     renderServicesEditor();
     renderFaqList();
   }
+  refreshIcons();
 }
 
 function getInitialAdminLanguage() {
@@ -165,6 +215,7 @@ function initAuthHandlers() {
         if (errorEl) errorEl.classList.remove('visible');
         sessionStorage.setItem('vf_admin_auth', 'true');
         checkAuthStatus();
+  refreshIcons();
       } else {
         if (errorEl) {
           errorEl.classList.add('visible');
@@ -182,6 +233,7 @@ function initAuthHandlers() {
       sessionStorage.removeItem('vf_admin_auth');
       if (passcodeEl) passcodeEl.value = '';
       checkAuthStatus();
+  refreshIcons();
     });
   }
 }
@@ -225,8 +277,8 @@ function saveAdminContent(showSuccessToast = true) {
 
     if (showSuccessToast) {
       const msg = currentAdminLang === 'bn'
-        ? '✓ পরিবর্তনসমূহ সংরক্ষিত হয়েছে! মূল সাইট তাৎক্ষণিকভাবে এই পরিবর্তন প্রদর্শন করবে। সকল ভিজিটরের জন্য সার্ভারে content.json ফাইলটি আপডেট করুন।'
-        : '✓ Changes saved to localStorage! Main site will reflect changes immediately in this browser. To make changes live for all visitors, replace content.json on your server with the downloaded file.';
+        ? 'পরিবর্তনসমূহ সংরক্ষিত হয়েছে! মূল সাইট তাৎক্ষণিকভাবে এই পরিবর্তন প্রদর্শন করবে। সকল ভিজিটরের জন্য সার্ভারে content.json ফাইলটি আপডেট করুন।'
+        : 'Changes saved to localStorage! Main site will reflect changes immediately in this browser. To make changes live for all visitors, replace content.json on your server with the downloaded file.';
       showToast(msg);
     }
   } catch (e) {
@@ -260,7 +312,7 @@ function copyContentJson() {
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(jsonStr).then(() => {
-      showToast(currentAdminLang === 'bn' ? '✓ সম্পূর্ণ JSON ক্লিপবোর্ডে কপি হয়েছে।' : '✓ Full JSON copied to clipboard!');
+      showToast(currentAdminLang === 'bn' ? 'সম্পূর্ণ JSON ক্লিপবোর্ডে কপি হয়েছে।' : 'Full JSON copied to clipboard!');
     }).catch(() => {
       fallbackCopy(jsonStr);
     });
@@ -278,7 +330,7 @@ function fallbackCopy(text) {
   ta.select();
   try {
     document.execCommand('copy');
-    showToast(currentAdminLang === 'bn' ? '✓ সম্পূর্ণ JSON ক্লিপবোর্ডে কপি হয়েছে।' : '✓ Full JSON copied to clipboard!');
+    showToast(currentAdminLang === 'bn' ? 'সম্পূর্ণ JSON ক্লিপবোর্ডে কপি হয়েছে।' : 'Full JSON copied to clipboard!');
   } catch (e) {
     showToast('Could not copy JSON: ' + e.message, true);
   }
@@ -297,7 +349,7 @@ async function resetToDefaults() {
     if (res.ok) {
       adminContent = await res.json();
       populateDashboardFields();
-      showToast(currentAdminLang === 'bn' ? '✓ সাইট ডিফল্টে রিসেট সফল হয়েছে।' : '✓ Reset to site defaults completed.');
+      showToast(currentAdminLang === 'bn' ? 'সাইট ডিফল্টে রিসেট সফল হয়েছে।' : 'Reset to site defaults completed.');
     }
   } catch (e) {
     showToast('Failed to reset defaults: ' + e.message, true);
@@ -332,6 +384,7 @@ function initTabNavigation() {
       const activePanel = document.getElementById(panelId) || document.getElementById(`panel${targetTab}`);
       if (activePanel) {
         activePanel.classList.add('active');
+        refreshIcons();
       }
     });
   });
@@ -363,9 +416,10 @@ function renderPortfolioTable() {
     const dateBn = p.date ? (typeof p.date === 'string' ? p.date : (p.date.bn || dateEn)) : '';
 
     const isImage = p.image && (p.image.startsWith('http://') || p.image.startsWith('https://') || p.image.startsWith('data:') || p.image.startsWith('/') || p.image.startsWith('assets/'));
+    const iconName = getAdminCategoryIcon(cat, titleEn);
     const coverHtml = isImage
-      ? `<img src="${escapeAttr(p.image)}" alt="" style="width:36px;height:36px;object-fit:cover;border-radius:6px;">`
-      : `<span style="font-size:1.6rem;line-height:1;">${escapeHtml(p.image || '🎨')}</span>`;
+      ? `<img src="${escapeAttr(p.image)}" alt="" style="width:36px;height:36px;object-fit:cover;border-radius:8px;">`
+      : `<span class="admin-icon-tile-sm"><i data-lucide="${iconName}"></i></span>`;
 
     return `
       <tr data-index="${index}">
@@ -377,21 +431,23 @@ function renderPortfolioTable() {
         <td><span class="badge-cat">${escapeHtml(catText)}</span></td>
         <td style="font-size:0.85rem;white-space:nowrap;">${escapeHtml(currentAdminLang === 'bn' ? dateBn : dateEn)}</td>
         <td>
-          <a href="${escapeAttr(p.behanceUrl || '#')}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;" title="${escapeAttr(p.behanceUrl || '')}">
-            Behance ↗
+          <a href="${escapeAttr(p.behanceUrl || '#')}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;display:inline-flex;align-items:center;gap:4px;" title="${escapeAttr(p.behanceUrl || '')}">
+            <span>Behance</span> <i data-lucide="external-link" style="width:12px;height:12px;"></i>
           </a>
         </td>
         <td style="text-align:right;white-space:nowrap;">
           <button type="button" class="btn-secondary btn-sm edit-project-btn" data-index="${index}" style="margin-right:6px;" data-en="Edit" data-bn="সম্পাদনা">
-            ${currentAdminLang === 'bn' ? 'সম্পাদনা' : 'Edit'}
+            <i data-lucide="pencil" style="width:13px;height:13px;"></i> <span>${currentAdminLang === 'bn' ? 'সম্পাদনা' : 'Edit'}</span>
           </button>
           <button type="button" class="btn-danger btn-sm delete-project-btn" data-index="${index}" data-en="Delete" data-bn="মুছুন">
-            ${currentAdminLang === 'bn' ? 'মুছুন' : 'Delete'}
+            <i data-lucide="trash-2" style="width:13px;height:13px;"></i> <span>${currentAdminLang === 'bn' ? 'মুছুন' : 'Delete'}</span>
           </button>
         </td>
       </tr>
     `;
   }).join('');
+
+  refreshIcons();
 }
 
 function initPortfolioHandlers() {
@@ -421,7 +477,7 @@ function initPortfolioHandlers() {
     document.getElementById('projectDateEn').value = project ? (typeof project.date === 'string' ? project.date : (project.date.en || '')) : '';
     document.getElementById('projectDateBn').value = project ? (typeof project.date === 'string' ? project.date : (project.date.bn || '')) : '';
     document.getElementById('projectBehanceUrl').value = project ? (project.behanceUrl || '') : '';
-    document.getElementById('projectImage').value = project ? (project.image || '') : '📱';
+    document.getElementById('projectImage').value = project ? (project.image || '') : 'smartphone';
 
     modal.classList.add('open');
   }
@@ -472,7 +528,7 @@ function initPortfolioHandlers() {
       const dateEn = document.getElementById('projectDateEn').value.trim();
       const dateBn = document.getElementById('projectDateBn').value.trim() || dateEn;
       const behanceUrl = document.getElementById('projectBehanceUrl').value.trim();
-      const image = document.getElementById('projectImage').value.trim() || '📱';
+      const image = document.getElementById('projectImage').value.trim() || 'smartphone';
 
       if (!titleEn) {
         alert(currentAdminLang === 'bn' ? 'অনুগ্রহ করে ইংরেজি শিরোনাম দিন।' : 'Please enter an English title.');
@@ -706,7 +762,7 @@ function renderServicesEditor() {
     return `
       <div class="service-editor-item" data-svc-idx="${idx}">
         <div class="service-editor-header">
-          <input type="text" class="form-input svc-icon" value="${escapeAttr(s.icon || '🎬')}" style="width:50px;text-align:center;">
+          <input type="text" class="form-input svc-icon" value="${escapeAttr(s.icon || 'clapperboard')}" style="width:130px;text-align:left;">
           <strong>Service ${idx + 1}: ${escapeHtml(nameEn)} (${escapeHtml(nameBn)})</strong>
         </div>
 
@@ -776,7 +832,7 @@ function initServicesHandlers() {
     const items = document.querySelectorAll('#servicesEditorContainer .service-editor-item');
     items.forEach((item, idx) => {
       if (adminContent.services[idx]) {
-        const icon = item.querySelector('.svc-icon').value.trim() || '🎬';
+        const icon = item.querySelector('.svc-icon').value.trim() || 'clapperboard';
         const nameEn = item.querySelector('.svc-name-en').value.trim();
         const nameBn = item.querySelector('.svc-name-bn').value.trim() || nameEn;
         const probEn = item.querySelector('.svc-prob-en').value.trim();
@@ -839,10 +895,10 @@ function renderFaqList() {
           </div>
           <div style="white-space:nowrap;">
             <button type="button" class="btn-secondary btn-sm edit-faq-btn" data-index="${idx}" style="margin-right:6px;" data-en="Edit" data-bn="সম্পাদনা">
-              ${currentAdminLang === 'bn' ? 'সম্পাদনা' : 'Edit'}
+              <i data-lucide="pencil" style="width:13px;height:13px;"></i> <span>${currentAdminLang === 'bn' ? 'সম্পাদনা' : 'Edit'}</span>
             </button>
             <button type="button" class="btn-danger btn-sm delete-faq-btn" data-index="${idx}" data-en="Delete" data-bn="মুছুন">
-              ${currentAdminLang === 'bn' ? 'মুছুন' : 'Delete'}
+              <i data-lucide="trash-2" style="width:13px;height:13px;"></i> <span>${currentAdminLang === 'bn' ? 'মুছুন' : 'Delete'}</span>
             </button>
           </div>
         </div>
@@ -852,6 +908,8 @@ function renderFaqList() {
       </div>
     `;
   }).join('');
+
+  refreshIcons();
 }
 
 function initFaqHandlers() {
@@ -1084,6 +1142,7 @@ function initAdmin() {
   initGlobalActions();
 
   checkAuthStatus();
+  refreshIcons();
 }
 
 if (document.readyState === 'loading') {

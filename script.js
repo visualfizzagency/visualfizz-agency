@@ -124,11 +124,116 @@ function formatCurrency(amount, currency) {
 })();
 
 // ============================================================
-// State Management
+// State Management & Icons
 // ============================================================
 
 let currentLang = 'en';
 let currentCurrency = 'BDT';
+
+function refreshIcons() {
+  const run = () => {
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      try {
+        const iconsObj = lucide.icons ? { ...lucide.icons } : {};
+        if (!iconsObj.Facebook && !iconsObj.facebook) {
+          const fbDef = [["path", { d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" }]];
+          iconsObj.Facebook = fbDef;
+          iconsObj.facebook = fbDef;
+        }
+        lucide.createIcons({
+          icons: Object.keys(iconsObj).length ? iconsObj : undefined
+        });
+      } catch (e) {
+        console.debug('Lucide createIcons error:', e);
+      }
+    }
+  };
+
+  run();
+  if (typeof lucide === 'undefined') {
+    window.addEventListener('DOMContentLoaded', run, { once: true });
+    window.addEventListener('load', run, { once: true });
+  }
+}
+
+const serviceIconMap = {
+  'ai-video': 'clapperboard',
+  'ai-ads': 'sparkles',
+  'graphic-design': 'pen-tool',
+  'branding': 'palette',
+  'web-dev': 'globe',
+  'video-editing': 'film',
+  'digital-marketing': 'megaphone'
+};
+
+function getServiceIcon(serviceId, fallback) {
+  if (serviceId && serviceIconMap[serviceId]) return serviceIconMap[serviceId];
+  if (fallback) {
+    if (fallback.includes('\u{1F3AC}')) return 'clapperboard';
+    if (fallback.includes('\u{26A1}')) return 'sparkles';
+    if (fallback.includes('\u{1F3A8}')) return 'pen-tool';
+    if (fallback.includes('\u{1F48E}')) return 'palette';
+    if (fallback.includes('\u{1F310}')) return 'globe';
+    if (fallback.includes('\u{2702}')) return 'film';
+    if (fallback.includes('\u{1F4C8}')) return 'megaphone';
+    return fallback;
+  }
+  return 'sparkles';
+}
+
+const legacyPortfolioEmojiMap = {
+  '\u{1F4F1}': 'smartphone',
+  '\u{1F4F2}': 'smartphone',
+  '\u{26BD}': 'trophy',
+  '\u{1F3CD}': 'bike',
+  '\u{1F3C6}': 'trophy',
+  '\u{1F3D9}': 'building-2',
+  '\u{1F3AC}': 'clapperboard',
+  '\u{1F30F}': 'globe',
+  '\u{1F338}': 'flower-2',
+  '\u{1F1E7}\u{1F1E9}': 'flag',
+  '\u{1F3A8}': 'pen-tool',
+  '\u{1F393}': 'graduation-cap',
+  '\u{26A1}': 'sparkles',
+  '\u{1F48E}': 'palette',
+  '\u{1F310}': 'globe',
+  '\u{2702}': 'film',
+  '\u{1F4C8}': 'megaphone'
+};
+
+function getPortfolioIcon(imgField, cat, itemTitle) {
+  if (imgField && typeof imgField === 'string') {
+    const trimmed = imgField.trim();
+    for (const [em, name] of Object.entries(legacyPortfolioEmojiMap)) {
+      if (trimmed.includes(em)) return name;
+    }
+    if (/^[a-z0-9-]+$/i.test(trimmed)) {
+      return trimmed.toLowerCase();
+    }
+  }
+  return getCategoryIcon(cat, itemTitle);
+}
+
+function getCategoryIcon(cat, itemTitle) {
+  if (itemTitle) {
+    const lower = itemTitle.toLowerCase();
+    if (lower.includes('phone') || lower.includes('smartphone')) return 'smartphone';
+    if (lower.includes('fifa') || lower.includes('world cup') || lower.includes('match')) return 'trophy';
+    if (lower.includes('bike')) return 'bike';
+    if (lower.includes('billboard') || lower.includes('helio')) return 'building-2';
+    if (lower.includes('reels') || lower.includes('editing')) return 'clapperboard';
+    if (lower.includes('global') || lower.includes('horizons')) return 'globe';
+    if (lower.includes('women')) return 'flower-2';
+    if (lower.includes('football') || lower.includes('national')) return 'flag';
+    if (lower.includes('typography')) return 'pen-tool';
+    if (lower.includes('expo') || lower.includes('australia')) return 'graduation-cap';
+  }
+  if (cat === 'social') return 'smartphone';
+  if (cat === 'branding') return 'palette';
+  if (cat === 'video') return 'film';
+  if (cat === 'campaign') return 'trophy';
+  return 'sparkles';
+}
 
 // ============================================================
 // 2. Language & Currency Toggle Handlers
@@ -146,6 +251,7 @@ function setLanguage(lang) {
   } catch (e) {}
 
   document.documentElement.lang = lang;
+  document.body.classList.toggle('lang-bn', lang === 'bn');
 
   // Update header and mobile language toggles
   const langToggles = [
@@ -161,9 +267,16 @@ function setLanguage(lang) {
 
   // Switch all elements with data-en / data-bn
   document.querySelectorAll('[data-en][data-bn]').forEach(el => {
-    const text = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
+    let text = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
     if (text !== null) {
-      el.textContent = text;
+      if (el.classList.contains('service-timeline')) {
+        const clean = text.replace(/\u23F1\s*/g, '');
+        el.innerHTML = `<i data-lucide="clock"></i> <span>${escapeHtml(clean)}</span>`;
+      } else if (text.includes('<')) {
+        el.innerHTML = text;
+      } else {
+        el.textContent = text;
+      }
     }
   });
 
@@ -176,6 +289,7 @@ function setLanguage(lang) {
   });
 
   updateCalculator();
+  refreshIcons();
 }
 
 /**
@@ -210,6 +324,7 @@ function setCurrency(currency) {
   });
 
   updateCalculator();
+  refreshIcons();
 }
 
 /**
@@ -279,11 +394,17 @@ function renderHeroFromContent(hero) {
   }
   const hTagline = document.querySelector('.hero-tagline');
   if (hTagline && hero.tagline) {
-    const enText = hero.tagline.en || '';
-    const bnText = hero.tagline.bn || enText;
+    let enText = hero.tagline.en || '';
+    let bnText = hero.tagline.bn || enText;
+    if (!enText.includes('<') && enText.includes('Impact')) {
+      enText = enText.replace('Impact', '<em class="serif-accent">Impact</em>');
+    }
+    if (!bnText.includes('<') && bnText.includes('ইম্প্যাক্ট')) {
+      bnText = bnText.replace('ইম্প্যাক্ট', '<em class="serif-accent">ইম্প্যাক্ট</em>');
+    }
     hTagline.setAttribute('data-en', enText);
     hTagline.setAttribute('data-bn', bnText);
-    hTagline.textContent = currentLang === 'bn' ? bnText : enText;
+    hTagline.innerHTML = currentLang === 'bn' ? bnText : enText;
   }
   const hSub = document.querySelector('.hero-subheadline');
   if (hSub && hero.subheadline) {
@@ -320,22 +441,34 @@ function renderServicesFromContent(services) {
     const probBn = s.problem ? (s.problem.bn || probEn) : '';
     const timeEn = s.timeline ? (s.timeline.en || '') : '';
     const timeBn = s.timeline ? (s.timeline.bn || timeEn) : '';
+    const timeDisp = currentLang === 'bn' ? timeBn : timeEn;
+    const cleanTime = timeDisp.replace(/\u23F1\s*/g, '');
+
+    const iconName = getServiceIcon(s.id, s.icon);
 
     return `
       <article class="service-card">
-        <span class="service-icon" aria-hidden="true">${escapeHtml(s.icon || '🎬')}</span>
+        <div class="service-icon-tile" aria-hidden="true">
+          <i data-lucide="${escapeAttr(iconName)}"></i>
+        </div>
         <h3 class="service-name" data-en="${escapeAttr(nameEn)}" data-bn="${escapeAttr(nameBn)}">${escapeHtml(currentLang === 'bn' ? nameBn : nameEn)}</h3>
         <p class="service-problem" data-en="${escapeAttr(probEn)}" data-bn="${escapeAttr(probBn)}">${escapeHtml(currentLang === 'bn' ? probBn : probEn)}</p>
         <ul class="service-inclusions">
           ${inclusionsHtml}
         </ul>
         <div class="service-meta">
-          <span class="service-timeline" data-en="${escapeAttr(timeEn)}" data-bn="${escapeAttr(timeBn)}">${escapeHtml(currentLang === 'bn' ? timeBn : timeEn)}</span>
+          <span class="service-timeline" data-en="${escapeAttr(timeEn)}" data-bn="${escapeAttr(timeBn)}"><i data-lucide="clock"></i> <span>${escapeHtml(cleanTime)}</span></span>
           <span class="service-price" ${sPriceEn ? `data-en="${escapeAttr(sPriceEn)}"` : ''} ${sPriceBn ? `data-bn="${escapeAttr(sPriceBn)}"` : ''} data-bdt="${escapeAttr(sPriceBDT)}" data-usd="${escapeAttr(sPriceUSD)}">${escapeHtml(sPriceDisp)}</span>
         </div>
+        <a href="#contact" class="service-arrow-link">
+          <span data-en="Start a Project" data-bn="প্রজেক্ট শুরু করুন">${currentLang === 'bn' ? 'প্রজেক্ট শুরু করুন' : 'Start a Project'}</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
       </article>
     `;
   }).join('');
+
+  refreshIcons();
 }
 
 function renderPricingFromContent(pricing, pricingNotes) {
@@ -506,18 +639,19 @@ function renderPortfolioFromContent(portfolio) {
     const dateText = currentLang === 'bn' ? dateBn : dateEn;
 
     const isImage = item.image && (item.image.startsWith('http://') || item.image.startsWith('https://') || item.image.startsWith('data:') || item.image.startsWith('/') || item.image.startsWith('./') || item.image.startsWith('assets/'));
-    const bgStyle = isImage ? `style="background-image: url('${escapeAttr(item.image)}');"` : 'aria-hidden="true"';
-    const bgContent = isImage ? '' : escapeHtml(item.image || '🎨');
+    const bgStyle = isImage ? `style="background-image: url('${escapeAttr(item.image)}');"` : '';
+    const iconName = isImage ? '' : getPortfolioIcon(item.image, cat, titleEn);
+    const bgContent = isImage ? '' : `<div class="portfolio-card-icon-tile"><i data-lucide="${escapeAttr(iconName)}"></i></div>`;
 
     return `
       <a href="${escapeAttr(item.behanceUrl || '#')}" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="${escapeAttr(cat)}">
-        <div class="portfolio-card-bg${isImage ? ' has-image' : ''}" ${bgStyle}>${bgContent}</div>
+        <div class="portfolio-card-bg${isImage ? ' has-image' : ''}" ${bgStyle} aria-hidden="true">${bgContent}</div>
         <div class="portfolio-card-content">
           <span class="portfolio-card-badge" data-en="${escapeAttr(catObj.en)}" data-bn="${escapeAttr(catObj.bn)}">${escapeHtml(catText)}</span>
           <h3 class="portfolio-card-title" data-en="${escapeAttr(titleEn)}" data-bn="${escapeAttr(titleBn)}">${escapeHtml(titleText)}</h3>
           <div class="portfolio-card-meta">
             <span data-en="${escapeAttr(dateEn)}" data-bn="${escapeAttr(dateBn)}">${escapeHtml(dateText)}</span>
-            <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗">${currentLang === 'bn' ? 'বিহ্যান্স ↗' : 'Behance ↗'}</span>
+            <span class="portfolio-card-link" data-en="Behance ↗" data-bn="বিহ্যান্স ↗"><span>${currentLang === 'bn' ? 'বিহ্যান্স' : 'Behance'}</span> <i data-lucide="arrow-up-right"></i></span>
           </div>
         </div>
       </a>
@@ -525,6 +659,7 @@ function renderPortfolioFromContent(portfolio) {
   }).join('');
 
   initPortfolioFilter();
+  refreshIcons();
 }
 
 function renderFAQFromContent(faq) {
@@ -545,7 +680,7 @@ function renderFAQFromContent(faq) {
       <div class="faq-item">
         <button class="faq-question" type="button" aria-expanded="false">
           <span data-en="${escapeAttr(qEn)}" data-bn="${escapeAttr(qBn)}">${escapeHtml(qText)}</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span class="faq-icon" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
@@ -557,6 +692,7 @@ function renderFAQFromContent(faq) {
   }).join('');
 
   initFAQ();
+  refreshIcons();
 }
 
 // ============================================================
@@ -802,14 +938,14 @@ function showGeoIPBanner() {
   banner.innerHTML = `
     <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;width:100%;">
       <div style="display:flex;align-items:center;gap:8px;">
-        <span style="font-size:1.25rem;" aria-hidden="true">🇧🇩</span>
+        <span style="display:inline-flex;align-items:center;justify-content:center;color:#0D49E5;" aria-hidden="true"><i data-lucide="globe" style="width:20px;height:20px;"></i></span>
         <span style="font-size:0.9rem;font-weight:500;">
           Visiting from Bangladesh? Switch to <strong>বাংলা</strong> &amp; <strong>BDT (৳)</strong>?
         </span>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <button type="button" id="geoipSwitchBtn" style="background:#0D49E5;color:#ffffff;border:none;padding:6px 14px;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:inherit;">বাংলা + BDT</button>
-        <button type="button" id="geoipDismissBtn" aria-label="Dismiss banner" style="background:transparent;color:rgba(255,255,255,0.7);border:none;font-size:1.2rem;cursor:pointer;padding:4px 8px;line-height:1;font-family:inherit;">✕</button>
+        <button type="button" id="geoipDismissBtn" aria-label="Dismiss banner" style="background:transparent;color:rgba(255,255,255,0.7);border:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:4px 8px;font-family:inherit;"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
       </div>
     </div>
   `;
@@ -834,6 +970,7 @@ function showGeoIPBanner() {
   });
 
   document.body.appendChild(banner);
+  refreshIcons();
 
   const switchBtn = document.getElementById('geoipSwitchBtn');
   const dismissBtn = document.getElementById('geoipDismissBtn');
@@ -957,6 +1094,7 @@ async function init() {
   initMobileNav();
   initNavigationEffects();
   initFormHandlers();
+  refreshIcons();
 
   // 5. Client-side GeoIP suggestion (non-blocking)
   checkGeoIPSuggestion();
