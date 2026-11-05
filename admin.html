@@ -205,7 +205,7 @@
           <div class="panel-header">
             <div>
               <h2 class="panel-title" data-en="Pricing & Rate Card Configuration" data-bn="প্রাইসিং ও রেট কার্ড কনফিগারেশন">Pricing & Rate Card Configuration</h2>
-              <p class="panel-desc" data-en="Control per-second rates, milestone tables, duration limits, and core agency packages." data-bn="প্রতি সেকেন্ডের রেট, মাইলস্টোন টেবিল ও প্যাকেজের মূল্য নির্ধারণ করুন।">Control per-second rates, milestone tables, duration limits, and core agency packages.</p>
+              <p class="panel-desc" data-en="Configure flat package prices, duration limits, and core agency service rates." data-bn="ফ্ল্যাট প্যাকেজ মূল্য, সময়সীমা ও এজেন্সির সার্ভিসের রেট নির্ধারণ করুন।">Configure flat package prices, duration limits, and core agency service rates.</p>
             </div>
             <button type="button" class="btn-primary" id="savePricingBtn">
               <i data-lucide="save"></i>
@@ -213,28 +213,70 @@
             </button>
           </div>
 
-          <!-- AI Video Per-Second Rates -->
+          <!-- AI Video Flat Package Prices -->
           <div class="admin-card">
-            <h3 class="card-title" data-en="AI Video Production — Per-Second Rates & Rules" data-bn="এআই ভিডিও প্রোডাকশন — প্রতি সেকেন্ডের রেট ও শর্ত">
+            <h3 class="card-title" data-en="AI Video Production — Flat Package Prices" data-bn="এআই ভিডিও প্রোডাকশন — ফ্ল্যাট প্যাকেজ মূল্যতালিকা">
               <i data-lucide="clapperboard"></i>
-              <span>AI Video Production — Per-Second Rates &amp; Rules</span>
+              <span>AI Video Production — Flat Package Prices</span>
             </h3>
-            <div class="grid-4 mb-md">
+
+            <div class="subcard-header mb-sm">
+              <strong data-en="Medium Tier Flat Packages" data-bn="মিডিয়াম টিয়ার ফ্ল্যাট প্যাকেজ">Medium Tier Flat Packages</strong>
+            </div>
+            <div class="grid-3 mb-md">
               <div class="form-group">
-                <label class="form-label" for="mediumPerSecBDT" data-en="Medium Tier Rate (BDT / sec)" data-bn="মিডিয়াম টিয়ার রেট (টাকা / সে.)">Medium Tier Rate (BDT / sec)</label>
-                <input type="number" id="mediumPerSecBDT" class="form-input" min="0" step="1" required>
+                <label class="form-label" for="med15BDT" data-en="15s Medium (BDT)" data-bn="১৫ সে. মিডিয়াম (টাকা)">15s Medium (BDT)</label>
+                <input type="number" id="med15BDT" class="form-input" min="0" step="1" required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="mediumPerSecUSD" data-en="Medium Tier Rate (USD / sec)" data-bn="মিডিয়াম টিয়ার রেট (ডলার / সে.)">Medium Tier Rate (USD / sec)</label>
-                <input type="number" id="mediumPerSecUSD" class="form-input" min="0" step="1" required>
+                <label class="form-label" for="med30BDT" data-en="30s Medium (BDT)" data-bn="৩০ সে. মিডিয়াম (টাকা)">30s Medium (BDT)</label>
+                <input type="number" id="med30BDT" class="form-input" min="0" step="1" required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="premiumPerSecBDT" data-en="Premium Tier Rate (BDT / sec)" data-bn="প্রিমিয়াম টিয়ার রেট (টাকা / সে.)">Premium Tier Rate (BDT / sec)</label>
-                <input type="number" id="premiumPerSecBDT" class="form-input" min="0" step="1" required>
+                <label class="form-label" for="med60BDT" data-en="60s Medium (BDT)" data-bn="৬০ সে. মিডিয়াম (টাকা)">60s Medium (BDT)</label>
+                <input type="number" id="med60BDT" class="form-input" min="0" step="1" required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="premiumPerSecUSD" data-en="Premium Tier Rate (USD / sec)" data-bn="প্রিমিয়াম টিয়ার রেট (ডলার / সে.)">Premium Tier Rate (USD / sec)</label>
-                <input type="number" id="premiumPerSecUSD" class="form-input" min="0" step="1" required>
+                <label class="form-label" for="med15USD" data-en="15s Medium (USD)" data-bn="১৫ সে. মিডিয়াম (ডলার)">15s Medium (USD)</label>
+                <input type="number" id="med15USD" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="med30USD" data-en="30s Medium (USD)" data-bn="৩০ সে. মিডিয়াম (ডলার)">30s Medium (USD)</label>
+                <input type="number" id="med30USD" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="med60USD" data-en="60s Medium (USD)" data-bn="৬০ সে. মিডিয়াম (ডলার)">60s Medium (USD)</label>
+                <input type="number" id="med60USD" class="form-input" min="0" step="1" required>
+              </div>
+            </div>
+
+            <div class="subcard-header mb-sm">
+              <strong data-en="Premium Tier Flat Packages" data-bn="প্রিমিয়াম টিয়ার ফ্ল্যাট প্যাকেজ">Premium Tier Flat Packages</strong>
+            </div>
+            <div class="grid-3 mb-md">
+              <div class="form-group">
+                <label class="form-label" for="prem15BDT" data-en="15s Premium (BDT)" data-bn="১৫ সে. প্রিমিয়াম (টাকা)">15s Premium (BDT)</label>
+                <input type="number" id="prem15BDT" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prem30BDT" data-en="30s Premium (BDT)" data-bn="৩০ সে. প্রিমিয়াম (টাকা)">30s Premium (BDT)</label>
+                <input type="number" id="prem30BDT" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prem60BDT" data-en="60s Premium (BDT)" data-bn="৬০ সে. প্রিমিয়াম (টাকা)">60s Premium (BDT)</label>
+                <input type="number" id="prem60BDT" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prem15USD" data-en="15s Premium (USD)" data-bn="১৫ সে. প্রিমিয়াম (ডলার)">15s Premium (USD)</label>
+                <input type="number" id="prem15USD" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prem30USD" data-en="30s Premium (USD)" data-bn="৩০ সে. প্রিমিয়াম (ডলার)">30s Premium (USD)</label>
+                <input type="number" id="prem30USD" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prem60USD" data-en="60s Premium (USD)" data-bn="৬০ সে. প্রিমিয়াম (ডলার)">60s Premium (USD)</label>
+                <input type="number" id="prem60USD" class="form-input" min="0" step="1" required>
               </div>
             </div>
 
@@ -484,12 +526,12 @@
 
         <div class="form-group mb-md">
           <label class="form-label" for="faqAnswerEn" data-en="Answer (English) *" data-bn="উত্তর (ইংরেজি) *">Answer (English) *</label>
-          <textarea id="faqAnswerEn" class="form-textarea" rows="4" required placeholder="Our AI video production is priced strictly per second..."></textarea>
+          <textarea id="faqAnswerEn" class="form-textarea" rows="4" required placeholder="Our AI video production is offered in clear, fixed packages..."></textarea>
         </div>
 
         <div class="form-group mb-md">
           <label class="form-label" for="faqAnswerBn" data-en="Answer (Bangla) *" data-bn="উত্তর (বাংলা) *">Answer (Bangla) *</label>
-          <textarea id="faqAnswerBn" class="form-textarea" rows="4" required placeholder="আমাদের এআই ভিডিও প্রোডাকশন প্রতি সেকেন্ড হিসেবে..."></textarea>
+          <textarea id="faqAnswerBn" class="form-textarea" rows="4" required placeholder="আমাদের এআই ভিডিও প্রোডাকশন নির্দিষ্ট প্যাকেজ মূল্যে..."></textarea>
         </div>
 
         <div class="modal-actions">

@@ -41,53 +41,82 @@ function toBnDigits(val) {
 }
 
 /**
- * Calculates pricing for Medium and Premium video production tiers based on seconds.
- * Rates:
- *   - Medium: ৳1,200/sec (BDT) or $50/sec (USD)
- *   - Premium: ৳2,700/sec (BDT) or $165/sec (USD)
- *
- * Published duration milestones from BRIEF rate card:
+ * Retrieves package prices for Medium and Premium tiers.
+ * Flat package prices:
  *   - 15s: Medium ৳18,000 / $750  | Premium ৳40,000 / $2,500
  *   - 30s: Medium ৳36,000 / $1,500 | Premium ৳81,000 / $5,000
  *   - 60s: Medium ৳72,000 / $3,000 | Premium ৳162,000 / $10,000
  *   - 90s+: Custom quote
  */
-function calculatePrices(seconds) {
-  const mRateBDT = (siteContent && siteContent.pricing && siteContent.pricing.aiVideo && siteContent.pricing.aiVideo.medium && siteContent.pricing.aiVideo.medium.perSecBDT !== undefined)
-    ? Number(siteContent.pricing.aiVideo.medium.perSecBDT) : 1200;
-  const mRateUSD = (siteContent && siteContent.pricing && siteContent.pricing.aiVideo && siteContent.pricing.aiVideo.medium && siteContent.pricing.aiVideo.medium.perSecUSD !== undefined)
-    ? Number(siteContent.pricing.aiVideo.medium.perSecUSD) : 50;
-  const pRateBDT = (siteContent && siteContent.pricing && siteContent.pricing.aiVideo && siteContent.pricing.aiVideo.premium && siteContent.pricing.aiVideo.premium.perSecBDT !== undefined)
-    ? Number(siteContent.pricing.aiVideo.premium.perSecBDT) : 2700;
-  const pRateUSD = (siteContent && siteContent.pricing && siteContent.pricing.aiVideo && siteContent.pricing.aiVideo.premium && siteContent.pricing.aiVideo.premium.perSecUSD !== undefined)
-    ? Number(siteContent.pricing.aiVideo.premium.perSecUSD) : 165;
+function getPackagePrice(tier, seconds, currency) {
+  const pkgs = siteContent?.pricing?.aiVideo?.packages;
+  const currKey = (currency || currentCurrency || 'bdt').toLowerCase();
+  const secKey = String(seconds);
 
-  const mediumBDT = seconds * mRateBDT;
-  const mediumUSD = seconds * mRateUSD;
-
-  // Premium tier BDT: 2,700 BDT/sec (15s aligned with published table ৳40,000)
-  let premiumBDT = seconds * pRateBDT;
-  if (seconds === 15 && pRateBDT === 2700) {
-    premiumBDT = 40000;
+  if (pkgs && pkgs[tier] && pkgs[tier][currKey] && pkgs[tier][currKey][secKey] !== undefined) {
+    return Number(pkgs[tier][currKey][secKey]);
   }
 
-  // Premium tier USD: $165/sec rate card (~$5,000/30s milestones)
-  let premiumUSD;
-  if (pRateUSD === 165) {
-    if (seconds === 30) {
-      premiumUSD = 5000;
-    } else if (seconds === 60) {
-      premiumUSD = 10000;
-    } else if (seconds === 15) {
-      premiumUSD = 2500;
-    } else {
-      premiumUSD = Math.round(seconds * pRateUSD);
+  const defaults = {
+    medium: {
+      bdt: { '15': 18000, '30': 36000, '60': 72000 },
+      usd: { '15': 750, '30': 1500, '60': 3000 }
+    },
+    premium: {
+      bdt: { '15': 40000, '30': 81000, '60': 162000 },
+      usd: { '15': 2500, '30': 5000, '60': 10000 }
     }
-  } else {
-    premiumUSD = Math.round(seconds * pRateUSD);
-  }
+  };
 
-  return { mediumBDT, mediumUSD, premiumBDT, premiumUSD };
+  return defaults[tier]?.[currKey]?.[secKey] ?? 0;
+}
+
+function calculatePrices(seconds) {
+  const m15_bdt = getPackagePrice('medium', 15, 'bdt');
+  const m30_bdt = getPackagePrice('medium', 30, 'bdt');
+  const m60_bdt = getPackagePrice('medium', 60, 'bdt');
+  const m15_usd = getPackagePrice('medium', 15, 'usd');
+  const m30_usd = getPackagePrice('medium', 30, 'usd');
+  const m60_usd = getPackagePrice('medium', 60, 'usd');
+
+  const p15_bdt = getPackagePrice('premium', 15, 'bdt');
+  const p30_bdt = getPackagePrice('premium', 30, 'bdt');
+  const p60_bdt = getPackagePrice('premium', 60, 'bdt');
+  const p15_usd = getPackagePrice('premium', 15, 'usd');
+  const p30_usd = getPackagePrice('premium', 30, 'usd');
+  const p60_usd = getPackagePrice('premium', 60, 'usd');
+
+  if (seconds <= 15) {
+    return { mediumBDT: m15_bdt, mediumUSD: m15_usd, premiumBDT: p15_bdt, premiumUSD: p15_usd };
+  } else if (seconds === 30) {
+    return { mediumBDT: m30_bdt, mediumUSD: m30_usd, premiumBDT: p30_bdt, premiumUSD: p30_usd };
+  } else if (seconds === 60) {
+    return { mediumBDT: m60_bdt, mediumUSD: m60_usd, premiumBDT: p60_bdt, premiumUSD: p60_usd };
+  } else if (seconds < 30) {
+    const ratio = (seconds - 15) / 15;
+    return {
+      mediumBDT: Math.round(m15_bdt + ratio * (m30_bdt - m15_bdt)),
+      mediumUSD: Math.round(m15_usd + ratio * (m30_usd - m15_usd)),
+      premiumBDT: Math.round(p15_bdt + ratio * (p30_bdt - p15_bdt)),
+      premiumUSD: Math.round(p15_usd + ratio * (p30_usd - p15_usd))
+    };
+  } else if (seconds < 60) {
+    const ratio = (seconds - 30) / 30;
+    return {
+      mediumBDT: Math.round(m30_bdt + ratio * (m60_bdt - m30_bdt)),
+      mediumUSD: Math.round(m30_usd + ratio * (m60_usd - m30_usd)),
+      premiumBDT: Math.round(p30_bdt + ratio * (p60_bdt - p30_bdt)),
+      premiumUSD: Math.round(p30_usd + ratio * (p60_usd - p30_usd))
+    };
+  } else {
+    const ratio = (seconds - 60) / 30;
+    return {
+      mediumBDT: Math.round(m60_bdt * (1 + ratio * 0.5)),
+      mediumUSD: Math.round(m60_usd * (1 + ratio * 0.5)),
+      premiumBDT: Math.round(p60_bdt * (1 + ratio * 0.5)),
+      premiumUSD: Math.round(p60_usd * (1 + ratio * 0.5))
+    };
+  }
 }
 
 /**
@@ -101,12 +130,13 @@ function formatCurrency(amount, currency) {
   return currency === 'USD' ? `$${formatted}` : `৳${formatted}`;
 }
 
-// In-code verification tests as explicitly required by prompt:
-// "verify in code that 30s gives Medium ৳36,000/$1,500 and Premium ৳81,000/$5,000, 60s Premium ৳162,000/$10,000"
+// In-code verification tests for flat package milestones:
 (function verifyCalculations() {
+  const p15 = calculatePrices(15);
   const p30 = calculatePrices(30);
   const p60 = calculatePrices(60);
 
+  const m15_bdt = formatCurrency(p15.mediumBDT, 'BDT');
   const m30_bdt = formatCurrency(p30.mediumBDT, 'BDT');
   const m30_usd = formatCurrency(p30.mediumUSD, 'USD');
   const p30_bdt = formatCurrency(p30.premiumBDT, 'BDT');
@@ -115,6 +145,7 @@ function formatCurrency(amount, currency) {
   const p60_bdt = formatCurrency(p60.premiumBDT, 'BDT');
   const p60_usd = formatCurrency(p60.premiumUSD, 'USD');
 
+  console.assert(m15_bdt === '৳18,000', `Math verification failed: 15s Medium BDT expected ৳18,000, got ${m15_bdt}`);
   console.assert(m30_bdt === '৳36,000', `Math verification failed: 30s Medium BDT expected ৳36,000, got ${m30_bdt}`);
   console.assert(m30_usd === '$1,500', `Math verification failed: 30s Medium USD expected $1,500, got ${m30_usd}`);
   console.assert(p30_bdt === '৳81,000', `Math verification failed: 30s Premium BDT expected ৳81,000, got ${p30_bdt}`);
@@ -474,15 +505,10 @@ function renderServicesFromContent(services) {
 function renderPricingFromContent(pricing, pricingNotes) {
   if (!pricing) return;
 
-  const mRateBDT = pricing.aiVideo?.medium?.perSecBDT ?? 1200;
-  const mRateUSD = pricing.aiVideo?.medium?.perSecUSD ?? 50;
-  const pRateBDT = pricing.aiVideo?.premium?.perSecBDT ?? 2700;
-  const pRateUSD = pricing.aiVideo?.premium?.perSecUSD ?? 165;
-
   const medLabelEl = document.querySelector('#calcTierMedium .calc-tier-label');
   if (medLabelEl) {
-    const enLabel = `Medium Tier (৳${mRateBDT.toLocaleString()}/sec · $${mRateUSD}/sec)`;
-    const bnLabel = `মিডিয়াম টিয়ার (৳${toBnDigits(mRateBDT.toLocaleString())}/সে · $${mRateUSD}/সে)`;
+    const enLabel = 'Medium Tier Package';
+    const bnLabel = 'মিডিয়াম টিয়ার প্যাকেজ';
     medLabelEl.setAttribute('data-en', enLabel);
     medLabelEl.setAttribute('data-bn', bnLabel);
     medLabelEl.textContent = currentLang === 'bn' ? bnLabel : enLabel;
@@ -490,60 +516,62 @@ function renderPricingFromContent(pricing, pricingNotes) {
 
   const premLabelEl = document.querySelector('#calcTierPremium .calc-tier-label');
   if (premLabelEl) {
-    const enLabel = `Premium Tier (৳${pRateBDT.toLocaleString()}/sec · $${pRateUSD}/sec)`;
-    const bnLabel = `প্রিমিয়াম টিয়ার (৳${toBnDigits(pRateBDT.toLocaleString())}/সে · $${pRateUSD}/সে)`;
+    const enLabel = 'Premium Tier Package';
+    const bnLabel = 'প্রিমিয়াম টিয়ার প্যাকেজ';
     premLabelEl.setAttribute('data-en', enLabel);
     premLabelEl.setAttribute('data-bn', bnLabel);
     premLabelEl.textContent = currentLang === 'bn' ? bnLabel : enLabel;
   }
 
-  if (Array.isArray(pricing.durationTable)) {
-    const tableBody = document.querySelector('#pricing .pricing-table tbody');
-    if (tableBody) {
-      tableBody.innerHTML = pricing.durationTable.map(row => {
-        const labelEn = row.durationLabel ? (row.durationLabel.en || '') : '';
-        const labelBn = row.durationLabel ? (row.durationLabel.bn || labelEn) : '';
-        const labelDisp = currentLang === 'bn' ? labelBn : labelEn;
+  // Update tier card package breakdown lists with active pricing
+  const m15b = getPackagePrice('medium', 15, 'bdt');
+  const m30b = getPackagePrice('medium', 30, 'bdt');
+  const m60b = getPackagePrice('medium', 60, 'bdt');
+  const m15u = getPackagePrice('medium', 15, 'usd');
+  const m30u = getPackagePrice('medium', 30, 'usd');
+  const m60u = getPackagePrice('medium', 60, 'usd');
 
-        let medCell = '';
-        if (row.medium && typeof row.medium === 'object') {
-          const mText = currentLang === 'bn' ? row.medium.bn : row.medium.en;
-          medCell = `<span data-en="${escapeAttr(row.medium.en)}" data-bn="${escapeAttr(row.medium.bn)}">${escapeHtml(mText)}</span>`;
-        } else {
-          const mDisp = currentCurrency === 'USD' ? row.mediumUSD : row.mediumBDT;
-          medCell = `<span class="price-val" data-bdt="${escapeAttr(row.mediumBDT)}" data-usd="${escapeAttr(row.mediumUSD)}">${escapeHtml(mDisp)}</span>`;
-        }
+  const p15b = getPackagePrice('premium', 15, 'bdt');
+  const p30b = getPackagePrice('premium', 30, 'bdt');
+  const p60b = getPackagePrice('premium', 60, 'bdt');
+  const p15u = getPackagePrice('premium', 15, 'usd');
+  const p30u = getPackagePrice('premium', 30, 'usd');
+  const p60u = getPackagePrice('premium', 60, 'usd');
 
-        let premCell = '';
-        if (row.premium && typeof row.premium === 'object') {
-          const pText = currentLang === 'bn' ? row.premium.bn : row.premium.en;
-          premCell = `<span data-en="${escapeAttr(row.premium.en)}" data-bn="${escapeAttr(row.premium.bn)}">${escapeHtml(pText)}</span>`;
-        } else {
-          const pDisp = currentCurrency === 'USD' ? row.premiumUSD : row.premiumBDT;
-          premCell = `<span class="price-val" data-bdt="${escapeAttr(row.premiumBDT)}" data-usd="${escapeAttr(row.premiumUSD)}">${escapeHtml(pDisp)}</span>`;
-        }
+  const medPkgItems = document.querySelectorAll('.tier-card:not(.featured) .tier-pkg-item .pkg-price');
+  if (medPkgItems.length >= 3) {
+    medPkgItems[0].setAttribute('data-bdt', `৳${m15b.toLocaleString()}`);
+    medPkgItems[0].setAttribute('data-usd', `$${m15u.toLocaleString()}`);
+    medPkgItems[0].textContent = currentCurrency === 'USD' ? `$${m15u.toLocaleString()}` : `৳${m15b.toLocaleString()}`;
 
-        const turnEn = row.turnaround ? (row.turnaround.en || '') : '';
-        const turnBn = row.turnaround ? (row.turnaround.bn || turnEn) : '';
-        const turnDisp = currentLang === 'bn' ? turnBn : turnEn;
+    medPkgItems[1].setAttribute('data-bdt', `৳${m30b.toLocaleString()}`);
+    medPkgItems[1].setAttribute('data-usd', `$${m30u.toLocaleString()}`);
+    medPkgItems[1].textContent = currentCurrency === 'USD' ? `$${m30u.toLocaleString()}` : `৳${m30b.toLocaleString()}`;
 
-        return `
-          <tr>
-            <td><strong>${escapeHtml(row.duration)} <span data-en="${escapeAttr(labelEn)}" data-bn="${escapeAttr(labelBn)}">${escapeHtml(labelDisp)}</span></strong></td>
-            <td class="price-highlight">${medCell}</td>
-            <td class="price-premium">${premCell}</td>
-            <td data-en="${escapeAttr(turnEn)}" data-bn="${escapeAttr(turnBn)}">${escapeHtml(turnDisp)}</td>
-            <td>${escapeHtml(row.formats || '')}</td>
-          </tr>
-        `;
-      }).join('');
-    }
+    medPkgItems[2].setAttribute('data-bdt', `৳${m60b.toLocaleString()}`);
+    medPkgItems[2].setAttribute('data-usd', `$${m60u.toLocaleString()}`);
+    medPkgItems[2].textContent = currentCurrency === 'USD' ? `$${m60u.toLocaleString()}` : `৳${m60b.toLocaleString()}`;
+  }
+
+  const premPkgItems = document.querySelectorAll('.tier-card.featured .tier-pkg-item .pkg-price');
+  if (premPkgItems.length >= 3) {
+    premPkgItems[0].setAttribute('data-bdt', `৳${p15b.toLocaleString()}`);
+    premPkgItems[0].setAttribute('data-usd', `$${p15u.toLocaleString()}`);
+    premPkgItems[0].textContent = currentCurrency === 'USD' ? `$${p15u.toLocaleString()}` : `৳${p15b.toLocaleString()}`;
+
+    premPkgItems[1].setAttribute('data-bdt', `৳${p30b.toLocaleString()}`);
+    premPkgItems[1].setAttribute('data-usd', `$${p30u.toLocaleString()}`);
+    premPkgItems[1].textContent = currentCurrency === 'USD' ? `$${p30u.toLocaleString()}` : `৳${p30b.toLocaleString()}`;
+
+    premPkgItems[2].setAttribute('data-bdt', `৳${p60b.toLocaleString()}`);
+    premPkgItems[2].setAttribute('data-usd', `$${p60u.toLocaleString()}`);
+    premPkgItems[2].textContent = currentCurrency === 'USD' ? `$${p60u.toLocaleString()}` : `৳${p60b.toLocaleString()}`;
   }
 
   if (Array.isArray(pricing.otherServices)) {
-    const otherTbody = document.querySelector('.other-services .pricing-table tbody');
-    if (otherTbody) {
-      otherTbody.innerHTML = pricing.otherServices.map(item => {
+    const otherGrid = document.querySelector('.other-services-grid');
+    if (otherGrid) {
+      otherGrid.innerHTML = pricing.otherServices.map(item => {
         const nameEn = item.name ? (item.name.en || '') : '';
         const nameBn = item.name ? (item.name.bn || nameEn) : '';
         const nameDisp = currentLang === 'bn' ? nameBn : nameEn;
@@ -556,12 +584,20 @@ function renderPricingFromContent(pricing, pricingNotes) {
         const scopeDisp = currentLang === 'bn' ? scopeBn : scopeEn;
 
         return `
-          <tr>
-            <td><strong data-en="${escapeAttr(nameEn)}" data-bn="${escapeAttr(nameBn)}">${escapeHtml(nameDisp)}</strong></td>
-            <td class="price-highlight"><span class="price-val" data-bdt="${escapeAttr(item.mediumBDT)}" data-usd="${escapeAttr(item.mediumUSD)}">${escapeHtml(mDisp)}</span></td>
-            <td class="price-premium"><span class="price-val" data-bdt="${escapeAttr(item.premiumBDT)}" data-usd="${escapeAttr(item.premiumUSD)}">${escapeHtml(pDisp)}</span></td>
-            <td data-en="${escapeAttr(scopeEn)}" data-bn="${escapeAttr(scopeBn)}">${escapeHtml(scopeDisp)}</td>
-          </tr>
+          <div class="other-svc-card">
+            <div class="other-svc-name" data-en="${escapeAttr(nameEn)}" data-bn="${escapeAttr(nameBn)}">${escapeHtml(nameDisp)}</div>
+            <div class="other-svc-tiers">
+              <div class="other-svc-tier-row">
+                <span class="other-svc-tier-label" data-en="Medium Tier" data-bn="মিডিয়াম টিয়ার">${currentLang === 'bn' ? 'মিডিয়াম টিয়ার:' : 'Medium Tier:'}</span>
+                <span class="other-svc-tier-val price-val" data-bdt="${escapeAttr(item.mediumBDT)}" data-usd="${escapeAttr(item.mediumUSD)}">${escapeHtml(mDisp)}</span>
+              </div>
+              <div class="other-svc-tier-row">
+                <span class="other-svc-tier-label" data-en="Premium Tier" data-bn="প্রিমিয়াম টিয়ার">${currentLang === 'bn' ? 'প্রিমিয়াম টিয়ার:' : 'Premium Tier:'}</span>
+                <span class="other-svc-tier-val price-val" data-bdt="${escapeAttr(item.premiumBDT)}" data-usd="${escapeAttr(item.premiumUSD)}">${escapeHtml(pDisp)}</span>
+              </div>
+            </div>
+            <div class="other-svc-scope" data-en="${escapeAttr(scopeEn)}" data-bn="${escapeAttr(scopeBn)}">${escapeHtml(scopeDisp)}</div>
+          </div>
         `;
       }).join('');
     }
@@ -578,7 +614,24 @@ function renderPricingFromContent(pricing, pricingNotes) {
       }).join('');
     }
   }
+
+  updateCalculator();
 }
+
+function handlePortfolioImgError(img) {
+  if (!img) return;
+  img.onerror = null;
+  const parent = img.closest('.portfolio-card-bg');
+  if (!parent) {
+    img.style.display = 'none';
+    return;
+  }
+  const icon = img.getAttribute('data-icon') || parent.getAttribute('data-icon') || 'sparkles';
+  parent.classList.remove('has-image');
+  parent.innerHTML = `<div class="portfolio-card-icon-tile"><i data-lucide="${escapeAttr(icon)}"></i></div>`;
+  refreshIcons();
+}
+window.handlePortfolioImgError = handlePortfolioImgError;
 
 function renderPortfolioFromContent(portfolio) {
   if (!Array.isArray(portfolio)) return;
@@ -626,7 +679,7 @@ function renderPortfolioFromContent(portfolio) {
   });
 
   grid.innerHTML = portfolio.map(item => {
-    const cat = item.category || 'social';
+    const cat = item.category || 'branding';
     const catObj = categoryLabels[cat] || { en: cat, bn: cat };
     const catText = currentLang === 'bn' ? catObj.bn : catObj.en;
 
@@ -638,14 +691,15 @@ function renderPortfolioFromContent(portfolio) {
     const dateBn = item.date ? (typeof item.date === 'string' ? item.date : (item.date.bn || dateEn)) : '';
     const dateText = currentLang === 'bn' ? dateBn : dateEn;
 
-    const isImage = item.image && (item.image.startsWith('http://') || item.image.startsWith('https://') || item.image.startsWith('data:') || item.image.startsWith('/') || item.image.startsWith('./') || item.image.startsWith('assets/'));
-    const bgStyle = isImage ? `style="background-image: url('${escapeAttr(item.image)}');"` : '';
-    const iconName = isImage ? '' : getPortfolioIcon(item.image, cat, titleEn);
-    const bgContent = isImage ? '' : `<div class="portfolio-card-icon-tile"><i data-lucide="${escapeAttr(iconName)}"></i></div>`;
+    const coverUrl = item.cover || (item.image && (item.image.startsWith('http://') || item.image.startsWith('https://')) ? item.image : null);
+    const iconName = item.icon || (item.image && /^[a-z0-9-]+$/i.test(item.image) ? item.image : '') || getPortfolioIcon(item.image, cat, titleEn);
+    const bgContent = coverUrl
+      ? `<img src="${escapeAttr(coverUrl)}" alt="${escapeAttr(titleText)}" loading="lazy" class="portfolio-cover-img" data-icon="${escapeAttr(iconName)}" onerror="handlePortfolioImgError(this)">`
+      : `<div class="portfolio-card-icon-tile"><i data-lucide="${escapeAttr(iconName)}"></i></div>`;
 
     return `
-      <a href="${escapeAttr(item.behanceUrl || '#')}" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="${escapeAttr(cat)}">
-        <div class="portfolio-card-bg${isImage ? ' has-image' : ''}" ${bgStyle} aria-hidden="true">${bgContent}</div>
+      <a href="${escapeAttr(item.behanceUrl || item.url || '#')}" target="_blank" rel="noopener noreferrer" class="portfolio-card" data-category="${escapeAttr(cat)}">
+        <div class="portfolio-card-bg${coverUrl ? ' has-image' : ''}" data-icon="${escapeAttr(iconName)}" aria-hidden="true">${bgContent}</div>
         <div class="portfolio-card-content">
           <span class="portfolio-card-badge" data-en="${escapeAttr(catObj.en)}" data-bn="${escapeAttr(catObj.bn)}">${escapeHtml(catText)}</span>
           <h3 class="portfolio-card-title" data-en="${escapeAttr(titleEn)}" data-bn="${escapeAttr(titleBn)}">${escapeHtml(titleText)}</h3>
@@ -660,6 +714,55 @@ function renderPortfolioFromContent(portfolio) {
 
   initPortfolioFilter();
   refreshIcons();
+}
+
+async function loadBehancePortfolio() {
+  const grid = document.querySelector('.portfolio-grid');
+  if (!grid) return;
+
+  try {
+    const res = await fetch('/api/behance');
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
+    const data = await res.json();
+    if (data && Array.isArray(data.projects) && data.projects.length > 0) {
+      const curatedList = Array.isArray(siteContent?.portfolio) ? siteContent.portfolio : [];
+      const curatedMap = new Map();
+      curatedList.forEach(p => {
+        const idMatch = (p.behanceUrl || '').match(/gallery\/(\d+)/);
+        if (idMatch) {
+          curatedMap.set(idMatch[1], p);
+        }
+      });
+
+      const mappedProjects = data.projects.map(p => {
+        const curated = curatedMap.get(String(p.id));
+        return {
+          id: p.id,
+          behanceUrl: p.url,
+          title: {
+            en: p.title || (curated?.title?.en || ''),
+            bn: curated?.title?.bn || p.title || ''
+          },
+          category: curated?.category || 'branding',
+          date: curated?.date || { en: 'Recent Project', bn: 'সাম্প্রতিক কাজ' },
+          cover: p.cover || null,
+          icon: p.icon || curated?.icon || null
+        };
+      });
+
+      renderPortfolioFromContent(mappedProjects);
+      return;
+    }
+  } catch (err) {
+    console.debug('[Portfolio] Behance live fetch fell back to curated list:', err.message);
+  }
+
+  // Fallback to static curated portfolio from content.json
+  if (siteContent && Array.isArray(siteContent.portfolio)) {
+    renderPortfolioFromContent(siteContent.portfolio);
+  }
 }
 
 function renderFAQFromContent(faq) {
@@ -1038,7 +1141,7 @@ async function init() {
     renderHeroFromContent(siteContent.hero);
     renderServicesFromContent(siteContent.services);
     renderPricingFromContent(siteContent.pricing, siteContent.pricingNotes);
-    renderPortfolioFromContent(siteContent.portfolio);
+    loadBehancePortfolio();
     renderFAQFromContent(siteContent.faq);
   }
 

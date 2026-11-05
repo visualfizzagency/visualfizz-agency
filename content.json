@@ -52,10 +52,10 @@
         "bn": "২–৭ কর্মদিবস"
       },
       "startingPrice": {
-        "bdt": "৳1,200/সে.",
-        "usd": "From $50/sec",
-        "en": "From ৳1,200/sec ($50/sec)",
-        "bn": "৳১,২০০/সে. থেকে"
+        "bdt": "৳18,000 থেকে",
+        "usd": "From $750",
+        "en": "From ৳18,000 ($750)",
+        "bn": "৳১৮,০০০ থেকে ($৭৫০)"
       }
     },
     {
@@ -325,13 +325,31 @@
   ],
   "pricing": {
     "aiVideo": {
-      "medium": {
-        "perSecBDT": 1200,
-        "perSecUSD": 50
-      },
-      "premium": {
-        "perSecBDT": 2700,
-        "perSecUSD": 165
+      "packages": {
+        "medium": {
+          "bdt": {
+            "15": 18000,
+            "30": 36000,
+            "60": 72000
+          },
+          "usd": {
+            "15": 750,
+            "30": 1500,
+            "60": 3000
+          }
+        },
+        "premium": {
+          "bdt": {
+            "15": 40000,
+            "30": 81000,
+            "60": 162000
+          },
+          "usd": {
+            "15": 2500,
+            "30": 5000,
+            "60": 10000
+          }
+        }
       },
       "minimumSeconds": 15,
       "customQuoteFromSeconds": 90
@@ -464,14 +482,10 @@
           "bn": "মিডিয়াম টিয়ার"
         },
         "priceInfo": {
-          "en": "৳1,200/sec ($50/sec) · Min 15s (from ৳18,000 / $750)",
-          "bn": "৳১,২০০/সে ($৫০/সে) · সর্বনিম্ন ১৫ সে (৳১৮,০০০ / $৭৫০ থেকে)"
+          "en": "From ৳18,000 ($750) · 15s to 60s flat packages",
+          "bn": "৳১৮,০০০ ($৭৫০) থেকে · ১৫ থেকে ৬০ সেকেন্ডের ফ্ল্যাট প্যাকেজ"
         },
         "inclusions": [
-          {
-            "en": "Human-directed AI video production",
-            "bn": "হিউম্যান-ডিরেক্টেড এআই ভিডিও নির্মাণ"
-          },
           {
             "en": "Original scriptwriting & concept alignment",
             "bn": "আসল স্ক্রিপ্টরাইটিং ও কনসেপ্ট নির্ধারণ"
@@ -481,24 +495,12 @@
             "bn": "হাই-ফিডেলিটি এআই ভয়েসওভার (বাংলা ও ইংরেজি)"
           },
           {
-            "en": "Commercial background music & synchronized captions",
-            "bn": "কমার্শিয়াল ব্যাকগ্রাউন্ড মিউজিক ও ক্যাপশন"
-          },
-          {
-            "en": "2 revision rounds included",
-            "bn": "২ রাউন্ড রিভিশন অন্তর্ভুক্ত"
-          },
-          {
-            "en": "2–7 working day delivery schedule",
-            "bn": "২–৭ কর্মদিবসের মধ্যে ডেলিভারি"
-          },
-          {
             "en": "Multi-format exports: 9:16 (Reels/TikTok), 1:1, 16:9",
             "bn": "মাল্টি-ফরম্যাট: ৯:১৬ (রিলস/টিকটক), ১:১, ১৬:৯"
           },
           {
-            "en": "Human frame-by-frame quality assurance pass",
-            "bn": "নিখুঁত হিউম্যান ফ্রেম-বাই-ফ্রেম কোয়ালিটি চেক"
+            "en": "2 revision rounds & human frame QA pass",
+            "bn": "২ রাউন্ড রিভিশন ও হিউম্যান ফ্রেম কোয়ালিটি চেক"
           }
         ]
       },
@@ -512,8 +514,8 @@
           "bn": "সুপারিশকৃত"
         },
         "priceInfo": {
-          "en": "৳2,700/sec ($165/sec) · Min 15s (from ৳40,000 / $2,500)",
-          "bn": "৳২,৭০০/সে ($১৬৫/সে) · সর্বনিম্ন ১৫ সে (৳৪০,০০০ / $২,৫০০ থেকে)"
+          "en": "From ৳40,000 ($2,500) · 15s to 60s flat packages",
+          "bn": "৳৪০,০০০ ($২,৫০০) থেকে · ১৫ থেকে ৬০ সেকেন্ডের ফ্ল্যাট প্যাকেজ"
         },
         "inclusions": [
           {
@@ -529,24 +531,8 @@
             "bn": "সিনেম্যাটিক সাউন্ড ডিজাইন, ফলি ও অডিও মাস্টারিং"
           },
           {
-            "en": "Multiple hook cutdowns and creative variation tests",
-            "bn": "একাধিক হুক ও ক্রিয়েটিভ কাটডাউন ভ্যারিয়েশন"
-          },
-          {
-            "en": "Priority studio pipeline & expedited delivery",
-            "bn": "অগ্রাধিকার ভিত্তিতে স্টুডিও প্রোডাকশন ও দ্রুত ডেলিভারি"
-          },
-          {
-            "en": "Unlimited revisions to the approved storyboard",
-            "bn": "অনুমোদিত স্টোরিবোর্ডের ভিত্তিতে আনলিমিটেড রিভিশন"
-          },
-          {
-            "en": "Character, environment, and product consistency locking",
-            "bn": "ক্যারেক্টার ও প্রোডাক্টের ভিজ্যুয়াল ধারাবাহিকতা লক"
-          },
-          {
-            "en": "Multiple hook variants & broadcast-level color grading",
-            "bn": "একাধিক হুক ভ্যারিয়েশন ও ব্রডকাস্ট কালার গ্রেডিং"
+            "en": "Multiple hook variants & priority studio pipeline",
+            "bn": "একাধিক হুক ভ্যারিয়েশন ও প্রায়োরিটি স্টুডিও ডেলিভারি"
           }
         ]
       }
@@ -766,8 +752,8 @@
         "bn": "একটি এআই ভিডিও তৈরিতে কত খরচ হয়?"
       },
       "answer": {
-        "en": "Our AI video production is priced strictly per second across two tiers: Medium at ৳1,200/sec ($50/sec) and Premium at ৳2,700/sec ($165/sec), with a 15-second minimum. For example, a 15-second ad is ৳18,000 / $750 (Medium) or ৳40,000 / $2,500 (Premium); a 30-second commercial is ৳36,000 / $1,500 (Medium) or ৳81,000 / $5,000 (Premium); and a 60-second video is ৳72,000 / $3,000 (Medium) or ৳162,000 / $10,000 (Premium). Videos of 90 seconds or longer receive a custom quotation.",
-        "bn": "আমাদের এআই ভিডিও প্রোডাকশন প্রতি সেকেন্ড হিসেবে দুটি টিয়ারে নির্ধারিত: মিডিয়াম টিয়ারে ৳১,২০০/সেকেন্ড ($৫০/সেকেন্ড) এবং প্রিমিয়াম টিয়ারে ৳২,৭০০/সেকেন্ড ($১৬৫/সেকেন্ড), সর্বনিম্ন ১৫ সেকেন্ড। যেমন, একটি ১৫ সেকেন্ডের বিজ্ঞাপনের খরচ ৳১৮,০০০ / $৭৫০ (মিডিয়াম) বা ৳৪০,০০০ / $২,৫০০ (প্রিমিয়াম); ৩০ সেকেন্ডের বিজ্ঞাপনে ৳৩৬,০০০ / $১,৫০০ (মিডিয়াম) বা ৳৮১,০০০ / $৫,০০০ (প্রিমিয়াম); এবং ৬০ সেকেন্ডের ভিডিওতে ৳৭২,০০০ / $৩,০০০ (মিডিয়াম) বা ৳১,৬২,০০০ / $১০,০০০ (প্রিমিয়াম)। ৯০ সেকেন্ড বা তদূর্ধ্ব ভিডিওর ক্ষেত্রে কাস্টম কোটেশন প্রদান করা হয়।"
+        "en": "Our AI video production is offered in clear, fixed packages across two tiers: Medium and Premium, starting from a 15-second minimum. For a 15-second promo, pricing is ৳18,000 / $750 (Medium) or ৳40,000 / $2,500 (Premium); a 30-second commercial is ৳36,000 / $1,500 (Medium) or ৳81,000 / $5,000 (Premium); and a 60-second video is ৳72,000 / $3,000 (Medium) or ৳162,000 / $10,000 (Premium). Videos of 90 seconds or longer receive a custom quotation.",
+        "bn": "আমাদের এআই ভিডিও প্রোডাকশন নির্দিষ্ট প্যাকেজ মূল্যে দুটি টিয়ারে নির্ধারিত: মিডিয়াম এবং প্রিমিয়াম, সর্বনিম্ন ১৫ সেকেন্ড থেকে শুরু। যেমন, একটি ১৫ সেকেন্ডের বিজ্ঞাপনের খরচ ৳১৮,০০০ / $৭৫০ (মিডিয়াম) বা ৳৪০,০০০ / $২,৫০০ (প্রিমিয়াম); ৩০ সেকেন্ডের বিজ্ঞাপনে ৳৩৬,০০০ / $১,৫০০ (মিডিয়াম) বা ৳৮১,০০০ / $৫,০০০ (প্রিমিয়াম); এবং ৬০ সেকেন্ডের ভিডিওতে ৳৭২,০০০ / $৩,০০০ (মিডিয়াম) বা ৳১,৬২,০০০ / $১০,০০০ (প্রিমিয়াম)। ৯০ সেকেন্ড বা তদূর্ধ্ব ভিডিওর ক্ষেত্রে কাস্টম কোটেশন প্রদান করা হয়।"
       }
     },
     {

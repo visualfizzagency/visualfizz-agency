@@ -572,18 +572,39 @@ function populatePricingFields() {
   if (!adminContent || !adminContent.pricing) return;
   const p = adminContent.pricing;
 
-  // AI Video rates
-  const mBDT = document.getElementById('mediumPerSecBDT');
-  const mUSD = document.getElementById('mediumPerSecUSD');
-  const pBDT = document.getElementById('premiumPerSecBDT');
-  const pUSD = document.getElementById('premiumPerSecUSD');
+  // AI Video flat packages
+  const med15BDT = document.getElementById('med15BDT');
+  const med30BDT = document.getElementById('med30BDT');
+  const med60BDT = document.getElementById('med60BDT');
+  const med15USD = document.getElementById('med15USD');
+  const med30USD = document.getElementById('med30USD');
+  const med60USD = document.getElementById('med60USD');
+
+  const prem15BDT = document.getElementById('prem15BDT');
+  const prem30BDT = document.getElementById('prem30BDT');
+  const prem60BDT = document.getElementById('prem60BDT');
+  const prem15USD = document.getElementById('prem15USD');
+  const prem30USD = document.getElementById('prem30USD');
+  const prem60USD = document.getElementById('prem60USD');
+
   const minSec = document.getElementById('minimumSeconds');
   const customSec = document.getElementById('customQuoteThreshold');
 
-  if (mBDT && p.aiVideo?.medium) mBDT.value = p.aiVideo.medium.perSecBDT;
-  if (mUSD && p.aiVideo?.medium) mUSD.value = p.aiVideo.medium.perSecUSD;
-  if (pBDT && p.aiVideo?.premium) pBDT.value = p.aiVideo.premium.perSecBDT;
-  if (pUSD && p.aiVideo?.premium) pUSD.value = p.aiVideo.premium.perSecUSD;
+  const pkgs = p.aiVideo?.packages;
+  if (med15BDT) med15BDT.value = pkgs?.medium?.bdt?.['15'] ?? 18000;
+  if (med30BDT) med30BDT.value = pkgs?.medium?.bdt?.['30'] ?? 36000;
+  if (med60BDT) med60BDT.value = pkgs?.medium?.bdt?.['60'] ?? 72000;
+  if (med15USD) med15USD.value = pkgs?.medium?.usd?.['15'] ?? 750;
+  if (med30USD) med30USD.value = pkgs?.medium?.usd?.['30'] ?? 1500;
+  if (med60USD) med60USD.value = pkgs?.medium?.usd?.['60'] ?? 3000;
+
+  if (prem15BDT) prem15BDT.value = pkgs?.premium?.bdt?.['15'] ?? 40000;
+  if (prem30BDT) prem30BDT.value = pkgs?.premium?.bdt?.['30'] ?? 81000;
+  if (prem60BDT) prem60BDT.value = pkgs?.premium?.bdt?.['60'] ?? 162000;
+  if (prem15USD) prem15USD.value = pkgs?.premium?.usd?.['15'] ?? 2500;
+  if (prem30USD) prem30USD.value = pkgs?.premium?.usd?.['30'] ?? 5000;
+  if (prem60USD) prem60USD.value = pkgs?.premium?.usd?.['60'] ?? 10000;
+
   if (minSec) minSec.value = p.aiVideo?.minimumSeconds ?? 15;
   if (customSec) customSec.value = p.aiVideo?.customQuoteFromSeconds ?? 90;
 
@@ -677,22 +698,41 @@ function initPricingHandlers() {
   saveBtn.addEventListener('click', () => {
     if (!adminContent || !adminContent.pricing) return;
 
-    // Rates
-    const mBDT = Number(document.getElementById('mediumPerSecBDT').value);
-    const mUSD = Number(document.getElementById('mediumPerSecUSD').value);
-    const pBDT = Number(document.getElementById('premiumPerSecBDT').value);
-    const pUSD = Number(document.getElementById('premiumPerSecUSD').value);
+    // Flat package prices
+    const m15b = Number(document.getElementById('med15BDT').value);
+    const m30b = Number(document.getElementById('med30BDT').value);
+    const m60b = Number(document.getElementById('med60BDT').value);
+    const m15u = Number(document.getElementById('med15USD').value);
+    const m30u = Number(document.getElementById('med30USD').value);
+    const m60u = Number(document.getElementById('med60USD').value);
+
+    const p15b = Number(document.getElementById('prem15BDT').value);
+    const p30b = Number(document.getElementById('prem30BDT').value);
+    const p60b = Number(document.getElementById('prem60BDT').value);
+    const p15u = Number(document.getElementById('prem15USD').value);
+    const p30u = Number(document.getElementById('prem30USD').value);
+    const p60u = Number(document.getElementById('prem60USD').value);
+
     const minSec = Number(document.getElementById('minimumSeconds').value);
     const customSec = Number(document.getElementById('customQuoteThreshold').value);
 
-    if (!isValidPriceNumber(mBDT) || !isValidPriceNumber(mUSD) || !isValidPriceNumber(pBDT) || !isValidPriceNumber(pUSD)) {
-      alert(currentAdminLang === 'bn' ? 'সকল রেট অবশ্যই ০ বা তার বেশি বৈধ সংখ্যা হতে হবে।' : 'All rates must be valid numbers ≥ 0.');
+    const allPrices = [m15b, m30b, m60b, m15u, m30u, m60u, p15b, p30b, p60b, p15u, p30u, p60u];
+    if (allPrices.some(val => !isValidPriceNumber(val))) {
+      alert(currentAdminLang === 'bn' ? 'সকল প্যাকেজ রেট অবশ্যই ০ বা তার বেশি বৈধ সংখ্যা হতে হবে।' : 'All package rates must be valid numbers ≥ 0.');
       return;
     }
 
     adminContent.pricing.aiVideo = {
-      medium: { perSecBDT: mBDT, perSecUSD: mUSD },
-      premium: { perSecBDT: pBDT, perSecUSD: pUSD },
+      packages: {
+        medium: {
+          bdt: { '15': m15b, '30': m30b, '60': m60b },
+          usd: { '15': m15u, '30': m30u, '60': m60u }
+        },
+        premium: {
+          bdt: { '15': p15b, '30': p30b, '60': p60b },
+          usd: { '15': p15u, '30': p30u, '60': p60u }
+        }
+      },
       minimumSeconds: minSec,
       customQuoteFromSeconds: customSec
     };
