@@ -1,0 +1,829 @@
+{
+  "hero": {
+    "headline": {
+      "en": "VisualFizz",
+      "bn": "ভিজ্যুয়ালফিজ"
+    },
+    "tagline": {
+      "en": "Ideas Into Impact",
+      "bn": "আইডিয়া থেকে ইম্প্যাক্ট"
+    },
+    "subheadline": {
+      "en": "We are a Dhaka-based creative advertising, AI video, and digital marketing agency. We combine human artistic direction with generative AI speed to produce commercials, brand identities, and high-converting campaigns. Every video we make is built on a story that connects with people.",
+      "bn": "আমরা ঢাকাভিত্তিক একটি ক্রিয়েটিভ অ্যাডভার্টাইজিং, এআই ভিডিও এবং ডিজিটাল মার্কেটিং এজেন্সি। মানুষের শিল্পভাবনা ও আধুনিক এআই প্রযুক্তির মেলবন্ধনে আমরা তৈরি করি কার্যকর বিজ্ঞাপন, ব্র্যান্ডিং ও ক্যাম্পেইন। আমাদের প্রতিটি নির্মাণের মূলে থাকে গল্প—যা মানুষের হৃদয় স্পর্শ করে।"
+    }
+  },
+  "services": [
+    {
+      "id": "ai-video",
+      "icon": "🎬",
+      "name": {
+        "en": "AI Video Production",
+        "bn": "এআই ভিডিও প্রোডাকশন"
+      },
+      "problem": {
+        "en": "Traditional film production requires expensive camera crews, studio sets, and months of turnaround. We produce cinematic product commercials, brand films, and explainers with directed generative video workflows.",
+        "bn": "প্রচলিত ভিডিও নির্মাণে ভারী ক্যামেরা সেটআপ ও মাসব্যাপী সময় লাগে। আমরা পরিচালনা-নির্ভর এআই ওয়ার্কফ্লোর মাধ্যমে সিনেম্যাটিক প্রোডাক্ট কমার্শিয়াল, ব্র্যান্ড ফিল্ম ও এক্সপ্লেইনার ভিডিও তৈরি করি।"
+      },
+      "inclusions": [
+        {
+          "en": "Scriptwriting & creative concept art",
+          "bn": "স্ক্রিপ্টরাইটিং ও কনসেপ্ট আর্ট"
+        },
+        {
+          "en": "Bilingual AI voiceover (Bangla & English)",
+          "bn": "দ্বিভাষিক এআই ভয়েসওভার (বাংলা ও ইংরেজি)"
+        },
+        {
+          "en": "Sound design, licensed music & captions",
+          "bn": "সাউন্ড ডিজাইন, লাইসেন্সড মিউজিক ও ক্যাপশন"
+        },
+        {
+          "en": "9:16, 1:1, and 16:9 multi-format deliveries",
+          "bn": "৯:১৬, ১:১ এবং ১৬:৯ মাল্টি-ফরম্যাট ডেলিভারি"
+        },
+        {
+          "en": "Human frame-by-frame artifact cleanup",
+          "bn": "হিউম্যান আর্টিফ্যাক্ট রিমুভাল ও নিখুঁত ফিনিশিং"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ 2–7 working days",
+        "bn": "⏱ ২–৭ কর্মদিবস"
+      },
+      "startingPrice": {
+        "bdt": "৳1,200/সে.",
+        "usd": "From $50/sec",
+        "en": "From ৳1,200/sec ($50/sec)",
+        "bn": "৳১,২০০/সে. থেকে"
+      }
+    },
+    {
+      "id": "ai-ads",
+      "icon": "⚡",
+      "name": {
+        "en": "AI Ads & Variation Packs",
+        "bn": "এআই অ্যাডস ও ভ্যারিয়েশন প্যাক"
+      },
+      "problem": {
+        "en": "Ad fatigue kills ROAS in days. In-house teams struggle to create enough fresh hooks. We engineer multi-variant performance ad packs for Meta, TikTok, and YouTube with rapid testing frameworks.",
+        "bn": "বিজ্ঞাপনের ক্লান্তি কয়েক দিনেই আরওএএস নষ্ট করে। আমরা মেটা, টিকটক ও ইউটিউবের জন্য একাধিক হুক ও কোণভিত্তিক পারফরম্যান্স অ্যাড প্যাক তৈরি করি যা দ্রুত পরীক্ষা ও রূপান্তর বাড়ায়।"
+      },
+      "inclusions": [
+        {
+          "en": "Hook generation (3–6 psychological angles)",
+          "bn": "৩–৬টি সাইকোলজিক্যাল হুক ভ্যারিয়েশন"
+        },
+        {
+          "en": "UGC-style, motion & cinematic variants",
+          "bn": "ইউজিসি-স্টাইল, মোশন ও সিনেম্যাটিক ভ্যারিয়্যান্ট"
+        },
+        {
+          "en": "Static image ads & carousel combinations",
+          "bn": "স্ট্যাটিক ইমেজ অ্যাড ও ক্যারোসেল সেট"
+        },
+        {
+          "en": "Platform-tailored aspect ratios & subtitles",
+          "bn": "প্ল্যাটফর্ম-নির্দিষ্ট রেশিও ও সাবটাইটেল"
+        },
+        {
+          "en": "Ad spend managed separately with transparency",
+          "bn": "বিজ্ঞাপন খরচ স্বচ্ছতার সাথে আলাদা পরিচালিত"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ 48h–4 working days",
+        "bn": "⏱ ৪৮ ঘণ্টা–৪ কর্মদিবস"
+      },
+      "startingPrice": {
+        "bdt": "কাস্টম কোটেশন",
+        "usd": "Custom quote",
+        "en": "Custom quote",
+        "bn": "কাস্টম কোটেশন"
+      }
+    },
+    {
+      "id": "graphic-design",
+      "icon": "🎨",
+      "name": {
+        "en": "Graphic Design",
+        "bn": "গ্রাফিক ডিজাইন"
+      },
+      "problem": {
+        "en": "Inconsistent visuals weaken brand trust. We craft high-impact social media kits, billboard designs, marketing posters, print collateral, and packaging that command attention across Dhaka and global markets.",
+        "bn": "অসামঞ্জস্যপূর্ণ ডিজাইন ব্র্যান্ডের আস্থা কমায়। আমরা প্রিমিয়াম সোশ্যাল মিডিয়া কিট, বিলবোর্ড ডিজাইন, পোস্টার, প্রিন্ট ও প্যাকেজিং তৈরি করি যা ক্রেতাদের দৃষ্টি আকর্ষণ করে।"
+      },
+      "inclusions": [
+        {
+          "en": "Monthly social media design packs",
+          "bn": "মাসিক সোশ্যাল মিডিয়া ডিজাইন প্যাক"
+        },
+        {
+          "en": "Large-format billboards & street posters",
+          "bn": "লার্জ-ফরম্যাট বিলবোর্ড ও পোস্টার"
+        },
+        {
+          "en": "Multi-slide educational carousels",
+          "bn": "মাল্টি-স্লাইড এডুকেশনাল ক্যারোসেল"
+        },
+        {
+          "en": "Print-ready CMYK & digital RGB exports",
+          "bn": "প্রিন্ট-রেডি সিএমওয়াইকে ও ডিজিটাল আরজিবি"
+        },
+        {
+          "en": "2 structured revision rounds per design",
+          "bn": "প্রতিটি ডিজাইনে ২ রাউন্ড রিভিশন"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ 24h–48h per asset",
+        "bn": "⏱ ২৪–৪৮ ঘণ্টা"
+      },
+      "startingPrice": {
+        "bdt": "৳১৫,০০০/মাস থেকে",
+        "usd": "From $150/mo",
+        "en": "From ৳15,000 ($150)",
+        "bn": "৳১৫,০০০/মাস থেকে"
+      }
+    },
+    {
+      "id": "branding",
+      "icon": "💎",
+      "name": {
+        "en": "Branding & Identity",
+        "bn": "ব্র্যান্ডিং ও আইডেন্টিটি"
+      },
+      "problem": {
+        "en": "A logo alone is not a brand. We build enduring visual identity systems, brand guidelines, color architectures, and typography systems rooted in authentic consumer psychology.",
+        "bn": "শুধু একটি লোগো কখনো সম্পূর্ণ ব্র্যান্ড নয়। আমরা পূর্ণাঙ্গ ভিজ্যুয়াল আইডেন্টিটি সিস্টেম, ব্র্যান্ড গাইডলাইন, কালার প্যালেট ও টাইপোগ্রাফি আর্কিটেকচার তৈরি করি।"
+      },
+      "inclusions": [
+        {
+          "en": "Primary, secondary & responsive logo marks",
+          "bn": "প্রাইমারি, সেকেন্ডারি ও রেসপনসিভ লোগো"
+        },
+        {
+          "en": "Typography system & color palette guidelines",
+          "bn": "টাইপোগ্রাফি সিস্টেম ও কালার গাইডলাইন"
+        },
+        {
+          "en": "Comprehensive brand identity manual (PDF)",
+          "bn": "পূর্ণাঙ্গ ব্র্যান্ড আইডেন্টিটি ম্যানুয়াল (পিডিএফ)"
+        },
+        {
+          "en": "Stationery & social media identity starter kit",
+          "bn": "স্টেশনারি ও সোশ্যাল মিডিয়া কিট"
+        },
+        {
+          "en": "Full vector source files (AI, EPS, SVG, PNG)",
+          "bn": "সম্পূর্ণ ভেক্টর সোর্স ফাইলস (এআই, এসভিজি)"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ 1–2 weeks",
+        "bn": "⏱ ১–২ সপ্তাহ"
+      },
+      "startingPrice": {
+        "bdt": "৳২৫,০০০ থেকে",
+        "usd": "From $300",
+        "en": "From ৳25,000 ($300)",
+        "bn": "৳২৫,০০০ থেকে"
+      }
+    },
+    {
+      "id": "web-dev",
+      "icon": "🌐",
+      "name": {
+        "en": "Website Development",
+        "bn": "ওয়েবসাইট ডেভেলপমেন্ট"
+      },
+      "problem": {
+        "en": "Slow, broken, or generic website templates leak leads. We construct ultra-fast, modern, responsive business sites, conversion-focused landing pages, and e-commerce platforms with built-in bilingual support.",
+        "bn": "ধীরগতির বা ত্রুটিপূর্ণ ওয়েবসাইট কাস্টমার হারায়। আমরা আধুনিক, দ্রুতগতির রেসপনসিভ বিজনেস সাইট, ল্যান্ডিং পেজ ও ই-কমার্স সাইট তৈরি করি যা সম্পূর্ণ দ্বিভাষিক সমর্থনযুক্ত।"
+      },
+      "inclusions": [
+        {
+          "en": "Bilingual architecture (Bangla + English standard)",
+          "bn": "দ্বিভাষিক আর্কিটেকচার (বাংলা + ইংরেজি)"
+        },
+        {
+          "en": "Mobile-first responsive design for all viewports",
+          "bn": "মোবাইল-ফার্স্ট রেসপনসিভ ডিজাইন"
+        },
+        {
+          "en": "Technical SEO, speed optimization & clean code",
+          "bn": "টেকনিক্যাল এসইও ও হাই-স্পিড অপটিমাইজেশন"
+        },
+        {
+          "en": "WhatsApp chat & lead capture form integration",
+          "bn": "হোয়াটসঅ্যাপ ও লিড ক্যাপচার ফর্ম ইন্টিগ্রেশন"
+        },
+        {
+          "en": "Complete deployment & handover documentation",
+          "bn": "সম্পূর্ণ ডিপ্লয়মেন্ট ও হ্যান্ডওভার নির্দেশিকা"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ 1–3 weeks",
+        "bn": "⏱ ১–৩ সপ্তাহ"
+      },
+      "startingPrice": {
+        "bdt": "৳২৫,০০০ থেকে",
+        "usd": "From $300",
+        "en": "From ৳25,000 ($300)",
+        "bn": "৳২৫,০০০ থেকে"
+      }
+    },
+    {
+      "id": "video-editing",
+      "icon": "✂️",
+      "name": {
+        "en": "Video Editing & Motion",
+        "bn": "ভিডিও এডিটিং ও মোশন"
+      },
+      "problem": {
+        "en": "Raw recorded footage remains unpublished without polished editing. We transform raw clips, talking heads, and educational presentations into snappy, retention-engineered Reels, Shorts, and ads.",
+        "bn": "র' ভিডিও ফুটেজ পেশাদার এডিটিং ছাড়া আবেদন তৈরি করতে পারে না। আমরা র' ক্লিপ ও শিক্ষামূলক কনটেন্টকে রূপান্তর করি আকর্ষণীয় রিলস, শর্টস ও গতিশীল মোশন গ্রাফিক্সে।"
+      },
+      "inclusions": [
+        {
+          "en": "Kinetic captions, stylized subtitles & b-roll",
+          "bn": "কাইনেটিক ক্যাপশন, সাবটাইটেল ও বি-রোল"
+        },
+        {
+          "en": "Sound mixing, sound effects & background score",
+          "bn": "সাউন্ড মিক্সিং, সাউন্ড ইফেক্টস ও স্কোরিং"
+        },
+        {
+          "en": "Color grading & visual rhythm enhancement",
+          "bn": "কালার গ্রেডিং ও রিদম অপটিমাইজেশন"
+        },
+        {
+          "en": "Hook optimization for social algorithm retention",
+          "bn": "সোশ্যাল অ্যালগরিদম উপযোগী হুক এডিটিং"
+        },
+        {
+          "en": "Exported ready-to-publish in 9:16 vertical format",
+          "bn": "৯:১৬ ভার্টিক্যাল রেডি-টু-পাবলিশ ফরম্যাট"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ 2–4 working days",
+        "bn": "⏱ ২–৪ কর্মদিবস"
+      },
+      "startingPrice": {
+        "bdt": "কাস্টম কোটেশন",
+        "usd": "Custom quote",
+        "en": "Custom quote",
+        "bn": "কাস্টম কোটেশন"
+      }
+    },
+    {
+      "id": "digital-marketing",
+      "icon": "📈",
+      "name": {
+        "en": "Digital Marketing",
+        "bn": "ডিজিটাল মার্কেটিং"
+      },
+      "problem": {
+        "en": "Random posting without creative alignment burns ad budgets without ROI. We provide full-funnel social media management, campaign strategy, audience targeting, and creative testing designed for measurable growth.",
+        "bn": "নির্দিষ্ট লক্ষ্য ছাড়া পোস্ট ও ক্যাম্পেইন কেবল বাজেট অপচয় করে। আমরা মেটা ও গুগলে পূর্ণাঙ্গ সোশ্যাল মিডিয়া ম্যানেজমেন্ট, অডিয়েন্স টার্গেটিং ও স্ট্র্যাটেজিক ক্যাম্পেইন পরিচালনা করি।"
+      },
+      "inclusions": [
+        {
+          "en": "Monthly strategic content calendar & copywriting",
+          "bn": "মাসিক কনটেন্ট ক্যালেন্ডার ও কপিরাইটিং"
+        },
+        {
+          "en": "Meta & Google ad campaign setup & optimization",
+          "bn": "মেটা ও গুগল অ্যাড ক্যাম্পেইন অপটিমাইজেশন"
+        },
+        {
+          "en": "Bilingual messaging tailored to Bangladesh & global audiences",
+          "bn": "দ্বিভাষিক মেসেজিং ও অডিয়েন্স সেগমেন্টেশন"
+        },
+        {
+          "en": "Weekly ad performance tracking & creative refresh",
+          "bn": "সাপ্তাহিক ট্র্যাকিং ও ক্রিয়েটিভ রিফ্রেশ"
+        },
+        {
+          "en": "Media spend paid directly to platforms; no hidden markup",
+          "bn": "বিজ্ঞাপন বাজেট সরাসরি প্ল্যাটফর্মে প্রদেয়; কোনো গোপন ফি নেই"
+        }
+      ],
+      "timeline": {
+        "en": "⏱ Monthly Retainer",
+        "bn": "⏱ মাসিক রিটেইনার"
+      },
+      "startingPrice": {
+        "bdt": "কাস্টম কোটেশন",
+        "usd": "Custom quote",
+        "en": "Custom quote",
+        "bn": "কাস্টম কোটেশন"
+      }
+    }
+  ],
+  "pricing": {
+    "aiVideo": {
+      "medium": {
+        "perSecBDT": 1200,
+        "perSecUSD": 50
+      },
+      "premium": {
+        "perSecBDT": 2700,
+        "perSecUSD": 165
+      },
+      "minimumSeconds": 15,
+      "customQuoteFromSeconds": 90
+    },
+    "durationTable": [
+      {
+        "duration": "15s",
+        "durationLabel": {
+          "en": "(Minimum)",
+          "bn": "(সর্বনিম্ন)"
+        },
+        "mediumBDT": "৳18,000",
+        "mediumUSD": "$750",
+        "premiumBDT": "৳40,000",
+        "premiumUSD": "$2,500",
+        "turnaround": {
+          "en": "2–3 working days",
+          "bn": "২–৩ কর্মদিবস"
+        },
+        "formats": "9:16 · 1:1 · 16:9"
+      },
+      {
+        "duration": "30s",
+        "durationLabel": {
+          "en": "(Standard)",
+          "bn": "(স্ট্যান্ডার্ড)"
+        },
+        "mediumBDT": "৳36,000",
+        "mediumUSD": "$1,500",
+        "premiumBDT": "৳81,000",
+        "premiumUSD": "$5,000",
+        "turnaround": {
+          "en": "3–5 working days",
+          "bn": "৩–৫ কর্মদিবস"
+        },
+        "formats": "9:16 · 1:1 · 16:9"
+      },
+      {
+        "duration": "60s",
+        "durationLabel": {
+          "en": "(Full Film)",
+          "bn": "(ফুল ফিল্ম)"
+        },
+        "mediumBDT": "৳72,000",
+        "mediumUSD": "$3,000",
+        "premiumBDT": "৳162,000",
+        "premiumUSD": "$10,000",
+        "turnaround": {
+          "en": "5–7 working days",
+          "bn": "৫–৭ কর্মদিবস"
+        },
+        "formats": "9:16 · 1:1 · 16:9"
+      },
+      {
+        "duration": "90s+",
+        "durationLabel": {
+          "en": "(Extended)",
+          "bn": "(এক্সটেন্ডেড)"
+        },
+        "mediumBDT": "Custom quote — contact us",
+        "mediumUSD": "Custom quote — contact us",
+        "premiumBDT": "Custom quote — contact us",
+        "premiumUSD": "Custom quote — contact us",
+        "medium": {
+          "en": "Custom quote — contact us",
+          "bn": "কাস্টম কোটেশন — যোগাযোগ করুন"
+        },
+        "premium": {
+          "en": "Custom quote — contact us",
+          "bn": "কাস্টম কোটেশন — যোগাযোগ করুন"
+        },
+        "turnaround": {
+          "en": "Scoped per project",
+          "bn": "কাজের পরিধি অনুযায়ী"
+        },
+        "formats": "Custom multi-format"
+      }
+    ],
+    "otherServices": [
+      {
+        "id": "design-social",
+        "name": {
+          "en": "Design + Social Media Monthly",
+          "bn": "ডিজাইন + সোশ্যাল মিডিয়া মাসিক"
+        },
+        "mediumBDT": "৳15,000 / mo",
+        "mediumUSD": "$150 / mo",
+        "premiumBDT": "৳35,000 / mo",
+        "premiumUSD": "$350 / mo",
+        "scope": {
+          "en": "12–20 feed posts, story adaptations, monthly visual calendar, 2 revisions per asset",
+          "bn": "১২–২০টি ফিড পোস্ট, স্টোরি অ্যাডাপ্টেশন, মাসিক ক্যালেন্ডার, ২ রিভিশন"
+        }
+      },
+      {
+        "id": "website-dev",
+        "name": {
+          "en": "Website Development",
+          "bn": "ওয়েবসাইট ডেভেলপমেন্ট"
+        },
+        "mediumBDT": "৳25,000",
+        "mediumUSD": "$300",
+        "premiumBDT": "৳100,000+",
+        "premiumUSD": "$1,200+",
+        "scope": {
+          "en": "Bilingual (Bangla + English), mobile responsive, high-speed landing page to multi-page corporate site",
+          "bn": "দ্বিভাষিক (বাংলা + ইংরেজি), রেসপনসিভ, দ্রুতগতির ল্যান্ডিং পেজ বা পূর্ণাঙ্গ সাইট"
+        }
+      },
+      {
+        "id": "branding-system",
+        "name": {
+          "en": "Branding & Identity System",
+          "bn": "ব্র্যান্ডিং ও আইডেন্টিটি সিস্টেম"
+        },
+        "mediumBDT": "৳25,000",
+        "mediumUSD": "$300",
+        "premiumBDT": "৳60,000+",
+        "premiumUSD": "$750+",
+        "scope": {
+          "en": "Logo suite, brand guidelines manual, typography architecture, color system, social kit",
+          "bn": "লোগো সুইট, ব্র্যান্ড গাইডলাইন ম্যানুয়াল, টাইপোগ্রাফি, কালার সিস্টেম, সোশ্যাল কিট"
+        }
+      }
+    ],
+    "tierCards": {
+      "medium": {
+        "name": {
+          "en": "Medium Tier",
+          "bn": "মিডিয়াম টিয়ার"
+        },
+        "priceInfo": {
+          "en": "৳1,200/sec ($50/sec) · Min 15s (from ৳18,000 / $750)",
+          "bn": "৳১,২০০/সে ($৫০/সে) · সর্বনিম্ন ১৫ সে (৳১৮,০০০ / $৭৫০ থেকে)"
+        },
+        "inclusions": [
+          {
+            "en": "Human-directed AI video production",
+            "bn": "হিউম্যান-ডিরেক্টেড এআই ভিডিও নির্মাণ"
+          },
+          {
+            "en": "Original scriptwriting & concept alignment",
+            "bn": "আসল স্ক্রিপ্টরাইটিং ও কনসেপ্ট নির্ধারণ"
+          },
+          {
+            "en": "High-fidelity AI voiceover (Bangla & English)",
+            "bn": "হাই-ফিডেলিটি এআই ভয়েসওভার (বাংলা ও ইংরেজি)"
+          },
+          {
+            "en": "Commercial background music & synchronized captions",
+            "bn": "কমার্শিয়াল ব্যাকগ্রাউন্ড মিউজিক ও ক্যাপশন"
+          },
+          {
+            "en": "2 revision rounds included",
+            "bn": "২ রাউন্ড রিভিশন অন্তর্ভুক্ত"
+          },
+          {
+            "en": "2–7 working day delivery schedule",
+            "bn": "২–৭ কর্মদিবসের মধ্যে ডেলিভারি"
+          },
+          {
+            "en": "Multi-format exports: 9:16 (Reels/TikTok), 1:1, 16:9",
+            "bn": "মাল্টি-ফরম্যাট: ৯:১৬ (রিলস/টিকটক), ১:১, ১৬:৯"
+          },
+          {
+            "en": "Human frame-by-frame quality assurance pass",
+            "bn": "নিখুঁত হিউম্যান ফ্রেম-বাই-ফ্রেম কোয়ালিটি চেক"
+          }
+        ]
+      },
+      "premium": {
+        "name": {
+          "en": "Premium Tier",
+          "bn": "প্রিমিয়াম টিয়ার"
+        },
+        "badge": {
+          "en": "Recommended",
+          "bn": "সুপারিশকৃত"
+        },
+        "priceInfo": {
+          "en": "৳2,700/sec ($165/sec) · Min 15s (from ৳40,000 / $2,500)",
+          "bn": "৳২,৭০০/সে ($১৬৫/সে) · সর্বনিম্ন ১৫ সে (৳৪০,০০০ / $২,৫০০ থেকে)"
+        },
+        "inclusions": [
+          {
+            "en": "Everything in Medium Tier included",
+            "bn": "মিডিয়াম টিয়ারের সমস্ত সুবিধা অন্তর্ভুক্ত"
+          },
+          {
+            "en": "Custom scene-by-scene storyboard signed off before production",
+            "bn": "কাস্টম স্টোরিবোর্ড অনুমোদন সাপেক্ষে প্রোডাকশন"
+          },
+          {
+            "en": "Bespoke cinematic sound design, foley & audio mastering",
+            "bn": "সিনেম্যাটিক সাউন্ড ডিজাইন, ফলি ও অডিও মাস্টারিং"
+          },
+          {
+            "en": "Multiple hook cutdowns and creative variation tests",
+            "bn": "একাধিক হুক ও ক্রিয়েটিভ কাটডাউন ভ্যারিয়েশন"
+          },
+          {
+            "en": "Priority studio pipeline & expedited delivery",
+            "bn": "অগ্রাধিকার ভিত্তিতে স্টুডিও প্রোডাকশন ও দ্রুত ডেলিভারি"
+          },
+          {
+            "en": "Unlimited revisions to the approved storyboard",
+            "bn": "অনুমোদিত স্টোরিবোর্ডের ভিত্তিতে আনলিমিটেড রিভিশন"
+          },
+          {
+            "en": "Character, environment, and product consistency locking",
+            "bn": "ক্যারেক্টার ও প্রোডাক্টের ভিজ্যুয়াল ধারাবাহিকতা লক"
+          },
+          {
+            "en": "Multiple hook variants & broadcast-level color grading",
+            "bn": "একাধিক হুক ভ্যারিয়েশন ও ব্রডকাস্ট কালার গ্রেডিং"
+          }
+        ]
+      }
+    }
+  },
+  "pricingNotes": [
+    {
+      "en": "All rates listed above are starting baseline prices. The final scope, timeline, and deliverables are confirmed in a formal written quotation.",
+      "bn": "উপরে উল্লেখিত সব মূল্য প্রাথমিক সূচনা দর। কাজের পরিধি, ডেলিভারি সময় ও বাজেট আনুষ্ঠানিক লিখিত কোটেশনে নিশ্চিত করা হয়।"
+    },
+    {
+      "en": "Standard Dhaka agency practice: a written quotation and 50% deposit are required before any research or creative production begins.",
+      "bn": "ঢাকা এজেন্সির প্রমাণিক রীতি অনুযায়ী: কাজ শুরুর পূর্বে লিখিত কোটেশন এবং ৫০% অগ্রিম ডিপোজিট প্রদান বাধ্যতামূলক।"
+    },
+    {
+      "en": "2–3 structured revision rounds are included in all standard project engagements to ensure total satisfaction.",
+      "bn": "গ্রাহক সন্তুষ্টির নিশ্চয়তায় প্রতিটি স্ট্যান্ডার্ড প্যাকেজে ২–৩ রাউন্ড কাঠামোগত রিভিশন অন্তর্ভুক্ত থাকে।"
+    },
+    {
+      "en": "Ad spend is always completely separate from creative and management fees, paid directly to advertising platforms.",
+      "bn": "বিজ্ঞাপনের মিডিয়া বাজেট এজেন্সির ক্রিয়েটিভ ফি থেকে সম্পূর্ণ আলাদা এবং তা সরাসরি প্ল্যাটফর্মসমূহে প্রদেয়।"
+    },
+    {
+      "en": "Transparent AI policy: AI generative content is clearly labeled and human-directed; AI people are never presented as real customers.",
+      "bn": "স্বচ্ছ এআই নীতি: এআই কনটেন্ট মানুষের তত্ত্বাবধানে পরিচালিত ও স্পষ্টভাবে চিহ্নিত; এআই ব্যক্তিদের কখনো আসল কাস্টমার হিসেবে উপস্থাপন করা হয় না।"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 1,
+      "title": {
+        "en": "Creative Smartphone Advertisement Poster",
+        "bn": "ক্রিয়েটিভ স্মার্টফোন অ্যাডভার্টাইজমেন্ট পোস্টার"
+      },
+      "category": "social",
+      "date": {
+        "en": "Sep 30, 2026",
+        "bn": "৩০ সেপ্টেম্বর, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/256445097/Creative-Smartphone-Advertisement-Poster",
+      "image": "📱"
+    },
+    {
+      "id": 2,
+      "title": {
+        "en": "Creative Mobile Phone Advertisement Posters",
+        "bn": "ক্রিয়েটিভ মোবাইল ফোন বিজ্ঞাপন পোস্টার সিরিজ"
+      },
+      "category": "social",
+      "date": {
+        "en": "Jul 7, 2026",
+        "bn": "৭ জুলাই, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/252327431/Creative-Mobile-Phone-Advertisement-Posters",
+      "image": "📲"
+    },
+    {
+      "id": 3,
+      "title": {
+        "en": "FIFA World Cup 2026 Match Fixtures",
+        "bn": "ফিফা বিশ্বকাপ ২০২৬ ম্যাচ ফিক্সচার ডিজাইন"
+      },
+      "category": "campaign",
+      "date": {
+        "en": "Jun 10, 2026",
+        "bn": "১০ জুন, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/250870757/FIFA-World-Cup-2026-Match-Fixtures",
+      "image": "⚽"
+    },
+    {
+      "id": 4,
+      "title": {
+        "en": "Bike Creative Social Media Post | Ads Banner",
+        "bn": "বাইক ক্রিয়েটিভ সোশ্যাল মিডিয়া পোস্ট ও অ্যাড ব্যানার"
+      },
+      "category": "social",
+      "date": {
+        "en": "Jun 7, 2026",
+        "bn": "৭ জুন, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/250701061/Bike-Creative-Social-Media-post-Ads-Creative-Banner",
+      "image": "🏍️"
+    },
+    {
+      "id": 5,
+      "title": {
+        "en": "Match Day Poster Design",
+        "bn": "ম্যাচ ডে পোস্টার ডিজাইন"
+      },
+      "category": "campaign",
+      "date": {
+        "en": "Jun 6, 2026",
+        "bn": "৬ জুন, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/250658769/Match-Day-Poster-Design",
+      "image": "🏆"
+    },
+    {
+      "id": 6,
+      "title": {
+        "en": "Helio Billboard Design - Bold, Dynamic Visuals",
+        "bn": "হেলিও বিলবোর্ড ডিজাইন – বোল্ড ও ডায়নামিক ভিজ্যুয়াল"
+      },
+      "category": "branding",
+      "date": {
+        "en": "May 4, 2026",
+        "bn": "৪ মে, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/248730655/Helio-Billboard-Design-Bold-Dynamic-Visuals",
+      "image": "🏙️"
+    },
+    {
+      "id": 7,
+      "title": {
+        "en": "Mobile Phone Social Media Post Design",
+        "bn": "মোবাইল ফোন সোশ্যাল মিডিয়া পোস্ট ডিজাইন"
+      },
+      "category": "social",
+      "date": {
+        "en": "Apr 13, 2026",
+        "bn": "১৩ এপ্রিল, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/247509035/Mobile-Phone-Social-Media-Post-Design",
+      "image": "📱"
+    },
+    {
+      "id": 8,
+      "title": {
+        "en": "Educational Reels Editing | Study Abroad",
+        "bn": "এডুকেশনাল রিলস এডিটিং | স্টাডি অ্যাব্রোড"
+      },
+      "category": "video",
+      "date": {
+        "en": "Mar 30, 2026",
+        "bn": "৩০ মার্চ, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/246670821/Educational-Reels-Editing-Portfolio-Study-Abroad",
+      "image": "🎬"
+    },
+    {
+      "id": 9,
+      "title": {
+        "en": "Global Horizons | Study Abroad Branding",
+        "bn": "গ্লোবাল হরাইজনস | স্টাডি অ্যাব্রোড ব্র্যান্ডিং"
+      },
+      "category": "branding",
+      "date": {
+        "en": "Mar 10, 2026",
+        "bn": "১০ মার্চ, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/245523325/Global-Horizons-Study-Abroad-Branding-Reel-Series",
+      "image": "🌏"
+    },
+    {
+      "id": 10,
+      "title": {
+        "en": "Women's Day Social Media Banner",
+        "bn": "আন্তর্জাতিক নারী দিবস সোশ্যাল মিডিয়া ব্যানার"
+      },
+      "category": "social",
+      "date": {
+        "en": "Mar 8, 2026",
+        "bn": "৮ মার্চ, ২০২৬"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/245397077/Womens-Day-Social-Media-Banner",
+      "image": "🌸"
+    },
+    {
+      "id": 11,
+      "title": {
+        "en": "Bangladesh National Football Team Campaign",
+        "bn": "বাংলাদেশ জাতীয় ফুটবল দল ক্যাম্পেইন ডিজাইন"
+      },
+      "category": "campaign",
+      "date": {
+        "en": "Dec 28, 2025",
+        "bn": "২৮ ডিসেম্বর, ২০২৫"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/241176295/Bangladesh-National-Football-Team-Campaign",
+      "image": "🇧🇩"
+    },
+    {
+      "id": 12,
+      "title": {
+        "en": "আসছে থার্টি ফার্স্ট নাইটে – শব্দ দূষণ না করি Typography",
+        "bn": "আসছে থার্টি ফার্স্ট নাইটে – শব্দ দূষণ না করি টাইপোগ্রাফি"
+      },
+      "category": "branding",
+      "date": {
+        "en": "Dec 8, 2025",
+        "bn": "৮ ডিসেম্বর, ২০২৫"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/240043843/-Typography",
+      "image": "🎨"
+    },
+    {
+      "id": 13,
+      "title": {
+        "en": "Australia Education Expo 2025 | Study Abroad",
+        "bn": "অস্ট্রেলিয়া এডুকেশন এক্সপো ২০২৫ | স্টাডি অ্যাব্রোড"
+      },
+      "category": "campaign",
+      "date": {
+        "en": "Dec 1, 2025",
+        "bn": "১ ডিসেম্বর, ২০২৫"
+      },
+      "behanceUrl": "https://www.behance.net/gallery/239593123/Australia-Education-Expo-2025-Study-Abroad",
+      "image": "🎓"
+    }
+  ],
+  "faq": [
+    {
+      "id": 1,
+      "question": {
+        "en": "How much does an AI video cost?",
+        "bn": "একটি এআই ভিডিও তৈরিতে কত খরচ হয়?"
+      },
+      "answer": {
+        "en": "Our AI video production is priced strictly per second across two tiers: Medium at ৳1,200/sec ($50/sec) and Premium at ৳2,700/sec ($165/sec), with a 15-second minimum. For example, a 15-second ad is ৳18,000 / $750 (Medium) or ৳40,000 / $2,500 (Premium); a 30-second commercial is ৳36,000 / $1,500 (Medium) or ৳81,000 / $5,000 (Premium); and a 60-second video is ৳72,000 / $3,000 (Medium) or ৳162,000 / $10,000 (Premium). Videos of 90 seconds or longer receive a custom quotation.",
+        "bn": "আমাদের এআই ভিডিও প্রোডাকশন প্রতি সেকেন্ড হিসেবে দুটি টিয়ারে নির্ধারিত: মিডিয়াম টিয়ারে ৳১,২০০/সেকেন্ড ($৫০/সেকেন্ড) এবং প্রিমিয়াম টিয়ারে ৳২,৭০০/সেকেন্ড ($১৬৫/সেকেন্ড), সর্বনিম্ন ১৫ সেকেন্ড। যেমন, একটি ১৫ সেকেন্ডের বিজ্ঞাপনের খরচ ৳১৮,০০০ / $৭৫০ (মিডিয়াম) বা ৳৪০,০০০ / $২,৫০০ (প্রিমিয়াম); ৩০ সেকেন্ডের বিজ্ঞাপনে ৳৩৬,০০০ / $১,৫০০ (মিডিয়াম) বা ৳৮১,০০০ / $৫,০০০ (প্রিমিয়াম); এবং ৬০ সেকেন্ডের ভিডিওতে ৳৭২,০০০ / $৩,০০০ (মিডিয়াম) বা ৳১,৬২,০০০ / $১০,০০০ (প্রিমিয়াম)। ৯০ সেকেন্ড বা তদূর্ধ্ব ভিডিওর ক্ষেত্রে কাস্টম কোটেশন প্রদান করা হয়।"
+      }
+    },
+    {
+      "id": 2,
+      "question": {
+        "en": "How long does delivery take?",
+        "bn": "ডেলিভারি পেতে কতদিন সময় লাগে?"
+      },
+      "answer": {
+        "en": "Turnaround depends on video length and package scope. Short 15s social promos are typically delivered in 2–3 working days; 30s commercials take 3–5 working days; and 60s full brand films with custom sound design take 5–7 working days from brief approval and deposit. Rush deliveries can be accommodated in our Premium tier.",
+        "bn": "ভিডিওর দৈর্ঘ্য ও প্যাকেজের ওপর সময় নির্ভর করে। ছোট ১৫ সেকেন্ডের প্রমো ২–৩ কর্মদিবসে; ৩০ সেকেন্ডের বিজ্ঞাপন ৩–৫ কর্মদিবসে; এবং ৬০ সেকেন্ডের পূর্ণাঙ্গ ফিল্ম ৫–৭ কর্মদিবসে ডেলিভারি দেওয়া হয়। প্রিমিয়াম টিয়ারে জরুরি বা প্রায়োরিটি ডেলিভারির সুবিধা রয়েছে।"
+      }
+    },
+    {
+      "id": 3,
+      "question": {
+        "en": "Do you work with international clients?",
+        "bn": "আপনারা কি আন্তর্জাতিক ক্লায়েন্টদের সাথে কাজ করেন?"
+      },
+      "answer": {
+        "en": "Yes, absolutely. We work with brands and creative teams in the US, UK, GCC, Australia, and worldwide. International clients receive independent USD pricing, English communication, asynchronous workflows tailored across timezones, and USD invoicing, payment details confirmed in the written quotation.",
+        "bn": "হ্যাঁ, অবশ্যই। আমরা মার্কিন যুক্তরাষ্ট্র, যুক্তরাজ্য, মধ্যপ্রাচ্য ও অস্ট্রেলিয়াসহ বিশ্বের নানা দেশের ক্লায়েন্টদের সাথে কাজ করি। আন্তর্জাতিক ক্লায়েন্টদের জন্য স্বতন্ত্র ডলার (USD) মূল্যতালিকা, ইংরেজি যোগাযোগ এবং ইউএসডি ইনভয়েসিং, পেমেন্টের বিস্তারিত লিখিত কোটেশনে নিশ্চিত করা হয়।"
+      }
+    },
+    {
+      "id": 4,
+      "question": {
+        "en": "How do we start?",
+        "bn": "কাজের প্রক্রিয়া কীভাবে শুরু হয়?"
+      },
+      "answer": {
+        "en": "Starting is simple: either request a Free AI Ad Audit through our website form, or book a 30-minute discovery call directly via WhatsApp (+880 18865 88884) or email (hellomdayub@gmail.com). We will discuss your goals and provide a written quotation within 48 hours. Once approved and a 50% deposit is paid, we initiate the kickoff and production immediately.",
+        "bn": "শুরু করা অত্যন্ত সহজ: ওয়েবসাইটে ফ্রি এআই অ্যাড অডিট ফর্ম পূরণ করুন অথবা সরাসরি হোয়াটসঅ্যাপে (+880 18865 88884) বা ইমেইলে (hellomdayub@gmail.com) ৩০ মিনিটের ডিসকভারি কল শিডিউল করুন। আমরা ৪৮ ঘণ্টার মধ্যে লিখিত কোটেশন দেব; ৫০% ডিপোজিট জমা হলে সাথে সাথে কাজ শুরু হবে।"
+      }
+    },
+    {
+      "id": 5,
+      "question": {
+        "en": "What is included in each tier?",
+        "bn": "মিডিয়াম ও প্রিমিয়াম টিয়ারের মধ্যে পার্থক্য কী?"
+      },
+      "answer": {
+        "en": "Medium Tier includes human-directed AI video, original script, AI voiceover (Bangla/English), commercial music, synchronized captions, 2 revision rounds, 2–7 day delivery, and multi-format exports (9:16, 1:1, 16:9). Premium Tier includes everything in Medium plus a custom storyboard approved prior to generation, premium sound design and foley, multiple hook variants, priority scheduling, and unlimited revisions to the approved storyboard.",
+        "bn": "মিডিয়াম টিয়ারে থাকে হিউম্যান-ডিরেক্টেড এআই ভিডিও, স্ক্রিপ্ট, এআই ভয়েসওভার (বাংলা/ইংরেজি), মিউজিক, ক্যাপশন, ২ রাউন্ড রিভিশন ও মাল্টি-ফরম্যাট এক্সপোর্ট (৯:১৬, ১:১, ১৬:৯)। প্রিমিয়াম টিয়ারে এর সাথে যোগ হয় কাস্টম স্টোরিবোর্ড অনুমোদন, সিনেম্যাটিক সাউন্ড ডিজাইন, একাধিক হুক ভ্যারিয়েশন, প্রায়োরিটি শিডিউলিং এবং স্টোরিবোর্ডের ভিত্তিতে আনলিমিটেড রিভিশন।"
+      }
+    },
+    {
+      "id": 6,
+      "question": {
+        "en": "Do you offer revisions?",
+        "bn": "আপনারা কি কাজের সংশোধনের সুযোগ দেন?"
+      },
+      "answer": {
+        "en": "Yes. Every standard project in the Medium tier includes 2 structured revision rounds to adjust pacing, text, voice tone, or transitions. Our Premium tier includes unlimited revisions to the approved storyboard. Because we lock scripts and visual concepts before running generative models, major surprises are eliminated early.",
+        "bn": "হ্যাঁ, অবশ্যই। মিডিয়াম টিয়ারে পেসিং, ক্যাপশন, ভয়েস ও কালার সমন্বয়ের জন্য ২ রাউন্ড রিভিশন অন্তর্ভুক্ত। প্রিমিয়াম টিয়ারে অনুমোদিত স্টোরিবোর্ডের ওপর আনলিমিটেড রিভিশনের সুবিধা রয়েছে। প্রোডাকশনের পূর্বেই স্ক্রিপ্ট ও কনসেপ্ট লক করা হয় বলে অপ্রয়োজনীয় ত্রুটি শুরুতেই দূর হয়।"
+      }
+    }
+  ]
+}

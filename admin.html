@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisualFizz — Admin Content Management</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       Top Admin Navigation Header
+       ============================================================ -->
+  <header class="admin-header">
+    <a href="admin.html" class="admin-header-brand">
+      <img src="assets/logo-white.png" alt="VisualFizz" class="admin-header-logo">
+      <span class="admin-header-title" data-en="VisualFizz Admin" data-bn="ভিজ্যুয়ালফিজ অ্যাডমিন">VisualFizz Admin</span>
+      <span class="admin-header-badge" data-en="Demo CMS" data-bn="ডেমো সিএমএস">Demo CMS</span>
+    </a>
+
+    <div class="admin-header-actions">
+      <!-- Language Toggle -->
+      <div class="toggle-btn" id="adminLangToggle" role="group" aria-label="Language Selector">
+        <span class="active" data-lang="en">English</span>
+        <span data-lang="bn">বাংলা</span>
+      </div>
+
+      <!-- Preview Main Site -->
+      <a href="index.html" target="_blank" class="btn-header btn-header-secondary" data-en="Preview Site ↗" data-bn="ওয়েবসাইট দেখুন ↗">Preview Site ↗</a>
+
+      <!-- Logout Button (hidden on login screen) -->
+      <button type="button" class="btn-header btn-header-logout" id="logoutBtn" style="display:none;" data-en="Log Out" data-bn="লগআউট">Log Out</button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       1. Login Gate View
+       ============================================================ -->
+  <div class="login-view" id="loginView">
+    <div class="login-card">
+      <div class="login-logo-wrap">
+        <img src="assets/logo.png" alt="VisualFizz" class="login-logo">
+      </div>
+      <h1 class="login-title" data-en="Admin Control Panel" data-bn="অ্যাডমিন কন্ট্রোল প্যানেল">Admin Control Panel</h1>
+      <p class="login-subtitle" data-en="Enter passcode to manage website content and pricing" data-bn="ওয়েবসাইটের কনটেন্ট ও প্রাইসিং পরিচালনা করতে পাসকোড লিখুন">Enter passcode to manage website content and pricing</p>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="adminPasscode" data-en="Passcode" data-bn="পাসকোড">Passcode</label>
+          <input type="password" id="adminPasscode" class="form-input" required placeholder="Enter passcode..." autocomplete="current-password" autofocus>
+        </div>
+
+        <div class="login-error" id="loginError" role="alert" data-en="Incorrect passcode. Please try again." data-bn="ভুল পাসকোড। অনুগ্রহ করে আবার চেষ্টা করুন।">
+          Incorrect passcode. Please try again.
+        </div>
+
+        <button type="submit" class="btn-primary" id="loginBtn" data-en="Log In to Dashboard" data-bn="ড্যাশবোর্ডে লগইন করুন">Log In to Dashboard</button>
+      </form>
+
+      <!-- Security Disclaimer -->
+      <div class="security-notice">
+        <div class="security-notice-title">
+          <span>⚠️</span>
+          <strong data-en="Demo-Grade Protection Notice" data-bn="ডেমো নিরাপত্তা বিজ্ঞপ্তি">Demo-Grade Protection Notice</strong>
+        </div>
+        <p data-en="This passcode is evaluated client-side in browser JavaScript for demonstration purposes. Anyone with access to the source code can view it. Real production deployment requires a backend with server-side authentication and session management." data-bn="এই পাসকোডটি ডেমো প্রদর্শনের জন্য ব্রাউজারের জাভাস্ক্রিপ্টে ক্লায়েন্ট-সাইডে যাচাই করা হয়। সোর্স কোড দেখতে সক্ষম যে কেউ এটি দেখতে পাবে। আসল প্রোডাকশনে নিরাপদ ব্যাকএন্ড এবং সার্ভার-সাইড অথেন্টিকেশন আবশ্যক।">
+          This passcode is evaluated client-side in browser JavaScript for demonstration purposes. Anyone with access to the source code can view it. Real production deployment requires a backend with server-side authentication and session management.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. Dashboard View
+       ============================================================ -->
+  <div class="dashboard-view" id="dashboardView">
+    <div class="dashboard-container">
+
+      <!-- Sidebar Tabs -->
+      <aside class="admin-sidebar" role="tablist" aria-label="Admin Navigation Tabs">
+        <button type="button" class="nav-tab-btn active" id="navPortfolio" role="tab" aria-selected="true" data-tab="portfolio">
+          <span class="nav-tab-icon" aria-hidden="true">📁</span>
+          <span data-en="Portfolio Projects" data-bn="পোর্টফোলিও">Portfolio Projects</span>
+        </button>
+        <button type="button" class="nav-tab-btn" id="navPricing" role="tab" aria-selected="false" data-tab="pricing">
+          <span class="nav-tab-icon" aria-hidden="true">৳</span>
+          <span data-en="Pricing & Rates" data-bn="প্রাইসিং ও রেট">Pricing & Rates</span>
+        </button>
+        <button type="button" class="nav-tab-btn" id="navServices" role="tab" aria-selected="false" data-tab="services">
+          <span class="nav-tab-icon" aria-hidden="true">🎬</span>
+          <span data-en="Services (7)" data-bn="সার্ভিসসমূহ (৭)">Services (7)</span>
+        </button>
+        <button type="button" class="nav-tab-btn" id="navFAQ" role="tab" aria-selected="false" data-tab="faq">
+          <span class="nav-tab-icon" aria-hidden="true">❓</span>
+          <span data-en="FAQ Items" data-bn="প্রশ্নোত্তর">FAQ Items</span>
+        </button>
+        <button type="button" class="nav-tab-btn" id="navHero" role="tab" aria-selected="false" data-tab="hero">
+          <span class="nav-tab-icon" aria-hidden="true">⭐</span>
+          <span data-en="Hero Section" data-bn="হিরো সেকশন">Hero Section</span>
+        </button>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="admin-content">
+
+        <!-- Top Security & Static Notice -->
+        <div class="dashboard-banner">
+          <span style="font-size: 1.25rem; line-height: 1;" aria-hidden="true">ℹ️</span>
+          <div>
+            <strong data-en="Static Hosting Honest Model:" data-bn="স্ট্যাটিক হোস্টিং মডেল:">Static Hosting Honest Model:</strong>
+            <span data-en="Changes saved here update localStorage immediately in this browser. To publish permanently for all visitors, click 'Download content.json' below and replace content.json on your web server." data-bn="সংরক্ষিত পরিবর্তনসমূহ তাৎক্ষণিকভাবে এই ব্রাউজারে কার্যকর হবে। সকল ভিজিটরের জন্য স্থায়ী করতে 'Download content.json' ফাইলটি ডাউনলোড করে আপনার সার্ভারে প্রতিস্থাপন করুন।">
+              Changes saved here update localStorage immediately in this browser. To publish permanently for all visitors, click 'Download content.json' below and replace content.json on your web server.
+            </span>
+          </div>
+        </div>
+
+        <!-- Global Action Bar -->
+        <div class="dashboard-actions-bar">
+          <div class="actions-group">
+            <button type="button" class="btn-primary" id="saveAllBtn" data-en="💾 Save All Changes" data-bn="💾 সব পরিবর্তন সংরক্ষণ করুন">💾 Save All Changes</button>
+            <button type="button" class="btn-secondary" id="downloadJsonBtn" data-en="📥 Download content.json" data-bn="📥 Download content.json">📥 Download content.json</button>
+            <button type="button" class="btn-secondary" id="copyJsonBtn" data-en="📋 Copy JSON" data-bn="📋 JSON কপি করুন">📋 Copy JSON</button>
+          </div>
+          <div class="actions-group">
+            <button type="button" class="btn-secondary" id="resetDefaultsBtn" style="color:var(--danger);" data-en="🔄 Reset to Site Defaults" data-bn="🔄 ডিফল্টে রিসেট করুন">🔄 Reset to Site Defaults</button>
+          </div>
+        </div>
+
+        <!-- Action Toast Feedback -->
+        <div class="admin-toast" id="adminToast" role="status">
+          <span id="adminToastText">Changes saved successfully!</span>
+        </div>
+
+        <!-- ============================================================
+             TAB 1: PORTFOLIO
+             ============================================================ -->
+        <section class="tab-panel active" id="panelPortfolio" role="tabpanel" aria-labelledby="navPortfolio">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title" data-en="Portfolio Projects" data-bn="পোর্টফোলিও প্রজেক্ট">Portfolio Projects</h2>
+              <p class="panel-desc" data-en="Manage real commercial projects from Behance profile (Md Ayub Mondol)." data-bn="বিহ্যান্স প্রোফাইলের বাস্তব বাণিজ্যিক কাজসমূহ পরিচালনা করুন।">Manage real commercial projects from Behance profile (Md Ayub Mondol).</p>
+            </div>
+            <button type="button" class="btn-primary" id="addProjectBtn" data-en="+ Add New Project" data-bn="+ নতুন প্রজেক্ট যোগ করুন">+ Add New Project</button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table" id="portfolioTable">
+              <thead>
+                <tr>
+                  <th style="width: 50px;" data-en="Cover" data-bn="কভার">Cover</th>
+                  <th data-en="Project Title (EN / BN)" data-bn="প্রজেক্টের নাম">Project Title (EN / BN)</th>
+                  <th data-en="Category" data-bn="ক্যাটাগরি">Category</th>
+                  <th data-en="Date" data-bn="তারিখ">Date</th>
+                  <th data-en="Behance Link" data-bn="বিহ্যান্স লিংক">Behance Link</th>
+                  <th style="width: 140px; text-align: right;" data-en="Actions" data-bn="অ্যাকশন">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="portfolioTableBody">
+                <!-- Populated via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             TAB 2: PRICING
+             ============================================================ -->
+        <section class="tab-panel" id="panelPricing" role="tabpanel" aria-labelledby="navPricing">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title" data-en="Pricing & Rate Card Configuration" data-bn="প্রাইসিং ও রেট কার্ড কনফিগারেশন">Pricing & Rate Card Configuration</h2>
+              <p class="panel-desc" data-en="Control per-second rates, milestone tables, duration limits, and core agency packages." data-bn="প্রতি সেকেন্ডের রেট, মাইলস্টোন টেবিল ও প্যাকেজের মূল্য নির্ধারণ করুন।">Control per-second rates, milestone tables, duration limits, and core agency packages.</p>
+            </div>
+            <button type="button" class="btn-primary" id="savePricingBtn" data-en="Save Pricing Changes" data-bn="প্রাইসিং পরিবর্তন সংরক্ষণ করুন">Save Pricing Changes</button>
+          </div>
+
+          <!-- AI Video Per-Second Rates -->
+          <div class="admin-card">
+            <h3 class="card-title" data-en="🎬 AI Video Production — Per-Second Rates & Rules" data-bn="🎬 এআই ভিডিও প্রোডাকশন — প্রতি সেকেন্ডের রেট ও শর্ত">🎬 AI Video Production — Per-Second Rates & Rules</h3>
+            <div class="grid-4 mb-md">
+              <div class="form-group">
+                <label class="form-label" for="mediumPerSecBDT" data-en="Medium Tier Rate (BDT / sec)" data-bn="মিডিয়াম টিয়ার রেট (টাকা / সে.)">Medium Tier Rate (BDT / sec)</label>
+                <input type="number" id="mediumPerSecBDT" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="mediumPerSecUSD" data-en="Medium Tier Rate (USD / sec)" data-bn="মিডিয়াম টিয়ার রেট (ডলার / সে.)">Medium Tier Rate (USD / sec)</label>
+                <input type="number" id="mediumPerSecUSD" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="premiumPerSecBDT" data-en="Premium Tier Rate (BDT / sec)" data-bn="প্রিমিয়াম টিয়ার রেট (টাকা / সে.)">Premium Tier Rate (BDT / sec)</label>
+                <input type="number" id="premiumPerSecBDT" class="form-input" min="0" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="premiumPerSecUSD" data-en="Premium Tier Rate (USD / sec)" data-bn="প্রিমিয়াম টিয়ার রেট (ডলার / সে.)">Premium Tier Rate (USD / sec)</label>
+                <input type="number" id="premiumPerSecUSD" class="form-input" min="0" step="1" required>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label" for="minimumSeconds" data-en="Minimum Duration (Seconds)" data-bn="সর্বনিম্ন সময়সীমা (সেকেন্ড)">Minimum Duration (Seconds)</label>
+                <input type="number" id="minimumSeconds" class="form-input" min="1" step="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="customQuoteThreshold" data-en="Custom Quote Threshold (Seconds)" data-bn="কাস্টম কোটেশনের সীমা (সেকেন্ড)">Custom Quote Threshold (Seconds)</label>
+                <input type="number" id="customQuoteThreshold" class="form-input" min="15" step="1" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duration Table Rows -->
+          <div class="admin-card">
+            <h3 class="card-title" data-en="📊 Published Duration Table Milestones" data-bn="📊 প্রকাশিত সময়ভিত্তিক মূল্যতালিকা">📊 Published Duration Table Milestones</h3>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th data-en="Duration" data-bn="সময়">Duration</th>
+                    <th data-en="Medium (BDT)" data-bn="মিডিয়াম (টাকা)">Medium (BDT)</th>
+                    <th data-en="Medium (USD)" data-bn="মিডিয়াম (ডলার)">Medium (USD)</th>
+                    <th data-en="Premium (BDT)" data-bn="প্রিমিয়াম (টাকা)">Premium (BDT)</th>
+                    <th data-en="Premium (USD)" data-bn="প্রিমিয়াম (ডলার)">Premium (USD)</th>
+                    <th data-en="Turnaround (EN)" data-bn="ডেলিভারি সময় (ইংরেজি)">Turnaround (EN)</th>
+                    <th data-en="Turnaround (BN)" data-bn="ডেলিভারি সময় (বাংলা)">Turnaround (BN)</th>
+                    <th data-en="Formats" data-bn="ফরম্যাট">Formats</th>
+                  </tr>
+                </thead>
+                <tbody id="durationTableBody">
+                  <!-- Populated via admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Other Core Services Pricing -->
+          <div class="admin-card">
+            <h3 class="card-title" data-en="🛠️ Other Agency Core Services Pricing" data-bn="🛠️ এজেন্সির অন্যান্য সার্ভিসের মূল্যতালিকা">🛠️ Other Agency Core Services Pricing</h3>
+            <div id="otherServicesContainer">
+              <!-- Populated via admin.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             TAB 3: SERVICES
+             ============================================================ -->
+        <section class="tab-panel" id="panelServices" role="tabpanel" aria-labelledby="navServices">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title" data-en="Agency Services" data-bn="এজেন্সি সার্ভিসসমূহ">Agency Services</h2>
+              <p class="panel-desc" data-en="Edit the 7 core services: problem statements, inclusions, timelines, and starting prices." data-bn="৭টি মূল সার্ভিসের বিবরণ, ইনক্লুশন, সময়সীমা ও প্রারম্ভিক মূল্য পরিবর্তন করুন।">Edit the 7 core services: problem statements, inclusions, timelines, and starting prices.</p>
+            </div>
+            <button type="button" class="btn-primary" id="saveServicesBtn" data-en="Save Services Changes" data-bn="সার্ভিসসমূহ সংরক্ষণ করুন">Save Services Changes</button>
+          </div>
+
+          <div id="servicesEditorContainer">
+            <!-- Populated via admin.js -->
+          </div>
+        </section>
+
+        <!-- ============================================================
+             TAB 4: FAQ
+             ============================================================ -->
+        <section class="tab-panel" id="panelFAQ" role="tabpanel" aria-labelledby="navFAQ">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title" data-en="Frequently Asked Questions (FAQ)" data-bn="প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী (FAQ)">Frequently Asked Questions (FAQ)</h2>
+              <p class="panel-desc" data-en="Manage bilingual question & answer accordion items displayed on the website." data-bn="ওয়েবসাইটে প্রদর্শিত প্রশ্ন ও উত্তরের আইটেমসমূহ পরিচালনা করুন।">Manage bilingual question & answer accordion items displayed on the website.</p>
+            </div>
+            <div class="actions-group">
+              <button type="button" class="btn-primary" id="addFaqBtn" data-en="+ Add FAQ Item" data-bn="+ নতুন প্রশ্ন যোগ করুন">+ Add FAQ Item</button>
+              <button type="button" class="btn-secondary" id="saveFaqBtn" data-en="Save FAQ Changes" data-bn="FAQ পরিবর্তন সংরক্ষণ করুন">Save FAQ Changes</button>
+            </div>
+          </div>
+
+          <div id="faqListContainer">
+            <!-- Populated via admin.js -->
+          </div>
+        </section>
+
+        <!-- ============================================================
+             TAB 5: HERO
+             ============================================================ -->
+        <section class="tab-panel" id="panelHero" role="tabpanel" aria-labelledby="navHero">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title" data-en="Hero Section Copy" data-bn="হিরো সেকশনের কপি">Hero Section Copy</h2>
+              <p class="panel-desc" data-en="Customize the prominent positioning headline, tagline, and introductory copy." data-bn="ওয়েবসাইটের প্রধান শিরোনাম, ট্যাগলাইন ও পরিচিতিমূলক বিবরণ পরিবর্তন করুন।">Customize the prominent positioning headline, tagline, and introductory copy.</p>
+            </div>
+            <button type="button" class="btn-primary" id="saveHeroBtn" data-en="Save Hero Changes" data-bn="হিরো পরিবর্তন সংরক্ষণ করুন">Save Hero Changes</button>
+          </div>
+
+          <div class="admin-card">
+            <div class="grid-2 mb-md">
+              <div class="form-group">
+                <label class="form-label" for="heroHeadlineEn" data-en="Agency Headline (English)" data-bn="প্রধান শিরোনাম (ইংরেজি)">Agency Headline (English)</label>
+                <input type="text" id="heroHeadlineEn" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="heroHeadlineBn" data-en="Agency Headline (Bangla)" data-bn="প্রধান শিরোনাম (বাংলা)">Agency Headline (Bangla)</label>
+                <input type="text" id="heroHeadlineBn" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="grid-2 mb-md">
+              <div class="form-group">
+                <label class="form-label" for="heroTaglineEn" data-en="Tagline (English)" data-bn="ট্যাগলাইন (ইংরেজি)">Tagline (English)</label>
+                <input type="text" id="heroTaglineEn" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="heroTaglineBn" data-en="Tagline (Bangla)" data-bn="ট্যাগলাইন (বাংলা)">Tagline (Bangla)</label>
+                <input type="text" id="heroTaglineBn" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-group mb-md">
+              <label class="form-label" for="heroSubheadlineEn" data-en="Subheadline & Value Proposition (English)" data-bn="সাবহেডলাইন ও পরিচিতি (ইংরেজি)">Subheadline & Value Proposition (English)</label>
+              <textarea id="heroSubheadlineEn" class="form-textarea" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="heroSubheadlineBn" data-en="Subheadline & Value Proposition (Bangla)" data-bn="সাবহেডলাইন ও পরিচিতি (বাংলা)">Subheadline & Value Proposition (Bangla)</label>
+              <textarea id="heroSubheadlineBn" class="form-textarea" rows="3" required></textarea>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Portfolio Add / Edit Modal
+       ============================================================ -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="projectModalTitle" data-en="Add Portfolio Project" data-bn="প্রজেক্ট যোগ করুন">Add Portfolio Project</h3>
+        <button type="button" class="modal-close" id="cancelProjectBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="projectForm" novalidate>
+        <input type="hidden" id="projectIndex" value="-1">
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="projectTitleEn" data-en="Project Title (English) *" data-bn="প্রজেক্টের নাম (ইংরেজি) *">Project Title (English) *</label>
+          <input type="text" id="projectTitleEn" class="form-input" required placeholder="Creative Smartphone Advertisement Poster">
+        </div>
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="projectTitleBn" data-en="Project Title (Bangla) *" data-bn="প্রজেক্টের নাম (বাংলা) *">Project Title (Bangla) *</label>
+          <input type="text" id="projectTitleBn" class="form-input" required placeholder="ক্রিয়েটিভ স্মার্টফোন বিজ্ঞাপন পোস্টার">
+        </div>
+
+        <div class="grid-2 mb-md">
+          <div class="form-group">
+            <label class="form-label" for="projectCategory" data-en="Category *" data-bn="ক্যাটাগরি *">Category *</label>
+            <select id="projectCategory" class="form-select" required>
+              <option value="social" data-en="Social Media" data-bn="সোশ্যাল মিডিয়া">Social Media</option>
+              <option value="branding" data-en="Branding" data-bn="ব্র্যান্ডিং">Branding</option>
+              <option value="video" data-en="Video & Motion" data-bn="ভিডিও ও মোশন">Video & Motion</option>
+              <option value="campaign" data-en="Campaign" data-bn="ক্যাম্পেইন">Campaign</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectImage" data-en="Tile Emoji or Image URL" data-bn="টাইল ইমোজি বা ছবির লিংক">Tile Emoji or Image URL</label>
+            <input type="text" id="projectImage" class="form-input" placeholder="📱 or https://...">
+          </div>
+        </div>
+
+        <div class="grid-2 mb-md">
+          <div class="form-group">
+            <label class="form-label" for="projectDateEn" data-en="Date (English)" data-bn="তারিখ (ইংরেজি)">Date (English)</label>
+            <input type="text" id="projectDateEn" class="form-input" placeholder="Sep 30, 2026">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="projectDateBn" data-en="Date (Bangla)" data-bn="তারিখ (বাংলা)">Date (Bangla)</label>
+            <input type="text" id="projectDateBn" class="form-input" placeholder="৩০ সেপ্টেম্বর, ২০২৬">
+          </div>
+        </div>
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="projectBehanceUrl" data-en="Behance Project URL * (must start with https://www.behance.net/)" data-bn="বিহ্যান্স ইউআরএল * (https://www.behance.net/ দিয়ে শুরু হতে হবে)">Behance Project URL * (must start with https://www.behance.net/)</label>
+          <input type="url" id="projectBehanceUrl" class="form-input" required placeholder="https://www.behance.net/gallery/...">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="closeProjectModalBtn" data-en="Cancel" data-bn="বাতিল">Cancel</button>
+          <button type="submit" class="btn-primary" id="saveProjectBtn" data-en="Save Project" data-bn="প্রজেক্ট সংরক্ষণ করুন">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FAQ Add / Edit Modal
+       ============================================================ -->
+  <div class="modal-overlay" id="faqModal" role="dialog" aria-modal="true" aria-labelledby="faqModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="faqModalTitle" data-en="Add FAQ Item" data-bn="প্রশ্ন যোগ করুন">Add FAQ Item</h3>
+        <button type="button" class="modal-close" id="cancelFaqBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="faqForm" novalidate>
+        <input type="hidden" id="faqIndex" value="-1">
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="faqQuestionEn" data-en="Question (English) *" data-bn="প্রশ্ন (ইংরেজি) *">Question (English) *</label>
+          <input type="text" id="faqQuestionEn" class="form-input" required placeholder="How much does an AI video cost?">
+        </div>
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="faqQuestionBn" data-en="Question (Bangla) *" data-bn="প্রশ্ন (বাংলা) *">Question (Bangla) *</label>
+          <input type="text" id="faqQuestionBn" class="form-input" required placeholder="একটি এআই ভিডিও তৈরিতে কত খরচ হয়?">
+        </div>
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="faqAnswerEn" data-en="Answer (English) *" data-bn="উত্তর (ইংরেজি) *">Answer (English) *</label>
+          <textarea id="faqAnswerEn" class="form-textarea" rows="4" required placeholder="Our AI video production is priced strictly per second..."></textarea>
+        </div>
+
+        <div class="form-group mb-md">
+          <label class="form-label" for="faqAnswerBn" data-en="Answer (Bangla) *" data-bn="উত্তর (বাংলা) *">Answer (Bangla) *</label>
+          <textarea id="faqAnswerBn" class="form-textarea" rows="4" required placeholder="আমাদের এআই ভিডিও প্রোডাকশন প্রতি সেকেন্ড হিসেবে..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="closeFaqModalBtn" data-en="Cancel" data-bn="বাতিল">Cancel</button>
+          <button type="submit" class="btn-primary" id="saveFaqModalBtn" data-en="Save FAQ Item" data-bn="সংরক্ষণ করুন">Save FAQ Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
